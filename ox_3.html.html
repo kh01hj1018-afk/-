@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>문학 중간고사 OX 퀴즈</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap');
+:root{--navy:#1a2744;--gold:#c8a84b;--ok:#16a34a;--no:#dc2626;--cream:#faf8f3;--bdr:#e2e8f0;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:#1f2937;line-height:1.8;}
+
+.hdr{background:var(--navy);color:#fff;padding:22px 32px 16px;border-bottom:4px solid var(--gold);}
+.htitle{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:700;margin-bottom:10px;}
+.hinfo{font-size:12px;color:#e5e7eb;}
+
+.stats{display:flex;gap:16px;padding:16px 32px;background:#fff;border-bottom:1px solid var(--bdr);flex-wrap:wrap;align-items:center;}
+.stat-item{text-align:center;}
+.stat-n{font-size:26px;font-weight:700;font-family:'Noto Serif KR',serif;color:var(--navy);}
+.stat-l{font-size:11px;color:#6b7280;}
+.stat-ok .stat-n{color:var(--ok);}
+.stat-no .stat-n{color:var(--no);}
+.sbtn{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;}
+.gbtn{background:var(--navy);color:#fff;border:none;border-radius:7px;padding:10px 22px;font-size:13px;font-family:'Noto Sans KR',sans-serif;font-weight:600;cursor:pointer;transition:.2s;}
+.gbtn:hover{background:#2d3f6b;}
+.gbtn.gold{background:var(--gold);color:var(--navy);}
+.rbtn{background:#fff;color:var(--navy);border:2px solid var(--navy);border-radius:7px;padding:8px 16px;font-size:12px;font-family:'Noto Sans KR',sans-serif;font-weight:600;cursor:pointer;}
+
+.tabs{display:flex;gap:0;padding:0 32px;border-bottom:2px solid var(--bdr);background:#fff;overflow-x:auto;}
+.tab{padding:12px 20px;font-size:13px;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;color:#6b7280;transition:.2s;}
+.tab.active{color:var(--navy);border-bottom-color:var(--gold);}
+
+.quiz-area{padding:20px 32px;max-width:900px;}
+
+.category-hdr{background:var(--navy);color:#fff;padding:10px 18px;border-radius:8px 8px 0 0;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;margin-top:20px;}
+.cbadge{background:var(--gold);color:var(--navy);border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700;}
+.cat-progress{margin-left:auto;font-size:11px;color:#cbd5e1;}
+
+.qcard{background:#fff;border:1px solid var(--bdr);border-top:none;padding:16px 18px;border-bottom:1px solid #f0f4f8;transition:.15s;}
+.qcard:last-child{border-radius:0 0 8px 8px;border-bottom:1px solid var(--bdr);}
+.qcard.answered-ok{background:#f0fdf4;}
+.qcard.answered-no{background:#fef2f2;}
+
+.qtext{font-size:13.5px;line-height:1.85;margin-bottom:12px;font-weight:500;}
+.qnum-inline{color:var(--navy);font-weight:700;margin-right:4px;}
+
+.ox-btns{display:flex;gap:10px;}
+.ox-btn{flex:1;max-width:110px;padding:10px 0;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;border:2px solid var(--bdr);background:#fff;transition:.2s;font-family:'Noto Sans KR',sans-serif;}
+.ox-btn:hover{transform:scale(1.03);}
+.ox-btn.O{border-color:#22c55e;color:#16a34a;}
+.ox-btn.O.selected{background:#16a34a;color:#fff;border-color:#16a34a;}
+.ox-btn.X{border-color:#f87171;color:#dc2626;}
+.ox-btn.X.selected{background:#dc2626;color:#fff;border-color:#dc2626;}
+.ox-btn.O.correct-pick{background:#16a34a!important;color:#fff!important;}
+.ox-btn.X.correct-pick{background:#dc2626!important;color:#fff!important;}
+.ox-btn.wrong-pick{opacity:0.4;}
+.ox-btn.show-correct{background:var(--ok)!important;color:#fff!important;border-color:var(--ok)!important;}
+
+.explanation{display:none;margin-top:10px;padding:10px 14px;background:#f1f5f9;border-left:3px solid var(--navy);border-radius:0 6px 6px 0;font-size:13px;line-height:1.85;color:#374151;}
+.explanation.show{display:block;}
+.exp-label{font-weight:700;color:var(--navy);margin-bottom:4px;font-size:12px;}
+
+.progress-wrap{padding:0 32px;margin-bottom:4px;}
+.pbar{height:5px;background:#e5e7eb;border-radius:3px;overflow:hidden;}
+.pfill{height:100%;background:linear-gradient(90deg,var(--navy),var(--gold));transition:width .3s;border-radius:3px;}
+
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+
+@media(max-width:640px){
+  .hdr,.stats,.quiz-area,.tabs,.progress-wrap{padding-left:14px;padding-right:14px;}
+  .quiz-area{padding:14px;}
+}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="htitle">📝 2026 문학 중간고사 OX 퀴즈 — 개념·작품 완전 정복</div>
+  <div class="hinfo">범위: 첫사랑 · 보리타작 · 선운사에서 · 향수 · 장마 · 봉산탈춤 | 총 60문항</div>
+</div>
+
+<div class="stats">
+  <div class="stat-item"><div class="stat-n" id="st-total">60</div><div class="stat-l">전체 문항</div></div>
+  <div class="stat-item stat-ok"><div class="stat-n" id="st-ok">0</div><div class="stat-l">정답</div></div>
+  <div class="stat-item stat-no"><div class="stat-n" id="st-no">0</div><div class="stat-l">오답</div></div>
+  <div class="stat-item"><div class="stat-n" id="st-rate" style="color:var(--gold);">—</div><div class="stat-l">정답률</div></div>
+  <div class="sbtn">
+    <button class="gbtn gold" onclick="showAll()">📋 전체 해설 보기</button>
+    <button class="rbtn" onclick="resetAll()">↺ 초기화</button>
+  </div>
+</div>
+
+<div class="progress-wrap">
+  <div class="pbar"><div class="pfill" id="pfill" style="width:0%"></div></div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab(0)">📚 첫사랑</div>
+  <div class="tab" onclick="switchTab(1)">🌾 보리타작</div>
+  <div class="tab" onclick="switchTab(2)">🌸 선운사에서</div>
+  <div class="tab" onclick="switchTab(3)">🏡 향수</div>
+  <div class="tab" onclick="switchTab(4)">🌧 장마</div>
+  <div class="tab" onclick="switchTab(5)">🎭 봉산탈춤</div>
+</div>
+
+<div class="quiz-area">
+
+<!-- ===== TAB 0: 첫사랑 ===== -->
+<div class="tab-content active" id="tab0">
+  <div class="category-hdr"><span class="cbadge">현대시</span>고재종, 「첫사랑」 — 핵심 개념 OX<div class="cat-progress" id="cp0"></div></div>
+  <!-- 10문항 -->
+  <div id="q1" class="qcard">
+    <div class="qtext"><span class="qnum-inline">1.</span>「첫사랑」은 자유시이자 서정시로, 겨울에서 봄으로 이어지는 시간의 흐름에 따라 시상이 전개된다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,1,'O')">O</button><button class="ox-btn X" onclick="answer(this,1,'X')">X</button></div>
+    <div class="explanation" id="exp1"><div class="exp-label">✅ 정답: O</div>겨울(눈이 내려 나뭇가지를 두드림) → 눈꽃을 피워냄 → 봄(새싹이 돋아남)의 흐름으로 시상이 전개됩니다.</div>
+  </div>
+  <div id="q2" class="qcard">
+    <div class="qtext"><span class="qnum-inline">2.</span>이 시는 수미상관 구조를 사용하여 시작과 끝이 동일한 시구로 이루어진다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,2,'O')">O</button><button class="ox-btn X" onclick="answer(this,2,'X')">X</button></div>
+    <div class="explanation" id="exp2"><div class="exp-label">❌ 정답: X</div>수미상관 구조가 아닙니다. 1연은 '싸그락 싸그락 싸그락 / 눈이 내린다'로 시작하지만 마지막 연은 '아름다운 상처여 / 봄 되면 어디서 / 그 작은 새싹은 돋아나려나'로 끝납니다.</div>
+  </div>
+  <div id="q3" class="qcard">
+    <div class="qtext"><span class="qnum-inline">3.</span>'싸그락 싸그락'은 음성상징어(의성어)로, 눈이 나뭇가지에 내려쌓이는 소리를 감각적으로 표현한 것이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,3,'O')">O</button><button class="ox-btn X" onclick="answer(this,3,'X')">X</button></div>
+    <div class="explanation" id="exp3"><div class="exp-label">✅ 정답: O</div>'싸그락 싸그락'은 음성상징어(의성어이자 의태어)로, 눈이 쌓이는 소리를 감각적으로 표현하여 현장감과 미적 쾌감을 줍니다.</div>
+  </div>
+  <div id="q4" class="qcard">
+    <div class="qtext"><span class="qnum-inline">4.</span>이 시에서 '눈'은 의인화된 존재로, 사랑을 이루려는 사람처럼 도전하고 헌신하는 존재로 형상화된다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,4,'O')">O</button><button class="ox-btn X" onclick="answer(this,4,'X')">X</button></div>
+    <div class="explanation" id="exp4"><div class="exp-label">✅ 정답: O</div>의인법을 통해 '눈'이 나뭇가지를 두드리고, 도전을 멈추지 않고, 마음을 다 퍼부어주는 사람처럼 표현되어 있습니다.</div>
+  </div>
+  <div id="q5" class="qcard">
+    <div class="qtext"><span class="qnum-inline">5.</span>'아름다운 상처'는 첫사랑의 아픔이 성숙으로 이어진다는 뜻을 담은 역설법이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,5,'O')">O</button><button class="ox-btn X" onclick="answer(this,5,'X')">X</button></div>
+    <div class="explanation" id="exp5"><div class="exp-label">✅ 정답: O</div>'아름다운'과 '상처'는 표면적으로 모순되는 표현이지만, 첫사랑의 아픔이 오히려 성숙을 가져온다는 깊은 진실을 담고 있어 역설법에 해당합니다.</div>
+  </div>
+  <div id="q6" class="qcard">
+    <div class="qtext"><span class="qnum-inline">6.</span>'도전을 멈추지 않았으랴'는 반어법으로, 눈이 실제로 도전을 포기했음을 에둘러 표현하고 있다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,6,'O')">O</button><button class="ox-btn X" onclick="answer(this,6,'X')">X</button></div>
+    <div class="explanation" id="exp6"><div class="exp-label">❌ 정답: X</div>'도전을 멈추지 않았으랴'는 설의법입니다. '도전을 멈추지 않았다'는 뜻을 의문 형식으로 강조하는 표현으로, 눈의 끊임없는 노력을 강조합니다. 반어법이 아닙니다.</div>
+  </div>
+  <div id="q7" class="qcard">
+    <div class="qtext"><span class="qnum-inline">7.</span>'햇솜 같은 마음'은 직유법으로, 눈의 순수하고 부드러운 마음을 형상화하고 있다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,7,'O')">O</button><button class="ox-btn X" onclick="answer(this,7,'X')">X</button></div>
+    <div class="explanation" id="exp7"><div class="exp-label">✅ 정답: O</div>'~같은'이라는 연결어를 사용한 직유법입니다. '햇솜'은 햇볕에 바랜 깨끗하고 포근한 솜을 의미하여 눈의 순수하고 헌신적인 마음을 형상화합니다.</div>
+  </div>
+  <div id="q8" class="qcard">
+    <div class="qtext"><span class="qnum-inline">8.</span>이 시에서 '눈꽃'은 은유법으로 '바람 한 자락 불면 휙 날아갈 사랑'이라는 보조관념으로 표현된다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,8,'O')">O</button><button class="ox-btn X" onclick="answer(this,8,'X')">X</button></div>
+    <div class="explanation" id="exp8"><div class="exp-label">✅ 정답: O</div>눈꽃(원관념)을 '바람 한 자락 불면 휙 날아갈 사랑', '마침내 피워낸 저 황홀'(보조관념)로 표현하는 은유법이 사용되어 있습니다.</div>
+  </div>
+  <div id="q9" class="qcard">
+    <div class="qtext"><span class="qnum-inline">9.</span>이 시의 제재는 '눈'이며, 주제는 '인내와 헌신으로 피워낸 아름다운 사랑'이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,9,'O')">O</button><button class="ox-btn X" onclick="answer(this,9,'X')">X</button></div>
+    <div class="explanation" id="exp9"><div class="exp-label">✅ 정답: O</div>핵심 정리 그대로입니다. 제재는 '눈', 주제는 '인내와 헌신으로 피워낸 아름다운 사랑'입니다.</div>
+  </div>
+  <div id="q10" class="qcard">
+    <div class="qtext"><span class="qnum-inline">10.</span>프린트의 연계 작품 이형기의 「낙화」는 '결별이 이룩하는 축복'이라는 표현을 통해 이별을 부정적으로만 바라보고 있다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,10,'O')">O</button><button class="ox-btn X" onclick="answer(this,10,'X')">X</button></div>
+    <div class="explanation" id="exp10"><div class="exp-label">❌ 정답: X</div>'결별이 이룩하는 축복'은 역설법으로, 이별(결별)이 오히려 성숙을 위한 축복의 과정임을 의미합니다. 이별을 부정적으로만 본 것이 아니라 성숙으로 이어지는 긍정적 과정으로 바라봅니다.</div>
+  </div>
+</div>
+
+<!-- ===== TAB 1: 보리타작 ===== -->
+<div class="tab-content" id="tab1">
+  <div class="category-hdr"><span class="cbadge">한시</span>정약용, 「보리타작」 — 핵심 개념 OX<div class="cat-progress" id="cp1"></div></div>
+  <div id="q11" class="qcard">
+    <div class="qtext"><span class="qnum-inline">11.</span>「보리타작」의 갈래는 한시이며, 농민들의 건강한 노동을 통해 얻은 삶의 깨달음이 주제이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,11,'O')">O</button><button class="ox-btn X" onclick="answer(this,11,'X')">X</button></div>
+    <div class="explanation" id="exp11"><div class="exp-label">✅ 정답: O</div>갈래: 한시, 주제: 농민들의 건강한 노동을 통해 얻은 삶의 깨달음. 핵심 정리 그대로입니다.</div>
+  </div>
+  <div id="q12" class="qcard">
+    <div class="qtext"><span class="qnum-inline">12.</span>이 시의 화자는 농민들과 함께 보리타작에 직접 참여하며 노동의 기쁨을 체험하고 있다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,12,'O')">O</button><button class="ox-btn X" onclick="answer(this,12,'X')">X</button></div>
+    <div class="explanation" id="exp12"><div class="exp-label">❌ 정답: X</div>화자(정약용)는 농민들의 보리타작을 '관찰'하는 위치입니다. '그 기색 살펴보니'라는 구절에서 알 수 있듯 직접 참여하는 것이 아니라 바라보고 감탄하는 입장입니다.</div>
+  </div>
+  <div id="q13" class="qcard">
+    <div class="qtext"><span class="qnum-inline">13.</span>'마음이 몸의 노예 되지 않았네'는 농민들이 몸의 고된 노동에도 마음이 자유롭고 즐겁다는 것을 역설적으로 표현한 것이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,13,'O')">O</button><button class="ox-btn X" onclick="answer(this,13,'X')">X</button></div>
+    <div class="explanation" id="exp13"><div class="exp-label">✅ 정답: O</div>몸은 힘든 노동을 하지만 마음은 몸에 종속되지 않고 자유롭고 즐겁다는 역설적 표현으로, 노동 속 진정한 기쁨을 누리는 농민의 모습을 예찬합니다.</div>
+  </div>
+  <div id="q14" class="qcard">
+    <div class="qtext"><span class="qnum-inline">14.</span>'검게 탄 두 어깨'는 시각적 이미지로 농민의 건강한 노동 모습을 긍정적으로 형상화하고 있다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,14,'O')">O</button><button class="ox-btn X" onclick="answer(this,14,'X')">X</button></div>
+    <div class="explanation" id="exp14"><div class="exp-label">✅ 정답: O</div>'검게 탄 두 어깨 햇볕 받아 번쩍이네'는 햇볕에 그을린 농민의 어깨를 시각적으로 묘사하여, 농민의 건강하고 역동적인 노동 모습을 긍정적으로 형상화합니다.</div>
+  </div>
+  <div id="q15" class="qcard">
+    <div class="qtext"><span class="qnum-inline">15.</span>이 시의 마지막 구절 '무엇하러 고향 떠나 벼슬길에 헤매리오'는 화자가 벼슬에 얽매였던 자신의 삶을 반성하는 내용이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,15,'O')">O</button><button class="ox-btn X" onclick="answer(this,15,'X')">X</button></div>
+    <div class="explanation" id="exp15"><div class="exp-label">✅ 정답: O</div>농민의 삶에서 진정한 낙원을 발견한 화자가, 벼슬길에 헤매던 과거 자신의 삶을 반성하는 내용입니다. 설의법으로 강조되어 있습니다.</div>
+  </div>
+  <div id="q16" class="qcard">
+    <div class="qtext"><span class="qnum-inline">16.</span>연계 작품 「탐진촌요」는 「보리타작」과 마찬가지로 농민의 건강하고 흥겨운 삶을 예찬하는 내용이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,16,'O')">O</button><button class="ox-btn X" onclick="answer(this,16,'X')">X</button></div>
+    <div class="explanation" id="exp16"><div class="exp-label">❌ 정답: X</div>「탐진촌요」는 아전이 세금을 빼앗는 수탈 현실을 고발하는 작품입니다. 「보리타작」이 농민 예찬이라면 「탐진촌요」는 농민 수탈 고발로 성격이 다릅니다.</div>
+  </div>
+  <div id="q17" class="qcard">
+    <div class="qtext"><span class="qnum-inline">17.</span>「보리타작」은 감각적 이미지(시각·청각)를 통해 노동 현장을 생동감 있게 묘사한다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,17,'O')">O</button><button class="ox-btn X" onclick="answer(this,17,'X')">X</button></div>
+    <div class="explanation" id="exp17"><div class="exp-label">✅ 정답: O</div>'검게 탄 두 어깨'(시각), '옹헤야 소리'(청각), '노랫가락'(청각), '보리 티끌'(시각) 등 다양한 감각적 이미지를 통해 보리타작 현장을 생생하게 묘사하고 있습니다.</div>
+  </div>
+  <div id="q18" class="qcard">
+    <div class="qtext"><span class="qnum-inline">18.</span>「보리타작」은 대조적 소재(농민의 삶 vs 벼슬길)를 사용하여 화자가 지향하는 삶의 방향을 드러낸다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,18,'O')">O</button><button class="ox-btn X" onclick="answer(this,18,'X')">X</button></div>
+    <div class="explanation" id="exp18"><div class="exp-label">✅ 정답: O</div>낙원 같은 농민의 노동 현장과 '벼슬길'을 대비시켜, 화자가 농민의 삶에서 진정한 삶의 가치를 발견하고 벼슬에서 벗어나길 원함을 드러냅니다.</div>
+  </div>
+  <div id="q19" class="qcard">
+    <div class="qtext"><span class="qnum-inline">19.</span>정약용은 조선 후기 실학 정신을 바탕으로 농민의 실생활을 소재로 한 사실주의적 시를 창작하였다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,19,'O')">O</button><button class="ox-btn X" onclick="answer(this,19,'X')">X</button></div>
+    <div class="explanation" id="exp19"><div class="exp-label">✅ 정답: O</div>정약용은 조선 후기 실학의 대표 인물로, 「보리타작」「탐진촌요」「애절양」「용산리」 등 농민의 실생활을 소재로 한 사실주의적 한시를 다수 창작하였습니다.</div>
+  </div>
+  <div id="q20" class="qcard">
+    <div class="qtext"><span class="qnum-inline">20.</span>프린트의 연계 작품 위백규의 「농가」는 농민의 구체적 삶의 현장을 농민의 입장에서 사실적으로 그려낸 연시조이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,20,'O')">O</button><button class="ox-btn X" onclick="answer(this,20,'X')">X</button></div>
+    <div class="explanation" id="exp20"><div class="exp-label">✅ 정답: O</div>위백규의 「농가」는 전 9장의 연시조로, 화자를 농민으로 설정하여 농민의 입장에서 하루 일과와 농촌 생활을 사실적으로 그려낸 작품입니다.</div>
+  </div>
+</div>
+
+<!-- ===== TAB 2: 선운사에서 ===== -->
+<div class="tab-content" id="tab2">
+  <div class="category-hdr"><span class="cbadge">현대시</span>최영미, 「선운사에서」 — 핵심 개념 OX<div class="cat-progress" id="cp2"></div></div>
+  <div id="q21" class="qcard">
+    <div class="qtext"><span class="qnum-inline">21.</span>「선운사에서」는 꽃이 피고 지는 자연 현상을 통해 사랑의 시작과 이별의 본질에 대한 깨달음을 주제로 한다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,21,'O')">O</button><button class="ox-btn X" onclick="answer(this,21,'X')">X</button></div>
+    <div class="explanation" id="exp21"><div class="exp-label">✅ 정답: O</div>핵심 정리 그대로입니다. 개화(사랑의 시작)와 낙화(이별)의 자연 현상을 인간사의 사랑과 이별로 대응시킨 시입니다.</div>
+  </div>
+  <div id="q22" class="qcard">
+    <div class="qtext"><span class="qnum-inline">22.</span>'꽃이 지는 건 잠깐'이고 '잊는 건 한참'이라는 시간적 대비가 이 시의 핵심 구조를 이룬다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,22,'O')">O</button><button class="ox-btn X" onclick="answer(this,22,'X')">X</button></div>
+    <div class="explanation" id="exp22"><div class="exp-label">✅ 정답: O</div>이 시는 '잠깐(낙화)'과 '한참(잊지 못함)'이라는 시간적 대비를 핵심 구조로 삼아, 이별은 순식간이지만 잊는 것은 오래 걸린다는 역설을 드러냅니다.</div>
+  </div>
+  <div id="q23" class="qcard">
+    <div class="qtext"><span class="qnum-inline">23.</span>이 시는 수미상관 구조로, 1연과 마지막 연이 동일한 시구로 구성되어 있다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,23,'O')">O</button><button class="ox-btn X" onclick="answer(this,23,'X')">X</button></div>
+    <div class="explanation" id="exp23"><div class="exp-label">✅ 정답: O (변형 수미상관)</div>1연 '꽃이 / 피는 건 힘들어도 / 지는 건 잠깐이더군'과 마지막 연 '꽃이 / 지는 건 쉬워도 / 잊는 건 한참이더군'은 유사 구조의 변형 수미상관으로 볼 수 있습니다. 단, '동일한 시구'가 아니라 '유사한 구조'의 변형이라는 점을 주의하세요.</div>
+  </div>
+  <div id="q24" class="qcard">
+    <div class="qtext"><span class="qnum-inline">24.</span>연계 작품 김소월의 「먼 후일」에서 '잊었노라'는 실제로 잊지 못한다는 뜻의 반동 형성(심리적 방어 기제)으로 볼 수 있다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,24,'O')">O</button><button class="ox-btn X" onclick="answer(this,24,'X')">X</button></div>
+    <div class="explanation" id="exp24"><div class="exp-label">✅ 정답: O</div>「먼 후일」의 화자는 '잊었노라'를 반복하지만, 실제로는 '어제도 오늘도 아니 잊고'라는 구절에서 잊지 못했음이 드러납니다. 이는 실제 감정(그리움)과 반대되는 표현을 드러내는 반동 형성으로 볼 수 있습니다.</div>
+  </div>
+  <div id="q25" class="qcard">
+    <div class="qtext"><span class="qnum-inline">25.</span>「선운사에서」의 성격은 서정적, 애상적, 낭만적이며, 제재는 '꽃'이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,25,'O')">O</button><button class="ox-btn X" onclick="answer(this,25,'X')">X</button></div>
+    <div class="explanation" id="exp25"><div class="exp-label">✅ 정답: O</div>핵심 정리 그대로입니다. 성격은 서정적·애상적·낭만적이며 제재는 꽃입니다.</div>
+  </div>
+  <div id="q26" class="qcard">
+    <div class="qtext"><span class="qnum-inline">26.</span>'피다/지다', '잠깐/한참', '힘들다/쉽다'의 대비는 이 시의 핵심 표현 기법 중 하나이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,26,'O')">O</button><button class="ox-btn X" onclick="answer(this,26,'X')">X</button></div>
+    <div class="explanation" id="exp26"><div class="exp-label">✅ 정답: O</div>프린트에도 명시된 내용입니다. 이러한 대비를 통해 사랑과 이별, 그리고 잊지 못하는 감정의 아이러니를 선명하게 드러냅니다.</div>
+  </div>
+  <div id="q27" class="qcard">
+    <div class="qtext"><span class="qnum-inline">27.</span>이 시에서 '꽃이 피는 것'은 사랑의 시작(개화)을 상징하고, '꽃이 지는 것'은 이별(낙화)을 상징한다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,27,'O')">O</button><button class="ox-btn X" onclick="answer(this,27,'X')">X</button></div>
+    <div class="explanation" id="exp27"><div class="exp-label">✅ 정답: O</div>개화=사랑의 시작, 낙화=사랑의 이별로 자연현상과 인간사를 대응시킨 구조입니다.</div>
+  </div>
+  <div id="q28" class="qcard">
+    <div class="qtext"><span class="qnum-inline">28.</span>'-이더군', '-없이', '-그대여'라는 시적 장치의 반복은 각각 사실적 진술 강조, 아쉬움 전달, 정서적 여운 형성의 효과를 낸다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,28,'O')">O</button><button class="ox-btn X" onclick="answer(this,28,'X')">X</button></div>
+    <div class="explanation" id="exp28"><div class="exp-label">✅ 정답: O</div>프린트에 명시된 내용입니다. '-이더군'은 사실적 진술로 깨달음을 전달, '-없이'는 아쉬움·안타까움, '-그대여'는 정서적 여운을 남기며 운율을 부드럽게 마무리합니다.</div>
+  </div>
+  <div id="q29" class="qcard">
+    <div class="qtext"><span class="qnum-inline">29.</span>연계 작품 강은교의 「우리가 물이 되어」에서 '물'은 주체와 객체를 만나게 하는 매개체이자 원시적 생명력을 상징한다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,29,'O')">O</button><button class="ox-btn X" onclick="answer(this,29,'X')">X</button></div>
+    <div class="explanation" id="exp29"><div class="exp-label">✅ 정답: O</div>프린트 해제 내용입니다. '물'은 주체와 객체를 '우리'로 만나게 하는 매개체이자 가뭄(현대인의 고독)을 해소하는 객관적 상관물로, 원시적 생명력과의 합일을 상징합니다.</div>
+  </div>
+  <div id="q30" class="qcard">
+    <div class="qtext"><span class="qnum-inline">30.</span>도종환의 「흔들리며 피는 꽃」은 꽃이 흔들리고 젖으며 피어나듯 인간의 사랑과 삶도 시련을 겪으며 완성된다는 내용이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,30,'O')">O</button><button class="ox-btn X" onclick="answer(this,30,'X')">X</button></div>
+    <div class="explanation" id="exp30"><div class="exp-label">✅ 정답: O</div>프린트 내용입니다. 꽃이 바람에 흔들리고 비에 젖으며 피어나듯, 인간의 사랑과 삶도 시련과 고통을 겪으며 완성된다는 주제를 담고 있습니다.</div>
+  </div>
+</div>
+
+<!-- ===== TAB 3: 향수 ===== -->
+<div class="tab-content" id="tab3">
+  <div class="category-hdr"><span class="cbadge">현대시</span>정지용, 「향수」 — 핵심 개념 OX<div class="cat-progress" id="cp3"></div></div>
+  <div id="q31" class="qcard">
+    <div class="qtext"><span class="qnum-inline">31.</span>'그 곳이 차마 꿈엔들 잊힐 리야'는 설의법으로, 고향을 결코 잊을 수 없다는 화자의 그리움을 강조한다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,31,'O')">O</button><button class="ox-btn X" onclick="answer(this,31,'X')">X</button></div>
+    <div class="explanation" id="exp31"><div class="exp-label">✅ 정답: O</div>'꿈엔들 잊힐 리야'는 '꿈에서도 잊혀질 리가 없다'는 뜻의 설의법으로, 고향을 결코 잊을 수 없다는 강렬한 그리움을 강조합니다.</div>
+  </div>
+  <div id="q32" class="qcard">
+    <div class="qtext"><span class="qnum-inline">32.</span>「향수」는 각 연의 끝에 후렴구를 반복함으로써 시의 내재율과 함께 음악적 효과를 극대화한다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,32,'O')">O</button><button class="ox-btn X" onclick="answer(this,32,'X')">X</button></div>
+    <div class="explanation" id="exp32"><div class="exp-label">✅ 정답: O</div>내재율과 후렴구 반복, 각 연을 '곳'으로 끝맺는 각운법이 결합되어 운율적·음악적 효과를 냅니다.</div>
+  </div>
+  <div id="q33" class="qcard">
+    <div class="qtext"><span class="qnum-inline">33.</span>'얼룩배기 황소가 / 해설피 금빛 게으른 울음을 우는 곳'은 시각과 청각의 공감각적 표현이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,33,'O')">O</button><button class="ox-btn X" onclick="answer(this,33,'X')">X</button></div>
+    <div class="explanation" id="exp33"><div class="exp-label">✅ 정답: O</div>'금빛 게으른 울음'은 청각(울음)을 시각(금빛)으로 표현한 공감각적 표현입니다. '얼룩배기'도 시각적 표현으로 두 가지 감각이 결합되어 있습니다.</div>
+  </div>
+  <div id="q34" class="qcard">
+    <div class="qtext"><span class="qnum-inline">34.</span>'함부로 쏜 화살'은 화자가 고향을 충동적으로 떠난 것을 후회하는 내용이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,34,'O')">O</button><button class="ox-btn X" onclick="answer(this,34,'X')">X</button></div>
+    <div class="explanation" id="exp34"><div class="exp-label">❌ 정답: X</div>'함부로 쏜 화살'은 화자가 고향에서 어린 시절 들판에서 화살을 쏘며 놀던 경험을 묘사한 것입니다. 화자의 소박한 꿈과 동경의 세계를 암시하는 표현으로, 고향을 떠난 것에 대한 후회와 직접 연결되지 않습니다.</div>
+  </div>
+  <div id="q35" class="qcard">
+    <div class="qtext"><span class="qnum-inline">35.</span>「향수」는 지역어와 고유어를 풍부하게 활용하여 고향의 토속적 분위기를 생생하게 전달한다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,35,'O')">O</button><button class="ox-btn X" onclick="answer(this,35,'X')">X</button></div>
+    <div class="explanation" id="exp35"><div class="exp-label">✅ 정답: O</div>'질화로', '짚베개', '이삭 줍던', '회돌아', '해설피' 등 고유어와 지역적 색채를 담은 어휘를 활용하여 고향의 토속적 분위기를 생생하게 전달합니다.</div>
+  </div>
+  <div id="q36" class="qcard">
+    <div class="qtext"><span class="qnum-inline">36.</span>연계 작품 이용악의 「그리움」에서 '함박눈'은 추위의 상징으로 화자의 고향에 대한 부정적 감정을 나타낸다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,36,'O')">O</button><button class="ox-btn X" onclick="answer(this,36,'X')">X</button></div>
+    <div class="explanation" id="exp36"><div class="exp-label">❌ 정답: X</div>「그리움」에서 '함박눈'은 추위를 상징하기도 하지만, 동시에 '복된 눈'으로 인식되어 새 시대에 대한 화자의 기대와 가족에 대한 사랑을 담은 소재입니다. 단순히 부정적 감정을 나타내는 것이 아닙니다.</div>
+  </div>
+  <div id="q37" class="qcard">
+    <div class="qtext"><span class="qnum-inline">37.</span>「향수」는 각 연이 시간의 순서에 따라 화자의 유년 시절부터 성인 시절까지 연대기적으로 서술된다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,37,'O')">O</button><button class="ox-btn X" onclick="answer(this,37,'X')">X</button></div>
+    <div class="explanation" id="exp37"><div class="exp-label">❌ 정답: X</div>각 연은 고향의 다양한 장면을 회상하는 방식으로 구성되어 있으며, 시간 순서에 따른 연대기적 서술이 아닙니다.</div>
+  </div>
+  <div id="q38" class="qcard">
+    <div class="qtext"><span class="qnum-inline">38.</span>후렴구 '그 곳이 차마 꿈엔들 잊힐 리야'는 각 연의 시상을 마무리하고 고향에 대한 그리움을 점층적으로 심화시키는 역할을 한다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,38,'O')">O</button><button class="ox-btn X" onclick="answer(this,38,'X')">X</button></div>
+    <div class="explanation" id="exp38"><div class="exp-label">✅ 정답: O</div>프린트에 명시된 내용입니다. 후렴구는 각 연의 시상을 매듭짓고 고향에 대한 그리움을 반복·강조·심화시킵니다.</div>
+  </div>
+  <div id="q39" class="qcard">
+    <div class="qtext"><span class="qnum-inline">39.</span>연계 작품 백석의 「모닥불」에서 '모닥불' 주변에 모이는 다양한 사람들의 묘사는 모닥불의 온기 아래 모두가 평등해지는 공동체적 합일을 보여준다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,39,'O')">O</button><button class="ox-btn X" onclick="answer(this,39,'X')">X</button></div>
+    <div class="explanation" id="exp39"><div class="exp-label">✅ 정답: O</div>「모닥불」은 재당·초시·나그네·주인·할아버지·손자 등 다양한 사람들이 모닥불 앞에 평등하게 모이는 모습을 통해 조화와 평등의 공동체적 합일 정신을 드러냅니다.</div>
+  </div>
+  <div id="q40" class="qcard">
+    <div class="qtext"><span class="qnum-inline">40.</span>「향수」의 작가 정지용은 1923년 고향을 떠나 유학을 갔으며, 이 시는 객지에서 고향을 그리워하며 창작한 작품이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,40,'O')">O</button><button class="ox-btn X" onclick="answer(this,40,'X')">X</button></div>
+    <div class="explanation" id="exp40"><div class="exp-label">✅ 정답: O</div>교과서와 프린트에 명시된 내용입니다. 1923년 유학을 위해 고향을 떠난 정지용이 객지에서 고향을 그리워하며 쓴 작품입니다.</div>
+  </div>
+</div>
+
+<!-- ===== TAB 4: 장마 ===== -->
+<div class="tab-content" id="tab4">
+  <div class="category-hdr"><span class="cbadge">소설</span>윤흥길, 「장마」 — 핵심 개념 OX<div class="cat-progress" id="cp4"></div></div>
+  <div id="q41" class="qcard">
+    <div class="qtext"><span class="qnum-inline">41.</span>「장마」의 시점은 1인칭 관찰자 시점이며, 어린아이 '나'(동만)가 서술자이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,41,'O')">O</button><button class="ox-btn X" onclick="answer(this,41,'X')">X</button></div>
+    <div class="explanation" id="exp41"><div class="exp-label">✅ 정답: O</div>1인칭 관찰자 시점이 맞습니다. '나'(동만)가 서술자로, 어린아이의 시각으로 사건을 관찰하고 서술합니다.</div>
+  </div>
+  <div id="q42" class="qcard">
+    <div class="qtext"><span class="qnum-inline">42.</span>「장마」의 갈래는 단편 소설이며 배경은 6·25 전쟁 중 장마철이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,42,'O')">O</button><button class="ox-btn X" onclick="answer(this,42,'X')">X</button></div>
+    <div class="explanation" id="exp42"><div class="exp-label">❌ 정답: X</div>「장마」의 갈래는 <b>중편 소설</b>입니다(단편이 아님). 배경은 6·25 전쟁 중 장마철인 것은 맞습니다.</div>
+  </div>
+  <div id="q43" class="qcard">
+    <div class="qtext"><span class="qnum-inline">43.</span>이 작품에서 '구렁이'는 죽은 삼촌의 현신으로, 이념 대립을 넘어선 화해의 계기를 마련하는 소재이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,43,'O')">O</button><button class="ox-btn X" onclick="answer(this,43,'X')">X</button></div>
+    <div class="explanation" id="exp43"><div class="exp-label">✅ 정답: O</div>구렁이는 무속 신앙에서 조상신으로 여겨지며, 이 작품에서는 죽은 삼촌의 현신으로 등장하여 두 할머니 사이의 갈등을 해소하는 화해의 계기가 됩니다.</div>
+  </div>
+  <div id="q44" class="qcard">
+    <div class="qtext"><span class="qnum-inline">44.</span>이 작품에서 친할머니와 외할머니의 갈등은 이념(국군 vs 빨치산)의 대립을 가족 내부에서 형상화한 것이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,44,'O')">O</button><button class="ox-btn X" onclick="answer(this,44,'X')">X</button></div>
+    <div class="explanation" id="exp44"><div class="exp-label">✅ 정답: O</div>국군 장교를 아들로 둔 친할머니와 빨치산이 된 아들을 둔 외할머니의 갈등은 6·25 전쟁 시기 이념 대립이 한 가족 내에서 파괴적으로 작용하는 양상을 보여줍니다.</div>
+  </div>
+  <div id="q45" class="qcard">
+    <div class="qtext"><span class="qnum-inline">45.</span>'정말 지루한 장마였다.'는 마지막 문장은 서술자가 작중 갈등을 실제보다 길고 지루하게 느꼈음을 의미하기도 한다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,45,'O')">O</button><button class="ox-btn X" onclick="answer(this,45,'X')">X</button></div>
+    <div class="explanation" id="exp45"><div class="exp-label">✅ 정답: O</div>프린트에 명시된 내용입니다. 이 문장은 ①배경으로 마무리하여 여운을 줌 ②장마 기간에 사건 진행 ③갈등의 극복 암시 ④서술자가 갈등을 실제보다 길고 지루하게 느꼈음을 의미합니다.</div>
+  </div>
+  <div id="q46" class="qcard">
+    <div class="qtext"><span class="qnum-inline">46.</span>이 작품은 어른이 된 '나'의 시각과 어린 아이인 '나'의 시각이 교차하는 이중 시점이 드러난다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,46,'O')">O</button><button class="ox-btn X" onclick="answer(this,46,'X')">X</button></div>
+    <div class="explanation" id="exp46"><div class="exp-label">✅ 정답: O</div>프린트 핵심 포인트에 명시된 내용입니다. 어른이 된 '나'가 과거를 회상하는 시점과 어린 아이인 '나'의 관찰 시점이 교차하는 이중 시점이 나타납니다.</div>
+  </div>
+  <div id="q47" class="qcard">
+    <div class="qtext"><span class="qnum-inline">47.</span>「장마」에서 외할머니의 무속적 행동은 이념 갈등을 논리와 이성으로 해결하는 방식을 보여준다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,47,'O')">O</button><button class="ox-btn X" onclick="answer(this,47,'X')">X</button></div>
+    <div class="explanation" id="exp47"><div class="exp-label">❌ 정답: X</div>외할머니의 무속적 행동은 논리와 이성이 아니라 인간의 보편적 정서(모성, 민속 신앙)를 통해 이념 갈등을 해소하는 방식을 보여줍니다. 이것이 이 작품의 독특한 갈등 해소 방식입니다.</div>
+  </div>
+  <div id="q48" class="qcard">
+    <div class="qtext"><span class="qnum-inline">48.</span>「장마」에서 사투리의 사용은 토속적이며 사실적인 성격을 드러내는 효과를 낸다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,48,'O')">O</button><button class="ox-btn X" onclick="answer(this,48,'X')">X</button></div>
+    <div class="explanation" id="exp48"><div class="exp-label">✅ 정답: O</div>프린트에 명시된 내용입니다. 사투리 사용은 작품에 토속적이고 사실적인 성격을 부여합니다.</div>
+  </div>
+  <div id="q49" class="qcard">
+    <div class="qtext"><span class="qnum-inline">49.</span>'장마'라는 계절적 배경은 분단과 전쟁이라는 민족의 비극적 사건과 그로 인한 우울한 분위기를 상징적으로 나타낸다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,49,'O')">O</button><button class="ox-btn X" onclick="answer(this,49,'X')">X</button></div>
+    <div class="explanation" id="exp49"><div class="exp-label">✅ 정답: O</div>프린트의 소재 의미 정리에 명시된 내용입니다. '장마'는 6·25 전쟁으로 인한 우울한 분위기를 형성하는 상징적 배경 소재입니다.</div>
+  </div>
+  <div id="q50" class="qcard">
+    <div class="qtext"><span class="qnum-inline">50.</span>「장마」의 주제는 '이념의 대립으로 인한 한 가족의 비극과 민족의 보편적 정서를 통한 극복과 화해'이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,50,'O')">O</button><button class="ox-btn X" onclick="answer(this,50,'X')">X</button></div>
+    <div class="explanation" id="exp50"><div class="exp-label">✅ 정답: O</div>프린트 핵심 정리 그대로입니다.</div>
+  </div>
+</div>
+
+<!-- ===== TAB 5: 봉산탈춤 ===== -->
+<div class="tab-content" id="tab5">
+  <div class="category-hdr"><span class="cbadge">민속극</span>봉산탈춤 — 핵심 개념 OX<div class="cat-progress" id="cp5"></div></div>
+  <div id="q51" class="qcard">
+    <div class="qtext"><span class="qnum-inline">51.</span>봉산탈춤의 갈래는 가면극·탈춤·민속극이며, 전체가 7과장으로 구성된다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,51,'O')">O</button><button class="ox-btn X" onclick="answer(this,51,'X')">X</button></div>
+    <div class="explanation" id="exp51"><div class="exp-label">✅ 정답: O</div>프린트 핵심 정리 그대로입니다. 전 7과장 5거리로 구성됩니다.</div>
+  </div>
+  <div id="q52" class="qcard">
+    <div class="qtext"><span class="qnum-inline">52.</span>각 과장은 서로 긴밀하게 연결되어 하나의 완결된 이야기를 이루는 연속 서사 구조이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,52,'O')">O</button><button class="ox-btn X" onclick="answer(this,52,'X')">X</button></div>
+    <div class="explanation" id="exp52"><div class="exp-label">❌ 정답: X</div>봉산탈춤은 옴니버스식 구성으로 각 과장이 독립적입니다. 연속 서사 구조가 아닙니다.</div>
+  </div>
+  <div id="q53" class="qcard">
+    <div class="qtext"><span class="qnum-inline">53.</span>봉산탈춤의 제6과장은 양반에 대한 풍자와 조롱을 주요 내용으로 한다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,53,'O')">O</button><button class="ox-btn X" onclick="answer(this,53,'X')">X</button></div>
+    <div class="explanation" id="exp53"><div class="exp-label">✅ 정답: O</div>제6과장은 '양반 춤 마당'으로 말뚝이가 언어유희와 재담을 통해 양반의 허세를 희화화하고 풍자하는 내용입니다.</div>
+  </div>
+  <div id="q54" class="qcard">
+    <div class="qtext"><span class="qnum-inline">54.</span>봉산탈춤은 특별한 무대 장치가 없어 시간과 공간의 이동이 자유롭고, 배우와 관객의 경계가 없다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,54,'O')">O</button><button class="ox-btn X" onclick="answer(this,54,'X')">X</button></div>
+    <div class="explanation" id="exp54"><div class="exp-label">✅ 정답: O</div>프린트 특징에 명시된 내용입니다. 무대 장치가 없어 자유로운 공간 이동이 가능하고, 배우와 관객이 소통하며 경계가 없습니다.</div>
+  </div>
+  <div id="q55" class="qcard">
+    <div class="qtext"><span class="qnum-inline">55.</span>'양반의 위엄 → 말뚝이의 조롱 → 양반의 호령 → 말뚝이의 변명 → 양반의 안심'이라는 재담 구조가 반복된다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,55,'O')">O</button><button class="ox-btn X" onclick="answer(this,55,'X')">X</button></div>
+    <div class="explanation" id="exp55"><div class="exp-label">✅ 정답: O</div>프린트에 명시된 재담 구조입니다. 이 구조의 반복이 봉산탈춤 제6과장의 핵심 극적 장치입니다.</div>
+  </div>
+  <div id="q56" class="qcard">
+    <div class="qtext"><span class="qnum-inline">56.</span>봉산탈춤에서 '개잘량'의 '양'자와 '개다리소반'의 '반'자를 결합하여 '양반'을 표현하는 것은 언어유희(파자)이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,56,'O')">O</button><button class="ox-btn X" onclick="answer(this,56,'X')">X</button></div>
+    <div class="explanation" id="exp56"><div class="exp-label">✅ 정답: O</div>비속어와 일상어에서 글자를 따와 '양반'이라는 단어를 해체·재조합하는 언어유희(파자)로, 양반의 권위를 희화화하는 풍자 방법입니다.</div>
+  </div>
+  <div id="q57" class="qcard">
+    <div class="qtext"><span class="qnum-inline">57.</span>봉산탈춤은 조선 초기에 한양에서 발생하여 전국으로 퍼진 민속극이다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,57,'O')">O</button><button class="ox-btn X" onclick="answer(this,57,'X')">X</button></div>
+    <div class="explanation" id="exp57"><div class="exp-label">❌ 정답: X</div>봉산탈춤은 황해도 봉산을 중심으로 전승되어 황해도 일대에서 성행한 민속극으로, 조선 <b>후기</b>에 성행하였습니다. 한양 발생이 아닙니다.</div>
+  </div>
+  <div id="q58" class="qcard">
+    <div class="qtext"><span class="qnum-inline">58.</span>봉산탈춤의 음악은 피리·대금·해금·장구·북으로 구성된 삼현육각이 담당한다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,58,'O')">O</button><button class="ox-btn X" onclick="answer(this,58,'X')">X</button></div>
+    <div class="explanation" id="exp58"><div class="exp-label">✅ 정답: O</div>프린트 해제에 명시된 내용입니다. 삼현육각은 피리·대금·해금·장구·북으로 구성됩니다.</div>
+  </div>
+  <div id="q59" class="qcard">
+    <div class="qtext"><span class="qnum-inline">59.</span>봉산탈춤에서 서민 계층의 언어와 양반 계층의 언어가 혼용되는 것을 언어의 이중성이라 한다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,59,'O')">O</button><button class="ox-btn X" onclick="answer(this,59,'X')">X</button></div>
+    <div class="explanation" id="exp59"><div class="exp-label">✅ 정답: O</div>프린트 특징에 명시된 내용입니다. 서민의 거친 언어와 양반의 격식체가 혼용되어 언어의 이중성을 드러냅니다.</div>
+  </div>
+  <div id="q60" class="qcard">
+    <div class="qtext"><span class="qnum-inline">60.</span>봉산탈춤의 주제는 '양반에 대한 풍자와 조롱'이며, 말뚝이의 비판은 체제를 완전히 전복하는 혁명적 내용을 담고 있다.</div>
+    <div class="ox-btns"><button class="ox-btn O" onclick="answer(this,60,'O')">O</button><button class="ox-btn X" onclick="answer(this,60,'X')">X</button></div>
+    <div class="explanation" id="exp60"><div class="exp-label">❌ 정답: X</div>주제가 '양반에 대한 풍자와 조롱'인 것은 맞지만, 말뚝이의 비판은 변명으로 무마되어 체제를 완전히 전복하지 못한다는 한계가 있습니다. 혁명적 체제 전복 내용을 담고 있다는 설명은 적절하지 않습니다.</div>
+  </div>
+</div>
+
+</div><!-- /quiz-area -->
+
+<footer style="text-align:center;padding:20px;color:#9ca3af;font-size:12px;border-top:1px solid var(--bdr);margin-top:10px;">
+  청원고등학교 2026학년도 1학기 문학 중간고사 OX 퀴즈 · 총 60문항
+</footer>
+
+<script>
+const answers = {1:'O',2:'X',3:'O',4:'O',5:'O',6:'X',7:'O',8:'O',9:'O',10:'X',
+  11:'O',12:'X',13:'O',14:'O',15:'O',16:'X',17:'O',18:'O',19:'O',20:'O',
+  21:'O',22:'O',23:'O',24:'O',25:'O',26:'O',27:'O',28:'O',29:'O',30:'O',
+  31:'O',32:'O',33:'O',34:'X',35:'O',36:'X',37:'X',38:'O',39:'O',40:'O',
+  41:'O',42:'X',43:'O',44:'O',45:'O',46:'O',47:'X',48:'O',49:'O',50:'O',
+  51:'O',52:'X',53:'O',54:'O',55:'O',56:'O',57:'X',58:'O',59:'O',60:'X'};
+
+// tab ranges
+const tabRanges = [[1,10],[11,20],[21,30],[31,40],[41,50],[51,60]];
+const userAns = {};
+let ok=0, no=0;
+
+function answer(btn, qnum, choice) {
+  const card = document.getElementById('q'+qnum);
+  if (card.classList.contains('answered-ok') || card.classList.contains('answered-no')) return;
+  
+  const correct = answers[qnum];
+  const allBtns = btn.closest('.ox-btns').querySelectorAll('.ox-btn');
+  
+  allBtns.forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  
+  const exp = document.getElementById('exp'+qnum);
+  
+  if (choice === correct) {
+    card.classList.add('answered-ok');
+    ok++;
+    document.getElementById('st-ok').textContent = ok;
+  } else {
+    card.classList.add('answered-no');
+    no++;
+    document.getElementById('st-no').textContent = no;
+    // show correct
+    allBtns.forEach(b => {
+      if (b.classList.contains(correct)) b.classList.add('show-correct');
+    });
+  }
+  
+  exp.classList.add('show');
+  userAns[qnum] = choice;
+  
+  const total = Object.keys(userAns).length;
+  const rate = Math.round(ok/total*100);
+  document.getElementById('st-rate').textContent = rate + '%';
+  document.getElementById('pfill').style.width = (total/60*100)+'%';
+  
+  updateCatProgress();
+}
+
+function updateCatProgress() {
+  tabRanges.forEach((range, i) => {
+    const [start, end] = range;
+    let done = 0, correct = 0;
+    for(let q=start;q<=end;q++){
+      if(userAns[q]!==undefined){done++;if(userAns[q]===answers[q])correct++;}
+    }
+    const el = document.getElementById('cp'+i);
+    if(el) el.textContent = done > 0 ? done+'/10 완료 (정답 '+correct+'개)' : '';
+  });
+}
+
+function switchTab(idx) {
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
+  document.querySelectorAll('.tab-content').forEach((c,i)=>c.classList.toggle('active',i===idx));
+}
+
+function showAll() {
+  document.querySelectorAll('.explanation').forEach(e=>e.classList.add('show'));
+}
+
+function resetAll() {
+  if(!confirm('모든 답변을 초기화하시겠습니까?')) return;
+  Object.keys(userAns).forEach(k=>delete userAns[k]);
+  ok=0; no=0;
+  document.getElementById('st-ok').textContent=0;
+  document.getElementById('st-no').textContent=0;
+  document.getElementById('st-rate').textContent='—';
+  document.getElementById('pfill').style.width='0%';
+  document.querySelectorAll('.qcard').forEach(c=>{
+    c.classList.remove('answered-ok','answered-no');
+  });
+  document.querySelectorAll('.ox-btn').forEach(b=>{
+    b.classList.remove('selected','show-correct','wrong-pick');
+  });
+  document.querySelectorAll('.explanation').forEach(e=>e.classList.remove('show'));
+  [0,1,2,3,4,5].forEach(i=>{const el=document.getElementById('cp'+i);if(el)el.textContent='';});
+}
+</script>
+</body>
+</html>
