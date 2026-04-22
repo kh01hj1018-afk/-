@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>문학 개념어 정리</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Pretendard:wght@300;400;500;600;700&display=swap');
+:root{
+  --ink:#1d2433; --ink2:#24324a; --gold:#b7872d; --bg:#f8f5ee; --card:#ffffff; --line:#e6dcc6;
+  --soft:#6d614d; --red:#b53a2d; --blue:#2668b2; --green:#1f8b5b; --purple:#7a49a5; --orange:#cc6a16;
+}
+*{box-sizing:border-box}
+body{margin:0; font-family:'Pretendard',sans-serif; background:var(--bg); color:var(--ink); line-height:1.72}
+.wrap{max-width:1180px; margin:0 auto; padding:32px 22px 64px}
+header{background:linear-gradient(135deg,var(--ink2),#172133); color:#f8f3e6; border-bottom:4px solid var(--gold); padding:30px 22px;}
+.kicker{font-size:11px; letter-spacing:2px; color:#e6c985; font-weight:700; margin-bottom:8px}
+h1{font-family:'Nanum Myeongjo',serif; font-size:31px; line-height:1.28; margin:0 0 8px}
+.sub{font-size:13px; color:#d8d0bf}
+.note{margin-top:12px; display:inline-block; padding:6px 10px; border:1px solid rgba(230,201,133,.45); color:#f1d797; border-radius:999px; font-size:11px; font-weight:600}
+.hero-sub{font-size:16px; font-weight:800; color:#fff3c4; margin-top:10px}
+.hero-alert{margin-top:18px; background:linear-gradient(135deg,#ffef73 0%, #ffb347 35%, #ff6b57 100%); border:4px solid #fff4b1; box-shadow:0 10px 28px rgba(0,0,0,.22); border-radius:18px; padding:18px 20px}
+.hero-alert-top{font-size:18px; font-weight:900; color:#7a1408; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px}
+.hero-alert-main{font-size:28px; line-height:1.35; font-weight:900; color:#7a1408; text-shadow:0 1px 0 rgba(255,255,255,.35)}
+@media (max-width:760px){.hero-alert-main{font-size:22px}.hero-sub{font-size:14px}}
+.section-title{font-family:'Nanum Myeongjo',serif; font-size:21px; margin:34px 0 14px; padding-bottom:10px; border-bottom:2px solid #cabd9d}
+.section-sub{color:var(--soft); font-size:13px; margin:-2px 0 16px}
+.card{background:var(--card); border:1px solid var(--line); border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.04); margin:14px 0 18px; overflow:hidden}
+.card-head{display:flex; align-items:center; gap:10px; padding:13px 16px; border-bottom:1px solid #efe6d4}
+.bar{width:7px; height:26px; border-radius:4px}
+.term{font-family:'Nanum Myeongjo',serif; font-size:18px; font-weight:800}
+.badge{margin-left:auto; font-size:11px; font-weight:700; padding:4px 10px; border-radius:999px; color:#fff}
+.grid{display:grid; grid-template-columns:1fr 1fr 2fr}
+.cell{padding:14px 16px; border-right:1px solid #efe6d4}
+.cell:last-child{border-right:none}
+.label{font-size:10px; font-weight:800; letter-spacing:1px; color:var(--soft); margin-bottom:6px}
+.content{font-size:13px}
+.hl{background:#fff1bd; padding:0 4px; border-radius:4px}
+.warn{background:#fff7ef; border:1px solid #f3c9a0; color:#7d4300; padding:10px 12px; border-left:4px solid var(--orange); border-radius:8px; font-size:12px; margin:12px 16px 16px}
+.tip{background:#eef6ff; border:1px solid #cfe3ff; color:#184a7d; padding:10px 12px; border-left:4px solid var(--blue); border-radius:8px; font-size:12px; margin:12px 16px 16px}
+.ex{background:#faf6ee; border-left:4px solid #c9a45e; padding:10px 12px; border-radius:8px; margin:8px 0}
+.ex strong{display:block; font-size:11px; color:var(--soft); margin-bottom:4px}
+.table{width:100%; border-collapse:collapse; font-size:12.8px}
+.table th,.table td{border:1px solid #e9dfcc; padding:10px 12px; vertical-align:top}
+.table th{background:#24324a; color:#ead198; text-align:left}
+.table tr:nth-child(even) td{background:#fbf8f2}
+.two{display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0 16px 16px}
+.box{background:#fbf7ef; border:1px solid #eadfc7; border-left:4px solid #8b6a28; border-radius:10px; padding:12px 13px}
+.box h4{margin:0 0 6px; font-size:13px}
+footer{padding:20px; text-align:center; color:#877a62; font-size:11.5px}
+@media (max-width:860px){.grid{grid-template-columns:1fr}.cell{border-right:none; border-bottom:1px solid #efe6d4}.cell:last-child{border-bottom:none}.two{grid-template-columns:1fr} h1{font-size:26px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap" style="padding-top:0;padding-bottom:0;max-width:1180px;">
+    <div class="kicker">CHEONGWON HIGH SCHOOL · 2학년 문학 · 시험범위 기반</div>
+    <h1>문학 개념어 정리</h1>
+    <div class="hero-sub">시험범위 교과서/학습지 기반 모두 정리한 자료</div>
+    <div class="hero-alert">
+      <div class="hero-alert-top">기출 필수 출제 내용</div>
+      <div class="hero-alert-main">이 내용은 그동안의 기출에서도 필수 출제된 내용<br>작품분석과 동일하므로 모두 반드시 암기필수</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="section-title">1. 비유법</div>
+  <div class="section-sub">직유법, 은유법, 의인법은 이름만 아는 수준이 아니라, 서로 어떻게 구분되는지까지 알아야 선지에서 흔들리지 않는다.</div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:var(--red)"></div><div class="term">직유법</div><div class="badge" style="background:var(--red)">비유법</div></div>
+    <div class="grid">
+      <div class="cell"><div class="label">개념어 의미</div><div class="content">원관념을 보조관념에 <span class="hl">같은, 처럼, 같이</span> 같은 비유 표지어를 써서 직접 비교하는 표현.</div></div>
+      <div class="cell"><div class="label">설명 보강</div><div class="content">핵심은 <b>비유 표지어의 존재</b>다. 두 대상을 닮은 것으로 보여 주되, 완전히 같은 것이라고 단정하지는 않는다.</div></div>
+      <div class="cell"><div class="label">작품 예시 · 표현 부분</div><div class="content"><div class="ex"><strong>첫사랑</strong><span class="hl">햇솜 같은 마음</span> → 순수하고 부드러운 사랑의 마음을 직유로 구체화</div><div class="ex"><strong>향수</strong>전설 바다에 춤추는 밤물결 <span class="hl">같은</span> 검은 귀밑머리 → 시각적 인상 강화</div></div></div>
+    </div>
+    <div class="warn">시험 포인트: <b>표지어가 보이면 직유</b>, 표지어 없이 동일시하면 은유다.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:#db5141"></div><div class="term">은유법</div><div class="badge" style="background:#db5141">비유법</div></div>
+    <div class="grid">
+      <div class="cell"><div class="label">개념어 의미</div><div class="content">비유 표지어 없이 원관념을 보조관념으로 <b>직접 치환</b>하는 표현.</div></div>
+      <div class="cell"><div class="label">설명 보강</div><div class="content">직유보다 더 압축적이고 함축적이다. “A는 B와 같다”가 아니라 사실상 “A는 B다”라고 보여 준다.</div></div>
+      <div class="cell"><div class="label">작품 예시 · 표현 부분</div><div class="content"><div class="ex"><strong>첫사랑</strong><span class="hl">마침내 피워 낸 저 황홀</span> → 눈꽃을 ‘황홀’로 치환하여 결실의 감정을 드러냄</div><div class="ex"><strong>첫사랑</strong><span class="hl">세상에서 가장 아름다운 상처</span> → 봄꽃을 상처로 치환하며 성숙의 의미를 압축</div></div></div>
+    </div>
+    <div class="warn">시험 포인트: 직유법과 가장 많이 혼동한다. <b>‘같은/처럼’이 없는데 두 대상을 포개면 은유</b>다.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:var(--purple)"></div><div class="term">의인법</div><div class="badge" style="background:var(--purple)">비유법</div></div>
+    <div class="grid">
+      <div class="cell"><div class="label">개념어 의미</div><div class="content">사람이 아닌 <b>사물·동물·자연물</b>에 인간의 행동, 감정, 능력을 부여하는 표현.</div></div>
+      <div class="cell"><div class="label">설명 보강</div><div class="content">단순히 “사람처럼 보인다”가 아니라, 대상이 실제로 <b>행동하거나 느끼는 것처럼</b> 표현되면 의인법이다. 넓게 보면 은유적 성격도 가진다.</div></div>
+      <div class="cell"><div class="label">작품 예시 · 표현 부분</div><div class="content"><div class="ex"><strong>첫사랑</strong>눈은 얼마나 많은 도전을 멈추지 않았으랴 / <span class="hl">싸그락 싸그락 두드려 보았겠지</span> → 눈이 사랑을 이루려는 주체처럼 행동</div><div class="ex"><strong>향수</strong>옛이야기 <span class="hl">지즐대는</span> 실개천이 → 실개천이 재잘대는 존재처럼 표현됨</div></div></div>
+    </div>
+  </div>
+
+  <div class="section-title">2. 강조법</div>
+  <div class="section-sub">역설법, 반어법, 설의법은 시험에서 특히 혼동이 많다. 개념 정의보다 ‘무엇이 다른가’를 같이 기억해야 한다.</div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:var(--blue)"></div><div class="term">역설법</div><div class="badge" style="background:var(--blue)">강조법</div></div>
+    <div class="grid">
+      <div class="cell"><div class="label">개념어 의미</div><div class="content">겉보기에는 모순처럼 보이지만, 그 안에 더 깊은 진실을 담는 표현.</div></div>
+      <div class="cell"><div class="label">설명 보강</div><div class="content">‘말이 안 되는 것처럼 보이는 표현’이 핵심이다. 하지만 실제로는 인간 심리나 삶의 진실을 강하게 드러낸다.</div></div>
+      <div class="cell"><div class="label">작품 예시 · 표현 부분</div><div class="content"><div class="ex"><strong>첫사랑</strong><span class="hl">세상에서 가장 아름다운 상처</span> → ‘아름다움’과 ‘상처’의 모순을 통해 첫사랑의 아픔이 오히려 성숙한 사랑의 바탕이 된다는 진실을 드러냄</div><div class="ex"><strong>보리타작</strong><span class="hl">마음이 몸의 노예 되지 않았네</span> → 힘든 육체노동 속에서도 마음은 자유롭고 즐겁다는 깨달음</div><div class="ex"><strong>낙화</strong><span class="hl">결별이 이룩하는 축복</span>에 싸여 → ‘결별’과 ‘축복’의 모순을 통해 이별이 영혼을 성숙시키는 과정이라는 진실을 드러냄</div><div class="ex"><strong>겨울-나무로부터 봄-나무에로</strong><span class="hl">고통이 봄이 되는 것</span> → 시련과 고통이 결국 새로운 생명과 개화로 이어진다는 역설적 인식</div></div></div>
+    </div>
+    <div class="warn">주의: 역설은 <b>모순 속 진실</b>, 반어는 <b>겉뜻과 속뜻의 반대</b>다. 둘은 다르다.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:#15936e"></div><div class="term">반어법</div><div class="badge" style="background:#15936e">강조법</div></div>
+    <div class="grid">
+      <div class="cell"><div class="label">개념어 의미</div><div class="content">표면에 드러난 말뜻과 실제 속뜻이 반대로 작용하는 표현.</div></div>
+      <div class="cell"><div class="label">설명 보강</div><div class="content">화자가 말하는 내용 그대로 받아들이면 틀리고, 그 이면의 실제 의도를 읽어야 한다.</div></div>
+      <div class="cell"><div class="label">작품 예시 · 표현 부분</div><div class="content"><div class="ex"><strong>먼 후일</strong><span class="hl">그때에 내 말이 ‘잊었노라’</span><br>…<span class="hl">오늘도 어제도 아니 잊고</span> → 겉으로는 ‘잊었다’고 말하지만 실제로는 전혀 잊지 못하는 그리움을 드러냄</div><div class="ex"><strong>먼 후일</strong><span class="hl">무척 그리다가 잊었노라 / 믿기지 않아서 잊었노라</span> → ‘잊었다’는 진술을 거듭할수록 오히려 잊지 못하는 정서가 더 선명해짐</div><div class="ex"><strong>참고</strong> 교과서·프린트에 나온 시 작품 기준으로는 <span class="hl">먼 후일</span>이 반어법의 가장 직접적이고 확실한 예시다.</div></div></div>
+    </div>
+    <div class="warn">주의: 반어법은 시 작품에서는 <b>먼 후일</b>처럼 ‘표면 진술’과 ‘실제 정서’가 정반대로 드러나는 경우를 잡아야 한다. 역설처럼 모순된 표현 자체가 핵심인 것은 아니다.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:var(--orange)"></div><div class="term">설의법</div><div class="badge" style="background:var(--orange)">강조법</div></div>
+    <div class="grid">
+      <div class="cell"><div class="label">개념어 의미</div><div class="content">대답을 요구하는 것이 아니라, 이미 정해진 답을 더 강하게 드러내기 위해 쓰는 의문문 표현.</div></div>
+      <div class="cell"><div class="label">설명 보강</div><div class="content">형식은 질문이지만 기능은 단언에 가깝다. “그럴 리가 없다 / 당연히 그렇다”를 더 강하게 만든다.</div></div>
+      <div class="cell"><div class="label">작품 예시 · 표현 부분</div><div class="content"><div class="ex"><strong>첫사랑</strong>눈은 얼마나 많은 도전을 멈추지 <span class="hl">않았으랴</span> → 끊임없는 노력 강조</div><div class="ex"><strong>향수</strong>그 곳이 차마 꿈엔들 <span class="hl">잊힐 리야</span> → 절대 잊을 수 없다는 그리움 강조</div><div class="ex"><strong>보리타작</strong>무엇하러 고향 떠나 벼슬길에 <span class="hl">헤매리오</span> → 벼슬길을 부정하는 자기 성찰</div></div></div>
+    </div>
+  </div>
+
+  <div class="section-title">3. 변화·효과를 만드는 표현</div>
+  <div class="section-sub">시험지에서는 이 부분을 ‘표현상 특징’으로 많이 묻는다.</div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:var(--green)"></div><div class="term">대조법</div><div class="badge" style="background:var(--green)">표현상 특징</div></div>
+    <div class="grid">
+      <div class="cell"><div class="label">개념어 의미</div><div class="content">서로 반대되거나 성격이 다른 두 요소를 나란히 배치해 차이를 선명하게 드러내는 표현.</div></div>
+      <div class="cell"><div class="label">설명 보강</div><div class="content">주제 의식을 더 분명히 보이게 할 때 자주 사용된다. 시어끼리의 대립을 잡아내는 것이 핵심이다.</div></div>
+      <div class="cell"><div class="label">작품 예시 · 표현 부분</div><div class="content"><div class="ex"><strong>선운사에서</strong><span class="hl">피는 건 힘들어도 / 지는 건 잠깐</span>, <span class="hl">지는 건 쉬워도 / 잊는 건 한참</span> → 사랑과 이별, 망각의 시간 차이를 대조</div></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:#2a8a57"></div><div class="term">음성상징어</div><div class="badge" style="background:#2a8a57">표현상 특징</div></div>
+    <div class="grid">
+      <div class="cell"><div class="label">개념어 의미</div><div class="content">소리나 모양을 흉내 내는 말. 의성어와 의태어를 포함한다.</div></div>
+      <div class="cell"><div class="label">설명 보강</div><div class="content">단순 묘사를 넘어서 운율, 생동감, 현장감을 함께 만든다. 반복되면 리듬감이 더 강해진다.</div></div>
+      <div class="cell"><div class="label">작품 예시 · 표현 부분</div><div class="content"><div class="ex"><strong>첫사랑</strong><span class="hl">싸그락 싸그락</span>, <span class="hl">난분분 난분분</span> → 눈이 내리고 흩날리는 모습을 감각적으로 형상화, 반복으로 운율 형성</div><div class="ex"><strong>보리타작</strong><span class="hl">옹헤야</span> → 노동요의 리듬과 흥겨움을 살림</div></div></div>
+    </div>
+  </div>
+
+  <div class="section-title">4. 감각·이미지 관련 개념</div>
+  <div class="section-sub">이 부분은 특히 「향수」에서 자주 출제된다.</div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:var(--purple)"></div><div class="term">공감각적 표현</div><div class="badge" style="background:var(--purple)">감각 이미지</div></div>
+    <div class="grid">
+      <div class="cell"><div class="label">개념어 의미</div><div class="content">한 감각의 대상을 다른 감각으로 옮겨 표현하는 방식.</div></div>
+      <div class="cell"><div class="label">설명 보강</div><div class="content">감각이 두 개 그냥 같이 나온다고 공감각은 아니다. <b>한 감각이 다른 감각으로 전이</b>되어야 한다. 시험범위 작품에서는 사실상 <b>「향수」가 핵심 대표 예시</b>이고, 다른 작품들은 감각적 표현은 있어도 공감각으로 보기는 어렵다.</div></div>
+      <div class="cell"><div class="label">작품 예시 · 표현 부분</div><div class="content"><div class="ex"><strong>향수</strong><span class="hl">금빛 게으른 울음</span> → 청각 대상인 ‘울음’을 시각 이미지 ‘금빛’으로 옮겨 표현. <b>청각 → 시각</b>의 전형적인 공감각적 표현</div><div class="ex"><strong>보강 설명</strong>「향수」에는 시각·청각·촉각 이미지가 함께 나타나지만, 그중 공감각으로 분명하게 잡히는 것은 <span class="hl">‘금빛 울음’</span>이다.</div><div class="ex"><strong>시험 주의</strong>「첫사랑」의 <span class="hl">‘싸그락 싸그락’</span>, 「보리타작」의 <span class="hl">‘옹헤야’</span>는 감각적·청각적 표현이지만 <b>공감각은 아니다</b>.</div></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:#3779c6"></div><div class="term">객관적 상관물</div><div class="badge" style="background:#3779c6">감정 표현</div></div>
+    <div class="grid">
+      <div class="cell"><div class="label">개념어 의미</div><div class="content">화자의 감정을 직접 말하지 않고, 그 감정을 불러일으키는 사물·장면·상황으로 대신 드러내는 방식.</div></div>
+      <div class="cell"><div class="label">설명 보강</div><div class="content">‘슬프다’고 직접 말하는 대신, 어떤 사물이나 풍경이 그 감정을 환기하게 만든다.</div></div>
+      <div class="cell"><div class="label">작품 예시 · 표현 부분</div><div class="content"><div class="ex"><strong>향수</strong>황소, 실개천, 질화로, 귀밑머리 같은 고향 사물들이 화자의 <span class="hl">그리움</span>을 대신 드러냄</div></div></div>
+    </div>
+  </div>
+
+  <div class="section-title">5. 구조 관련 개념</div>
+  <div class="section-sub">여기는 ‘형식상 특징’으로 자주 묶여 나온다.</div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:#9a6a16"></div><div class="term">수미상관</div><div class="badge" style="background:#9a6a16">구조</div></div>
+    <div class="two">
+      <div class="box"><h4>완전 수미상관</h4><div class="content">시의 처음과 끝이 거의 같은 문장·구조로 되풀이되는 형태.</div></div>
+      <div class="box"><h4>변형 수미상관</h4><div class="content">처음과 끝의 구조는 닮았지만 핵심 시어나 의미가 변형되어 확장되는 형태.</div></div>
+    </div>
+    <div class="tip">시험 포인트: 수미상관은 <b>처음↔끝의 대응 구조</b>를 보는 개념이고, 후렴구는 <b>연마다 반복되는 구절</b>을 보는 개념이다.</div>
+    <div class="two">
+      <div class="box"><h4>작품 적용</h4><div class="content"><b>선운사에서</b><br>처음: 꽃이 피는 건 힘들어도 / 지는 건 잠깐<br>끝: 꽃이 지는 건 쉬워도 / 잊는 건 한참<br>→ 구조는 닮고 의미는 변형되므로 <b>변형 수미상관</b></div></div>
+      <div class="box"><h4>주의</h4><div class="content"><b>첫사랑</b>은 수미상관으로 보기 어렵다. 시작과 끝의 시구가 같은 구조로 대응하지 않기 때문이다.</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:#8650a0"></div><div class="term">후렴구</div><div class="badge" style="background:#8650a0">구조</div></div>
+    <div class="grid">
+      <div class="cell"><div class="label">개념어 의미</div><div class="content">시나 노래에서 연마다 되풀이되어 나타나는 구절.</div></div>
+      <div class="cell"><div class="label">설명 보강</div><div class="content">음악성과 통일감을 만들고, 반복을 통해 정서와 주제를 더 강하게 각인한다.</div></div>
+      <div class="cell"><div class="label">작품 예시 · 표현 부분</div><div class="content"><div class="ex"><strong>향수</strong><span class="hl">그 곳이 차마 꿈엔들 잊힐 리야</span> → 각 연 말미에 반복되며 그리움을 점층적으로 강화</div></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:#177c95"></div><div class="term">각운법 · 내재율</div><div class="badge" style="background:#177c95">율격</div></div>
+    <div class="grid">
+      <div class="cell"><div class="label">각운법</div><div class="content">행이나 연의 끝에서 비슷한 소리나 말이 반복되어 운율을 만드는 방식.</div></div>
+      <div class="cell"><div class="label">내재율</div><div class="content">정형적인 외형률이 아니어도 반복, 배열, 어조 등으로 작품 내부에서 느껴지는 리듬.</div></div>
+      <div class="cell"><div class="label">작품 예시 · 표현 부분</div><div class="content"><div class="ex"><strong>향수</strong>여러 연이 <span class="hl">~곳</span>으로 끝나며 각운 효과를 만들고, 후렴구 반복과 함께 내재율을 강화함</div></div></div>
+    </div>
+  </div>
+
+  <div class="section-title">6. 시점·서술 관련 개념</div>
+  <div class="section-sub">시와 소설의 용어를 섞지 않는 것부터가 시험 포인트다. 「장마」는 시점 문제로 자주 출제된다.</div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:#2a6cb7"></div><div class="term">시적 화자 · 서술자</div><div class="badge" style="background:#2a6cb7">갈래 용어</div></div>
+    <div class="grid">
+      <div class="cell"><div class="label">시적 화자(話者)</div><div class="content"><b>시(서정시)</b>에서 말을 건네는 목소리. 작품 속 정서를 드러내는 주체이며, <b>작가와 반드시 같지 않다.</b></div></div>
+      <div class="cell"><div class="label">서술자(敍述者)</div><div class="content"><b>소설</b>에서 사건을 전달하는 목소리. 역시 작가와 동일하지 않으며, 작품 안에서 일정한 시점을 가진 허구적 존재다.</div></div>
+      <div class="cell"><div class="label">시험범위 적용</div><div class="content"><div class="ex"><strong>시 작품</strong> 「첫사랑」「보리타작」「선운사에서」「향수」 → 말하는 존재는 <span class="hl">시적 화자</span></div><div class="ex"><strong>소설</strong> 「장마」 → 사건을 전하는 존재는 <span class="hl">서술자</span>이며, 작품 속 '나'인 동만이 그 역할을 맡는다.</div></div></div>
+    </div>
+    <div class="warn">주의: <b>시=화자, 소설=서술자</b>. 이 기본 용어를 섞어 쓰면 선지 판단에서 바로 틀릴 수 있다.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:#0f8f86"></div><div class="term">1인칭 관찰자 시점 · 이중 시점</div><div class="badge" style="background:#0f8f86">소설 시점</div></div>
+    <div class="grid">
+      <div class="cell"><div class="label">1인칭 관찰자 시점</div><div class="content">서술자 ‘나’가 이야기 안에 들어 있으나, 사건의 중심 인물이라기보다 <b>주변에서 관찰하고 전달</b>하는 시점. 타인의 내면을 전지적으로 알 수 없고, 자신이 본 것과 느낀 것 위주로 서술한다.</div></div>
+      <div class="cell"><div class="label">이중 시점</div><div class="content">한 작품 안에 <b>과거 사건을 겪는 시점</b>과 <b>현재 그 사건을 회상·평가하는 시점</b>이 함께 드러나는 방식. 어린 시절의 경험을 어른이 된 뒤에 다시 바라보는 구조가 대표적이다.</div></div>
+      <div class="cell"><div class="label">「장마」 적용</div><div class="content"><div class="ex"><strong>기본 시점</strong> 동만은 사건을 직접 이끌기보다 두 할머니의 갈등과 집안 분위기를 <span class="hl">관찰하고 전달</span>하므로 1인칭 관찰자 시점에 가깝다.</div><div class="ex"><strong>이중 시점</strong> 작품에는 <span class="hl">어린 ‘나’의 순수한 관찰</span>과, 나중에 사건 전체 의미를 되짚는 <span class="hl">어른 ‘나’의 회상</span>이 함께 작동한다.</div><div class="ex"><strong>핵심 표현</strong> 마지막의 <span class="hl">“정말 지루한 장마였다”</span>는 단순 날씨 묘사가 아니라, 오래 이어진 갈등과 긴장을 뒤늦게 정리하는 회상적 시선을 보여 준다.</div></div></div>
+    </div>
+    <div class="warn">주의: 「장마」는 <b>전지적 작가 시점이 아니다.</b> 서술자가 ‘나’로 존재하고, 타인의 내면을 전부 직접 해설하지 않기 때문이다.</div>
+  </div>
+
+  <div class="section-title">7. 갈래·형식 관련 개념</div>
+  <div class="section-sub">이 부분은 작품 분류 자체를 묻는 문제뿐 아니라, 형식 특성과 갈래 용어를 연결하는 선지에서 자주 쓰인다.</div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:#4b5567"></div><div class="term">시험범위 작품 갈래 총정리</div><div class="badge" style="background:#4b5567">갈래·형식</div></div>
+    <div style="padding:14px 16px 16px">
+      <table class="table">
+        <tr><th>작품</th><th>갈래</th><th>핵심 형식 특징</th><th>주요 시점·구조</th></tr>
+        <tr><td>첫사랑</td><td>현대 자유시 · 서정시</td><td>음성상징어 반복, 내재율, 의인법, 역설법</td><td>겨울→봄의 시간 흐름 / 수미상관 아님</td></tr>
+        <tr><td>보리타작</td><td>한시(번역시) · 서정시</td><td>시각·청각 이미지, 설의법, 자기 성찰</td><td>선경후정 / 관찰자 시선</td></tr>
+        <tr><td>선운사에서</td><td>현대 자유시 · 서정시</td><td>반복, 대조, 절제된 진술</td><td>변형 수미상관 구조</td></tr>
+        <tr><td>향수</td><td>현대 자유시 · 서정시</td><td>후렴구, 각운법, 공감각, 내재율, 고유어</td><td>각 연 말미 ‘~곳’ + 후렴구</td></tr>
+        <tr><td>장마</td><td>중편 소설</td><td>사투리, 무속적 요소, 상징(구렁이)</td><td>1인칭 관찰자 시점 + 이중 시점</td></tr>
+        <tr><td>봉산탈춤</td><td>민속 가면극 · 탈춤</td><td>재담, 파자, 언어유희, 풍자</td><td>옴니버스 7과장 구조</td></tr>
+      </table>
+    </div>
+    <div class="warn">주의: <b>「장마」는 단편이 아니라 중편 소설</b>이고, <b>「봉산탈춤」은 민속 가면극·탈춤</b>이다. 「향수」의 반복은 수미상관이 아니라 <b>후렴구</b>라는 점도 함께 기억할 것.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:#555"></div><div class="term">연계·프린트 작품 갈래 정리</div><div class="badge" style="background:#555">연계</div></div>
+    <div style="padding:14px 16px 16px">
+      <table class="table">
+        <tr><th>작품</th><th>갈래</th><th>핵심 개념</th></tr>
+        <tr><td>낙화</td><td>현대 자유시</td><td>역설법(‘결별이 이룩하는 축복’), 설의법, 자연물(낙화)로 이별 형상화</td></tr>
+        <tr><td>먼 후일</td><td>현대 자유시</td><td>반어법, 반동 형성, 반복·변주 구조</td></tr>
+        <tr><td>유리창 1</td><td>현대 자유시</td><td>객관적 상관물(유리창), 상실의 정서</td></tr>
+        <tr><td>성 느티나무</td><td>현대 자유시</td><td>의인법, 객관적 상관물, 상처→성숙</td></tr>
+        <tr><td>겨울-나무로부터 봄-나무에로</td><td>현대 자유시</td><td>역설법, 의인법, 고통→개화 구조</td></tr>
+        <tr><td>농가</td><td>연시조</td><td>외형률(정형률), 농민 화자, 농촌 일과의 시간 전개</td></tr>
+        <tr><td>탐진촌요 · 애절양</td><td>한시</td><td>사회 현실 고발, 사실주의 경향</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="section-title">8. 봉산탈춤 관련 개념</div>
+  <div class="section-sub">제6과장 양반춤마당은 재담 구조와 파자, 그리고 풍자의 작동 방식을 함께 기억해야 틈이 없다.</div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:#b53a2d"></div><div class="term">재담(才談) 구조</div><div class="badge" style="background:#b53a2d">민속극 핵심</div></div>
+    <div class="grid">
+      <div class="cell"><div class="label">재담이란</div><div class="content">인물 사이에 오가는 <b>익살스럽고 풍자적인 말 주고받기</b>. 봉산탈춤 제6과장에서는 말뚝이와 양반의 대화가 대표적이며, 웃음을 통해 신분 질서를 비튼다.</div></div>
+      <div class="cell"><div class="label">재담 5단계</div><div class="content">① <b>양반 등장</b> — 위엄 과시<br>② <b>말뚝이 조롱</b> — 파자·언어유희 사용<br>③ <b>양반 호령</b> — 분노와 권위 드러냄<br>④ <b>말뚝이 변명</b> — 오해인 척 둘러댐<br>⑤ <b>양반 안심</b> — 조롱을 눈치채지 못함</div></div>
+      <div class="cell"><div class="label">효과와 의의</div><div class="content"><div class="ex"><strong>풍자와 웃음의 극대화</strong> 반복될수록 조롱이 누적되고, 양반의 허위의식이 더 선명하게 드러난다.</div><div class="ex"><strong>서민의 대리 만족</strong> 말뚝이의 언어유희는 직접 반항 대신 웃음으로 권위를 무너뜨린다.</div><div class="ex"><strong>한계</strong> 조롱이 변명으로 무마되므로 체제를 실제로 뒤엎지는 못한다.</div></div></div>
+    </div>
+    <div class="warn">주의: 양반이 말뚝이의 변명을 받아들이는 것은 관용이 아니라, <b>조롱의 의도를 파악하지 못하는 어리석음</b>을 드러낸다.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:#8b5a2b"></div><div class="term">파자 · 언어유희 · 옴니버스</div><div class="badge" style="background:#8b5a2b">추가 개념</div></div>
+    <div class="grid">
+      <div class="cell"><div class="label">파자(破字)</div><div class="content">글자를 쪼개거나 엉뚱하게 결합하여 뜻을 비트는 언어유희. 예를 들어, <span class="hl">‘양반’</span>을 <span class="hl">‘개잘량의 양(양)자 + 개다리소반의 반(반)자’</span> 식으로 설명해 양반의 권위를 말장난으로 깎아내린다.</div></div>
+      <div class="cell"><div class="label">언어유희의 효과</div><div class="content">고급 한자어·관직어의 권위를 무너뜨리고, 양반의 품격을 말 자체에서 해체한다. <b>풍자, 해학, 조롱</b>이 동시에 발생한다.</div></div>
+      <div class="cell"><div class="label">옴니버스 구조</div><div class="content">봉산탈춤은 <b>7과장</b>으로 이루어져 있으나, 각 과장이 하나의 큰 줄거리로 촘촘히 이어지는 것이 아니라 <b>비교적 독립적인 마당들</b>이 느슨하게 연결되는 방식이다. 그래서 ‘옴니버스 구조’로 이해한다.</div></div>
+    </div>
+  </div>
+
+  <div class="section-title">9. 문학의 가치</div>
+  <div class="section-sub">교과서 1단원 핵심 개념이다. 작품이 무엇을 ‘아름답게’ 보여 주는지, 무엇을 ‘새롭게 이해’하게 하는지, 어떤 ‘삶의 태도’를 생각하게 하는지로 연결하면 안정적이다.</div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:#6d4c41"></div><div class="term">문학의 미적 가치 · 인식적 가치 · 윤리적 가치</div><div class="badge" style="background:#6d4c41">문학 가치</div></div>
+    <div style="padding:14px 16px 16px">
+      <table class="table">
+        <tr><th>개념어</th><th>의미</th><th>대표 작품</th><th>근거</th></tr>
+        <tr><td>미적 가치</td><td>아름다운 표현과 정서적 감동을 통해 삶을 정서적으로 고양하는 가치</td><td>첫사랑, 향수, 선운사에서</td><td>음성상징어, 비유, 공감각, 후렴구, 대조 등으로 미적 쾌감과 서정성을 형성</td></tr>
+        <tr><td>인식적 가치</td><td>인간과 세계를 새롭게 이해하고 성찰하게 하는 가치</td><td>보리타작</td><td>농민의 노동을 통해 화자가 삶의 본질과 자기 삶을 새롭게 인식함</td></tr>
+        <tr><td>윤리적 가치</td><td>삶의 태도와 공동체적 의미를 돌아보게 하는 가치</td><td>장마, 봉산탈춤</td><td>이념 대립을 넘어서는 인간적 화해, 양반 허위의식 비판을 통해 공동체적 성찰 유도</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><div class="bar" style="background:#2d6a9f"></div><div class="term">작품별 문학 가치 연결</div><div class="badge" style="background:#2d6a9f">확장 정리</div></div>
+    <div class="grid">
+      <div class="cell"><div class="label">미적 가치 중심</div><div class="content"><div class="ex"><strong>첫사랑</strong> 음성상징어와 비유가 결합해 사랑의 정서를 감각적으로 형상화한다.</div><div class="ex"><strong>향수</strong> 고유어, 공감각, 후렴구가 어우러져 고향의 정서를 아름답게 환기한다.</div><div class="ex"><strong>선운사에서</strong> 간결한 반복과 대조를 통해 이별의 정서를 절제된 아름다움으로 드러낸다.</div></div></div>
+      <div class="cell"><div class="label">인식적 가치 중심</div><div class="content"><div class="ex"><strong>보리타작</strong> 농민들의 노동에서 즐거움과 자유를 발견하며, 화자 자신이 추구해 온 삶을 성찰하게 만든다.</div><div class="ex"><strong>겨울-나무로부터 봄-나무에로</strong> 고통이 성숙과 개화로 이어진다는 인식을 제공한다.</div></div></div>
+      <div class="cell"><div class="label">윤리적 가치 중심</div><div class="content"><div class="ex"><strong>장마</strong> 분단 현실 속 이념 갈등보다 인간의 정과 화해가 더 중요함을 생각하게 한다.</div><div class="ex"><strong>봉산탈춤</strong> 양반의 허위의식을 비판하며 공동체 안의 불평등과 모순을 돌아보게 한다.</div></div></div>
+    </div>
+    <div class="warn">주의: 한 작품은 한 가지 가치만 지니는 것이 아니라 여러 가치를 함께 지닌다. 다만 <b>무엇이 중심적으로 두드러지는지</b>를 묻는 문제가 출제된다.</div>
+  </div>
+
+<footer>문학 개념어 설명 자체를 보강한 무탭 연속형 HTML</footer>
+</body>
+</html>
