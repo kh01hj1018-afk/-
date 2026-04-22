@@ -1,213 +1,207 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>청원고 '문학' 중간고사 대비</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>청원고 중간고사 대비</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --border: #e5eaf2;
+      --text: #111827;
+      --muted: #6b7280;
+      --primary: #1f3a8a;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
 
-<style>
-:root {
-  --bg: #f5f7fb;
-  --surface: #ffffff;
-  --border: #e5eaf2;
-  --text: #111827;
-  --muted: #6b7280;
-  --primary: #1f3a8a;
-}
+    body {
+      margin: 0;
+      font-family: "Pretendard", "Noto Sans KR", -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
 
-body {
-  margin: 0;
-  font-family: "Pretendard", "Noto Sans KR";
-  background: var(--bg);
-}
+    .wrap {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
-.wrap {
-  max-width: 1100px;
-  margin: auto;
-  padding: 40px 20px;
-}
+    .hero h1 {
+      font-size: 46px;
+      font-weight: 800;
+      margin: 0;
+    }
 
-/* 제목 */
-.hero h1 {
-  font-size: 42px;
-  font-weight: 800;
-}
+    .hero h1 .accent {
+      color: var(--primary);
+    }
 
-.hero h1 .accent {
-  color: var(--primary);
-}
+    .hero-subtitle {
+      margin-top: 10px;
+      font-size: 20px;
+      color: var(--muted);
+    }
 
-/* 섹션 */
-.section {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 24px;
-  margin-top: 20px;
-}
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      margin-top: 20px;
+      box-shadow: var(--shadow);
+    }
 
-/* 타이틀 */
-.section-title {
-  font-size: 26px;
-  font-weight: 800;
-}
+    .section-title {
+      font-size: 26px;
+      font-weight: 800;
+    }
 
-.section-sub {
-  font-size: 14px;
-  color: var(--muted);
-  margin-top: 6px;
-}
+    .section-sub {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
 
-/* 카드 */
-.card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  margin-top: 10px;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.2s;
-}
+    .grid {
+      display: grid;
+      gap: 12px;
+    }
 
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-}
+    .grid-2 {
+      grid-template-columns: 1fr 1fr;
+    }
 
-/* 아이콘 */
-.icon-box {
-  font-size: 18px;
-  margin-right: 10px;
-}
+    .grid-3 {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
 
-/* grid */
-.grid {
-  display: grid;
-  gap: 10px;
-}
+    .card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: 0.2s;
+    }
 
-.grid-2 {
-  grid-template-columns: 1fr 1fr;
-}
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
 
-/* 핵심 아이콘 영역 */
-.concept-icons {
-  display: flex;
-  gap: 12px;
-  margin-top: 12px;
-}
+    /* 🔥 여기만 추가된 아이콘 스타일 */
+    .concept-icons {
+      display: flex;
+      gap: 12px;
+      margin: 14px 0;
+    }
 
-.concept-item {
-  flex: 1;
-  background: #f8fafc;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 12px;
-  text-align: center;
-}
+    .concept-item {
+      flex: 1;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      text-align: center;
+    }
 
-.concept-icon {
-  font-size: 20px;
-}
+    .concept-icon {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
 
-.concept-text {
-  font-size: 13px;
-  margin-top: 4px;
-  color: var(--muted);
-}
-</style>
+    .concept-text {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    @media (max-width: 720px) {
+      .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .concept-icons {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <div class="wrap">
 
-<!-- 제목 -->
 <div class="hero">
-<h1>청원고 <span class="accent">중간고사 대비</span></h1>
-<div class="section-sub">2학년 1학기 문학 시험범위</div>
+  <h1>청원고 <span class="accent">중간고사 대비</span></h1>
+  <div class="hero-subtitle">2학년 1학기 문학 시험범위</div>
 </div>
 
 <!-- PDF -->
 <div class="section">
-<div class="section-title">기본 자료</div>
-<div class="section-sub">교과서 및 학습지 PDF</div>
+  <div class="section-title">기본 자료</div>
+  <div class="section-sub">교과서 및 학습지 PDF</div>
 
-<div class="grid">
-<a class="card" href="textbook_1st.pdf.pdf">
-<span>📄 교과서 1단원</span>›
-</a>
-
-<a class="card" href="textbook_2nd.pdf.pdf">
-<span>📄 교과서 2단원</span>›
-</a>
-
-<a class="card" href="addfile_cw.pdf">
-<span>📎 추가 학습지</span>›
-</a>
-</div>
+  <div class="grid grid-3">
+    <a class="card" href="textbook_1st.pdf.pdf">📄 교과서 1단원 ›</a>
+    <a class="card" href="textbook_2nd.pdf.pdf">📄 교과서 2단원 ›</a>
+    <a class="card" href="addfile_cw.pdf">📎 추가 학습지 ›</a>
+  </div>
 </div>
 
 <!-- 핵심 -->
 <div class="section">
-<div class="section-title">핵심 문학개념 자료</div>
-<div class="section-sub">시험범위 기준 핵심 정리</div>
+  <div class="section-title">핵심 문학개념 자료</div>
+  <div class="section-sub">시험범위 기준 핵심 정리</div>
 
-<!-- 🔥 여기 추가된 아이콘 영역 -->
-<div class="concept-icons">
-  <div class="concept-item">
-    <div class="concept-icon">📘</div>
-    <div class="concept-text">개념 정리</div>
+  <!-- 🔥 여기만 추가 -->
+  <div class="concept-icons">
+    <div class="concept-item">
+      <div class="concept-icon">📘</div>
+      <div class="concept-text">개념 정리</div>
+    </div>
+    <div class="concept-item">
+      <div class="concept-icon">✍️</div>
+      <div class="concept-text">테스트</div>
+    </div>
+    <div class="concept-item">
+      <div class="concept-icon">🎯</div>
+      <div class="concept-text">시험 대비</div>
+    </div>
   </div>
 
-  <div class="concept-item">
-    <div class="concept-icon">✍️</div>
-    <div class="concept-text">테스트</div>
+  <div class="grid grid-2">
+    <a class="card" href="cw_korean_definition.html">📘 문학개념 정리 자료 ›</a>
+    <a class="card" href="cw_korean_definition_Q.html">✍️ 개념어 테스트 25문제 ›</a>
   </div>
-
-  <div class="concept-item">
-    <div class="concept-icon">🎯</div>
-    <div class="concept-text">시험 대비</div>
-  </div>
-</div>
-
-<div class="grid grid-2">
-
-<a class="card" href="cw_korean_definition.html">
-<span>📘 문학개념 정리 자료</span>›
-</a>
-
-<a class="card" href="cw_korean_definition_Q.html">
-<span>✍️ 개념어 테스트 25문제</span>›
-</a>
-
-</div>
 </div>
 
 <!-- OX -->
 <div class="section">
-<div class="section-title">OX 퀴즈</div>
+  <div class="section-title">OX 퀴즈</div>
 
-<div class="grid grid-2">
-<a class="card" href="ox1.html">OX 1차 ›</a>
-<a class="card" href="ox2.html">OX 2차 ›</a>
-<a class="card" href="ox3.html">OX 3차 ›</a>
-</div>
+  <div class="grid grid-2">
+    <a class="card" href="ox1.html">OX 1차 ›</a>
+    <a class="card" href="ox2.html">OX 2차 ›</a>
+    <a class="card" href="ox3.html">OX 3차 ›</a>
+  </div>
 </div>
 
 <!-- 예상기출 -->
 <div class="section">
-<div class="section-title">예상기출</div>
+  <div class="section-title">예상기출</div>
 
-<div class="grid grid-2">
-<a class="card" href="cw1.html">1차 ›</a>
-<a class="card" href="cw2.html">2차 ›</a>
-<a class="card" href="cw3.html">3차 ›</a>
-<a class="card" href="cw4.html">4차 ›</a>
-</div>
+  <div class="grid grid-2">
+    <a class="card" href="cw1.html">1차 ›</a>
+    <a class="card" href="cw2.html">2차 ›</a>
+    <a class="card" href="cw3.html">3차 ›</a>
+    <a class="card" href="cw4.html">4차 ›</a>
+  </div>
 </div>
 
 </div>
