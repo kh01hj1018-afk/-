@@ -3,208 +3,117 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>청원고 중간고사 대비</title>
+  <title>청원고 '문학' 중간고사 대비</title>
   <style>
     :root {
       --bg: #f5f7fb;
       --surface: #ffffff;
+      --surface-soft: #f8fafc;
       --border: #e5eaf2;
       --text: #111827;
       --muted: #6b7280;
       --primary: #1f3a8a;
+      --primary-soft: #eef3ff;
+      --concept-soft: #f8f9fc;
+      --quiz-soft: #f7faf8;
+      --exam-soft: #f8f8fb;
       --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      font-family: "Pretendard", "Noto Sans KR", -apple-system, sans-serif;
+      font-family: "Pretendard", "Noto Sans KR", sans-serif;
       background: var(--bg);
       color: var(--text);
     }
 
     .wrap {
-      max-width: 1100px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    .hero h1 {
-      font-size: 46px;
-      font-weight: 800;
-      margin: 0;
-    }
-
-    .hero h1 .accent {
-      color: var(--primary);
-    }
-
-    .hero-subtitle {
-      margin-top: 10px;
-      font-size: 20px;
-      color: var(--muted);
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 44px 24px 60px;
     }
 
     .section {
-      background: var(--surface);
+      background: rgba(255, 255, 255, 0.9);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 24px;
-      margin-top: 20px;
       box-shadow: var(--shadow);
+      border-radius: 26px;
+      padding: 28px;
+      margin-top: 18px;
     }
 
     .section-title {
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 800;
     }
 
     .section-sub {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--muted);
-      margin-top: 6px;
     }
 
     .grid {
       display: grid;
-      gap: 12px;
+      gap: 14px;
     }
 
     .grid-2 {
       grid-template-columns: 1fr 1fr;
     }
 
-    .grid-3 {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-
     .card {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       padding: 16px;
       border-radius: 14px;
       border: 1px solid var(--border);
       text-decoration: none;
       color: inherit;
-      transition: 0.2s;
     }
 
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-    }
-
-    /* 🔥 여기만 추가된 아이콘 스타일 */
-    .concept-icons {
-      display: flex;
-      gap: 12px;
-      margin: 14px 0;
-    }
-
-    .concept-item {
-      flex: 1;
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px;
-      text-align: center;
-    }
-
-    .concept-icon {
-      font-size: 20px;
-      margin-bottom: 6px;
-    }
-
-    .concept-text {
-      font-size: 13px;
-      color: var(--muted);
-      font-weight: 600;
-    }
-
-    @media (max-width: 720px) {
-      .grid-2, .grid-3 {
-        grid-template-columns: 1fr;
-      }
-
-      .concept-icons {
-        flex-direction: column;
-      }
+    /* 🔥 중요표시 */
+    .ribbon {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: #ef4444;
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 6px;
     }
   </style>
 </head>
 
 <body>
+  <div class="wrap">
 
-<div class="wrap">
+    <!-- 핵심 문학개념 -->
+    <section class="section" style="position: relative;">
+      <div class="ribbon">★ 필수</div>
 
-<div class="hero">
-  <h1>청원고 <span class="accent">중간고사 대비</span></h1>
-  <div class="hero-subtitle">2학년 1학기 문학 시험범위</div>
-</div>
+      <div class="section-title">핵심 문학개념 자료</div>
+      <div class="section-sub">시험범위 기준 핵심 정리</div>
 
-<!-- PDF -->
-<div class="section">
-  <div class="section-title">기본 자료</div>
-  <div class="section-sub">교과서 및 학습지 PDF</div>
+      <div class="grid grid-2">
+        <a class="card" href="cw_korean_definition.html">
+          문학개념 정리 자료 ›
+        </a>
 
-  <div class="grid grid-3">
-    <a class="card" href="textbook_1st.pdf.pdf">📄 교과서 1단원 ›</a>
-    <a class="card" href="textbook_2nd.pdf.pdf">📄 교과서 2단원 ›</a>
-    <a class="card" href="addfile_cw.pdf">📎 추가 학습지 ›</a>
+        <a class="card" href="cw_korean_definition_Q.html">
+          개념어 테스트 25문제 ›
+        </a>
+      </div>
+    </section>
+
   </div>
-</div>
-
-<!-- 핵심 -->
-<div class="section">
-  <div class="section-title">핵심 문학개념 자료</div>
-  <div class="section-sub">시험범위 기준 핵심 정리</div>
-
-  <!-- 🔥 여기만 추가 -->
-  <div class="concept-icons">
-    <div class="concept-item">
-      <div class="concept-icon">📘</div>
-      <div class="concept-text">개념 정리</div>
-    </div>
-    <div class="concept-item">
-      <div class="concept-icon">✍️</div>
-      <div class="concept-text">테스트</div>
-    </div>
-    <div class="concept-item">
-      <div class="concept-icon">🎯</div>
-      <div class="concept-text">시험 대비</div>
-    </div>
-  </div>
-
-  <div class="grid grid-2">
-    <a class="card" href="cw_korean_definition.html">📘 문학개념 정리 자료 ›</a>
-    <a class="card" href="cw_korean_definition_Q.html">✍️ 개념어 테스트 25문제 ›</a>
-  </div>
-</div>
-
-<!-- OX -->
-<div class="section">
-  <div class="section-title">OX 퀴즈</div>
-
-  <div class="grid grid-2">
-    <a class="card" href="ox1.html">OX 1차 ›</a>
-    <a class="card" href="ox2.html">OX 2차 ›</a>
-    <a class="card" href="ox3.html">OX 3차 ›</a>
-  </div>
-</div>
-
-<!-- 예상기출 -->
-<div class="section">
-  <div class="section-title">예상기출</div>
-
-  <div class="grid grid-2">
-    <a class="card" href="cw1.html">1차 ›</a>
-    <a class="card" href="cw2.html">2차 ›</a>
-    <a class="card" href="cw3.html">3차 ›</a>
-    <a class="card" href="cw4.html">4차 ›</a>
-  </div>
-</div>
-
-</div>
-
 </body>
 </html>
