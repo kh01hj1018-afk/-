@@ -1,37 +1,157 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>청원고 중간고사 대비</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>청원고 중간고사 대비</title>
+
+<style>
+body {
+  margin:0;
+  font-family: -apple-system, "Noto Sans KR";
+  background: linear-gradient(#f4f7ff, #eef4ff);
+}
+
+.wrap {
+  max-width: 900px;
+  margin:auto;
+  padding:20px;
+}
+
+/* 제목 */
+.hero h1 {
+  font-size:50px;
+  margin:0;
+}
+
+.hero .subtitle {
+  font-size:26px;
+  font-weight:bold;
+  color:#3b5bcc;
+}
+
+.section {
+  background:white;
+  padding:20px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* 카드 */
+.link-card {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px;
+  border-radius:15px;
+  margin-top:10px;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:22px;
+}
+
+/* 색상별 */
+.pdf {background:#eef4ff;}
+.concept {background:#fff7f8;}
+.quiz {background:#eefbf2;}
+.exam {background:#f5f0ff;}
+
+.link-card:hover {
+  transform:scale(1.02);
+}
+
+/* 아이콘 */
+.icon {
+  font-size:26px;
+  margin-right:10px;
+}
+
+.row {
+  display:grid;
+  gap:10px;
+}
+
+@media(min-width:768px){
+  .row.two {grid-template-columns:1fr 1fr;}
+  .row.three {grid-template-columns:1fr 1fr 1fr;}
+}
+</style>
+
 </head>
+
 <body>
 
-  <h1>📚 청원고 중간고사 대비 사이트 - 2학년 1학기 중간고사</h1>
+<div class="wrap">
 
-  <p> ======= [고2-문학] 원하는 자료를 선택하세요. =======</p>
-  <h2>자료</h2>
-  <ul>
-    <li><a href="textbook_1st.pdf.pdf" target="_blank">📄 교과서 1단원 PDF 파일</a></li>
-    <li><a href="textbook_2nd.pdf.pdf" target="_blank">📄 교과서 2단원 PDF 파일</a></li>
-    <li><a href="addfile_cw.pdf.pdf" target="_blank">📎 추가시험범위-학습지(필수공부필요)</a></li>
-  </ul>
+<div class="hero">
+<h1>📚 청원고 중간고사 대비</h1>
+<div class="subtitle">2학년 1학기 문학 시험범위</div>
+</div>
 
-  <h1>가장 중요한 문학개념어 파일(교과서 및 학습지의 시험범위 기준 정리 완료)</h1>
-  <h2>★★★ 문학개념어 기준 시험범위 문학 작품 분석 자료 ★★★</h2>
-  <ul>
-    <li><a href="cw_korean_definition.html">필수 ☞ 문학개념에 기준 작품 분석/요약/정리 자료</a></li>
-  
-  <h2>📝 OX 퀴즈 - 시험범위 개념 완벽 확인하기</h2>
-  <ul>
-    <li><a href="ox1.html">OX퀴즈 1차</a></li>
-    <li><a href="ox2.html">OX퀴즈 2차</a></li>
-  </ul>
+<!-- PDF -->
+<div class="section">
+<h2>📖 기본 자료</h2>
+<div class="row three">
 
-  <h2>📖 객관식 및 서답형 - (교과서 및 학습지 자료)시험범위 중심(+연계작품)</h2>
-  <ul>
-    <li><a href="cw1.html">예상기출 1차</a></li>
-    <li><a href="cw2.html">예상기출 2차</a></li>
-  </ul>
+<a class="link-card pdf" href="textbook_1st.pdf.pdf">
+<span><span class="icon">📄</span>교과서 1단원</span>›
+</a>
+
+<a class="link-card pdf" href="textbook_2nd.pdf.pdf">
+<span><span class="icon">📄</span>교과서 2단원</span>›
+</a>
+
+<a class="link-card pdf" href="addfile_cw.pdf">
+<span><span class="icon">📎</span>추가 학습지</span>›
+</a>
+
+</div>
+</div>
+
+<!-- 핵심 -->
+<div class="section concept">
+<h2>⭐ 가장 중요한 문학개념</h2>
+
+<div class="row two">
+
+<a class="link-card concept" href="cw_korean_definition.html">
+<span><span class="icon">📖</span>문학개념 정리 자료</span>›
+</a>
+
+<a class="link-card concept" href="cw_korean_definition_Q.html">
+<span><span class="icon">📝</span>문학 개념어 테스트 25문제</span>›
+</a>
+
+</div>
+</div>
+
+<!-- OX -->
+<div class="section">
+<h2>📝 OX 퀴즈</h2>
+<div class="row two">
+
+<a class="link-card quiz" href="ox1.html">OX 1차 ›</a>
+<a class="link-card quiz" href="ox2.html">OX 2차 ›</a>
+<a class="link-card quiz" href="ox3.html">🔥 OX 3차 ›</a>
+
+</div>
+</div>
+
+<!-- 예상기출 -->
+<div class="section">
+<h2>📊 예상기출</h2>
+<div class="row two">
+
+<a class="link-card exam" href="cw1.html">1차 ›</a>
+<a class="link-card exam" href="cw2.html">2차 ›</a>
+<a class="link-card exam" href="cw3.html">🔥 3차 ›</a>
+<a class="link-card exam" href="cw4.html">🏁 4차 ›</a>
+
+</div>
+</div>
+
+</div>
 
 </body>
 </html>
