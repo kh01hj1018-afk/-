@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>청원고 문학 모의고사 3세트</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+:root{--navy:#1a2744;--gold:#c8a84b;--lgold:#f5e9b8;--cream:#faf8f3;--gray:#6b7280;--lgray:#f3f4f6;--bdr:#d1d5db;--ok:#16a34a;--no:#dc2626;--blue:#2563eb;--purple:#7c3aed;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:#1f2937;line-height:1.85;font-size:14px;}
+/* HEADER */
+.hdr{background:var(--navy);color:#fff;padding:22px 36px 16px;border-bottom:4px solid var(--gold);}
+.school{font-size:10px;letter-spacing:3px;color:var(--gold);margin-bottom:4px;}
+.htitle{font-family:'Noto Serif KR',serif;font-size:19px;font-weight:700;margin-bottom:12px;}
+.hinfo{display:flex;gap:8px;flex-wrap:wrap;}
+.hbadge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:5px;padding:3px 11px;font-size:11px;color:#e5e7eb;}
+.hbadge b{color:var(--lgold);}
+/* PANEL */
+.spanel{background:#fff;border:2px solid var(--navy);border-radius:10px;margin:16px 36px;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;box-shadow:0 2px 8px rgba(0,0,0,.07);}
+.snum{font-size:36px;font-weight:700;color:var(--navy);font-family:'Noto Serif KR',serif;}
+.sdetail{display:flex;gap:16px;}
+.di{text-align:center;}
+.dn{font-size:18px;font-weight:700;}
+.dn.ok{color:var(--ok);}
+.dn.no{color:var(--no);}
+.dn.bl{color:#f59e0b;}
+.dlbl{font-size:11px;color:var(--gray);}
+.btns{display:flex;gap:7px;flex-wrap:wrap;}
+.gbtn{background:var(--navy);color:#fff;border:none;border-radius:7px;padding:10px 22px;font-size:13px;font-family:'Noto Sans KR',sans-serif;font-weight:600;cursor:pointer;transition:.2s;}
+.gbtn:hover{background:#2d3f6b;}
+.rbtn{background:#fff;color:var(--navy);border:2px solid var(--navy);border-radius:7px;padding:8px 15px;font-size:12px;font-family:'Noto Sans KR',sans-serif;font-weight:600;cursor:pointer;}
+/* NOTICE */
+.notice{margin:0 36px 14px;padding:10px 16px;background:#eff6ff;border-left:4px solid var(--blue);border-radius:4px;font-size:12px;color:#1e40af;line-height:1.7;}
+/* SECTION */
+.sec{margin:0 36px 24px;background:#fff;border-radius:10px;border:1px solid var(--bdr);overflow:hidden;box-shadow:0 1px 5px rgba(0,0,0,.04);}
+.sechdr{background:var(--navy);color:#fff;padding:10px 20px;font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.secbadge{background:var(--gold);color:var(--navy);border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700;}
+.secbadge.purple{background:#ddd6fe;color:var(--purple);}
+.secbadge.green{background:#d1fae5;color:#065f46;}
+/* PASSAGE */
+.pwrap{padding:14px 20px 10px;}
+.plabel{font-size:11px;font-weight:700;color:var(--navy);margin-bottom:5px;letter-spacing:.4px;}
+.passage{background:#f8f9fa;border:1px solid #e5e7eb;border-radius:7px;padding:16px 18px;font-family:'Noto Serif KR',serif;font-size:13.5px;line-height:2.15;white-space:pre-line;}
+.passage.prose{font-family:'Noto Sans KR',sans-serif;font-size:13px;line-height:2;}
+.src{text-align:right;font-size:12px;color:var(--gray);margin-top:6px;font-style:italic;}
+.ptwo{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.pthree{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+@media(max-width:760px){.ptwo,.pthree{grid-template-columns:1fr;}}
+/* QUESTION */
+.qblock{padding:16px 20px;border-bottom:1px solid #f0f0f0;}
+.qblock:last-child{border-bottom:none;}
+.qrow{display:flex;align-items:flex-start;gap:9px;margin-bottom:10px;}
+.qn{background:var(--navy);color:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:2px;}
+.qn.purple{background:var(--purple);}
+.qt{font-size:13.5px;line-height:1.9;font-weight:500;flex:1;}
+.qs{font-size:11px;color:var(--gray);background:var(--lgray);border-radius:4px;padding:2px 7px;flex-shrink:0;margin-top:3px;}
+/* BOGI */
+.bogi{margin:8px 0 10px;background:#f0f4ff;border:1px solid #c7d2fe;border-radius:7px;padding:12px 16px;font-size:13px;line-height:1.95;}
+.bogit{font-weight:700;color:#3730a3;margin-bottom:5px;font-size:11.5px;}
+.bogi.amber{background:#fffbeb;border-color:#fcd34d;}
+.bogi.amber .bogit{color:#92400e;}
+.bogi.green{background:#f0fdf4;border-color:#86efac;}
+.bogi.green .bogit{color:#065f46;}
+/* OPTIONS */
+.opts{display:flex;flex-direction:column;gap:7px;margin-top:10px;}
+.opt{display:flex;align-items:flex-start;gap:9px;padding:9px 13px;border:1.5px solid var(--bdr);border-radius:7px;cursor:pointer;transition:.15s;font-size:13.5px;line-height:1.8;}
+.opt:hover{border-color:var(--navy);background:#f8faff;}
+.opt.sel{border-color:var(--blue);background:#eff6ff;}
+.opt.cor{border-color:var(--ok);background:#f0fdf4;}
+.opt.wrg{border-color:var(--no);background:#fef2f2;}
+.onum{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--bdr);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;transition:.15s;}
+.opt.sel .onum{background:var(--blue);color:#fff;border-color:var(--blue);}
+.opt.cor .onum{background:var(--ok);color:#fff;border-color:var(--ok);}
+.opt.wrg .onum{background:var(--no);color:#fff;border-color:var(--no);}
+/* FEEDBACK */
+.fb{display:none;margin-top:10px;padding:11px 14px;border-radius:7px;font-size:13px;line-height:1.9;}
+.fb.show{display:block;}
+.fb.ok{background:#f0fdf4;border-left:3px solid var(--ok);color:#166534;}
+.fb.no{background:#fef2f2;border-left:3px solid var(--no);color:#991b1b;}
+/* ESSAY */
+.essay-wrap{margin-top:10px;}
+.elbl{font-size:12px;color:var(--gray);margin-bottom:5px;}
+.etarea{width:100%;min-height:85px;border:1.5px solid var(--bdr);border-radius:7px;padding:10px 13px;font-size:13.5px;font-family:'Noto Sans KR',sans-serif;line-height:1.8;resize:vertical;}
+.etarea:focus{outline:none;border-color:var(--navy);}
+.model{display:none;margin-top:10px;padding:13px 16px;background:#fffbeb;border:1px solid #fcd34d;border-left:4px solid var(--gold);border-radius:7px;font-size:13px;line-height:1.95;}
+.model.show{display:block;}
+.modelt{font-weight:700;color:#92400e;margin-bottom:7px;font-size:12px;}
+/* GRADE BAR */
+.grade-bar{height:3px;background:#e5e7eb;margin:0 36px 2px;border-radius:2px;overflow:hidden;}
+.grade-fill{height:100%;background:linear-gradient(90deg,var(--navy),var(--gold));transition:width .4s;}
+/* TIPS */
+.tip-box{background:#fff7ed;border:1px solid #fed7aa;border-radius:6px;padding:8px 13px;margin:8px 0;font-size:12px;color:#9a3412;line-height:1.7;}
+/* COND */
+.cond{background:#f8f9fa;border-radius:7px;padding:11px 15px;margin:9px 0;font-size:13px;line-height:1.9;}
+/* CONCEPT BADGE */
+.concept-tag{display:inline-block;background:#ddd6fe;color:var(--purple);border-radius:4px;padding:1px 7px;font-size:11px;font-weight:700;margin-right:5px;}
+.suneung-tag{display:inline-block;background:#dcfce7;color:#065f46;border-radius:4px;padding:1px 7px;font-size:11px;font-weight:700;margin-right:5px;}
+@media(max-width:640px){
+  .hdr,.spanel,.sec,.notice,.grade-bar{margin-left:10px;margin-right:10px;}
+  .hdr{padding:16px 12px;}
+  .spanel,.qblock{padding:12px;}
+}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="school">CHEONGWON HIGH SCHOOL · 청원고등학교 · 3개년 기출 완전 분석</div>
+  <div class="htitle">2026학년도 1학기 2학년 중간평가 · 문학 모의고사 【3세트 · 35문항】</div>
+  <div class="hinfo">
+    <div class="hbadge">선택형 <b>30</b>문항 · 서답형 <b>5</b>문항</div>
+    <div class="hbadge">만점 <b>100</b>점</div>
+    <div class="hbadge">교과서+프린트 완전 충실</div>
+    <div class="hbadge">수능특강 방식 포함</div>
+    <div class="hbadge">긴 지문·긴 선지 기출 스타일</div>
+  </div>
+</div>
+
+<div class="grade-bar"><div class="grade-fill" id="gfill"></div></div>
+
+<div class="spanel">
+  <div>
+    <div style="font-size:11px;color:var(--gray);">현재 점수</div>
+    <div style="display:flex;align-items:baseline;gap:5px;">
+      <div class="snum" id="snum">—</div>
+      <div style="font-size:15px;color:var(--gray);">/ 100점</div>
+    </div>
+  </div>
+  <div class="sdetail">
+    <div class="di"><div class="dn ok" id="dn-ok">0</div><div class="dlbl">정답</div></div>
+    <div class="di"><div class="dn no" id="dn-no">0</div><div class="dlbl">오답</div></div>
+    <div class="di"><div class="dn bl" id="dn-bl">0</div><div class="dlbl">미응답</div></div>
+  </div>
+  <div class="btns">
+    <button class="gbtn" onclick="gradeAll()">✓ 채점하기</button>
+    <button class="rbtn" onclick="showModels()">📋 모범답안</button>
+    <button class="rbtn" onclick="resetAll()">↺ 초기화</button>
+  </div>
+</div>
+
+<div class="notice">
+  ※ 3세트는 <b>교과서+프린트 완전 충실</b>, <b>수능특강식 〈보기〉 적용형</b>, <b>긴 지문·긴 선지 청원고 기출 스타일</b>입니다. 선택형 클릭 → 채점하기로 정·오답과 해설 확인
+</div>
+
+<!-- ======== [1~6] 복합: 향수 + 겨울나무 + 그 복숭아나무 ======== -->
+<div class="sec">
+  <div class="sechdr">
+    <span class="secbadge">복합·3지문</span>
+    [1~6] 다음 글을 읽고 물음에 답하시오.
+  </div>
+  <div class="pwrap">
+    <div class="pthree">
+      <div>
+        <div class="plabel">▶ (가) 정지용, 「향수」(전문)</div>
+        <div class="passage">넓은 벌 동쪽 끝으로
+옛이야기 지즐대는 실개천이 회돌아 나가고,
+얼룩배기 황소가
+해설피 금빛 게으른 울음을 우는 곳,
+— 그 곳이 차마 꿈엔들 잊힐 리야.
+
+질화로에 재가 식어지면
+뷔인 밭에 밤바람 소리 말을 달리고,
+엷은 졸음에 겨운 늙으신 아버지가
+짚베개를 돋아 고이시는 곳,
+— 그 곳이 차마 꿈엔들 잊힐 리야.
+
+흙에서 자란 내 마음
+파아란 하늘빛이 그리워
+함부로 쏜 화살을 찾으러
+풀섶 이슬에 함추름 휘적시던 곳,
+— 그 곳이 차마 꿈엔들 잊힐 리야.
+
+전설 바다에 춤추는 밤물결 같은
+검은 귀밑머리 날리는 어린 누이와
+아무렇지도 않고 예쁠 것도 없는
+사철 발 벗은 아내가
+따가운 햇살을 등에 지고 이삭 줍던 곳,
+— 그 곳이 차마 꿈엔들 잊힐 리야.
+
+하늘에는 성근 별
+알 수도 없는 모래성으로 바람이 불고,
+잡풀 더미로 손도 못 대고 떨고 있는
+아이와 같이 나의 어른거리는 마음은
+— 그 곳이 차마 꿈엔들 잊힐 리야.</div>
+      </div>
+      <div>
+        <div class="plabel">▶ (나) 황지우, 「겨울-나무로부터 봄-나무에로」(전문)</div>
+        <div class="passage">나무는 자기 몸으로
+나무이다
+자기 온몸으로 나무는 나무가 된다
+자기 온몸으로 헐벗고 비어
+가지 끝 허공에 苦痛(고통)을 걸어 놓고
+그 苦痛(고통)이 끝내 피어
+꽃이 되는 자리에서
+나무는 자기 온몸으로 나무이다
+
+아, 마침내, 끝끝내
+⊙그 苦痛(고통)이 봄이 되는 것을
+나는 알아서 나는 네가 되고 싶다</div>
+        <div class="src">— 황지우</div>
+      </div>
+      <div>
+        <div class="plabel">▶ (다) 나희덕, 「그 복숭아나무 곁으로」(부분)</div>
+        <div class="passage">복숭아나무 한 그루가
+담 밖으로 가지를 내밀어
+담 안쪽 것들과 담 바깥쪽 것들이
+잠시 뒤섞이는 그늘을 만든다
+
+꽃이 지면 열매가 맺히고
+열매가 지면 또 다시 싹이 트는
+이 나무를 보아라, 이 나무 곁으로
+자주 걸어가 보아라
+
+저 빛나는 상처, 저 단단한 슬픔
+어디에서 왔는지 모르지만
+이 나무의 뿌리처럼 단단하게
+삶에 뿌리내리는 것이 필요하다</div>
+        <div class="src">— 나희덕</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">1</div><div class="qt">(가)~(다)에 대한 설명으로 <b>적절하지 않은 것</b>은? <span style="font-size:11px;color:var(--gray);">[수능특강형]</span></div><div class="qs">[3.2점]</div></div>
+    <div class="opts" data-q="1" data-ans="4">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>(가)는 각 연의 말미에 동일한 후렴구를 반복함으로써 고향에 대한 간절한 그리움의 정서를 음악적으로 강조하고 있으며, 이 반복은 각 연의 시상을 통일감 있게 마무리하는 기능을 동시에 수행한다.</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>(나)는 '나무'라는 단일 소재를 반복적으로 강조하면서 자기 온몸으로 고통을 감내하고 끝내 꽃을 피워내는 과정을 형상화하여, 고통이 아름다움으로 전화(轉化)될 수 있다는 시적 인식을 드러낸다.</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>(다)에서 복숭아나무는 담 안과 밖을 잇는 그늘을 만들며, 꽃-열매-싹으로 이어지는 생명의 순환을 통해 상처와 슬픔을 극복하고 삶에 단단히 뿌리내리는 것의 의미를 형상화한다.</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>(가)는 화자가 고향에 대한 부정적 인식을 극복하고 새로운 삶을 찾아 떠나겠다는 의지를 드러내는 반면, (나)와 (다)는 고통과 상처를 긍정적으로 전환하는 방식을 보여준다.</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>세 작품은 모두 자연물(고향 풍경/나무/복숭아나무)을 활용하여 화자 혹은 시적 대상의 정서와 삶의 태도를 간접적으로 형상화한다는 공통점을 지닌다.</div></div>
+    </div>
+    <div class="fb" id="fb1">
+      <b>정답 ④</b> — (가)의 화자는 고향을 '차마 꿈엔들 잊힐 리야'라고 표현하며 강렬한 그리움을 드러낼 뿐, 고향에 대한 부정적 인식이나 새로운 삶을 찾아 떠나겠다는 의지는 나타나지 않습니다. (가)는 부재하는 고향을 그리워하는 정서가 핵심입니다.
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">2</div><div class="qt">&lt;보기&gt;를 참고하여 (가)를 이해한 내용으로 <b>적절하지 않은 것</b>은?</div><div class="qs">[3.6점]</div></div>
+    <div class="bogi">
+      <div class="bogit">〈보 기〉</div>
+      정지용의 「향수」는 1923년 작가가 유학을 위해 고향을 떠나 객지에서 지내던 시절에 창작된 것으로 알려져 있다. 일제 강점기라는 시대적 맥락 속에서 고향 상실의 경험은 단순한 개인적 그리움을 넘어 민족적 공동체 의식과도 연결될 수 있다. 이 작품은 고향의 다양한 풍경과 인물들을 감각적으로 묘사하면서 독자로 하여금 고향에 대한 보편적 그리움에 공감하게 한다. 특히 시인은 지역어와 고유어를 의도적으로 풍부하게 활용함으로써 고향의 토속적 분위기를 생생하게 재현하고 있다.
+    </div>
+    <div class="opts" data-q="2" data-ans="5">
+      <div class="opt" onclick="sel(this,2)"><div class="onum">①</div><div>'질화로', '짚베개', '이삭 줍던' 등의 고유어와 토속적 어휘는 이 시가 고향의 분위기를 생생하게 재현하려 했다는 〈보기〉의 설명과 부합하며, 독자에게 친숙하고 따뜻한 고향의 이미지를 불러일으키는 기능을 한다.</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>이 시가 1923년 유학 시절에 창작되었다는 〈보기〉의 정보를 고려하면, 화자가 고향을 절절하게 그리워하는 정서는 객지에서의 고독한 삶과 고향에 대한 원초적 그리움이 결합된 것으로 이해할 수 있다.</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>일제 강점기라는 시대적 맥락을 고려하면 이 시에서 '고향'은 단순한 출생지를 넘어 잃어버린 민족적 공동체와 그 정체성에 대한 그리움을 담은 공간으로 확장해 읽을 수 있다.</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>후렴구 '그 곳이 차마 꿈엔들 잊힐 리야'의 반복은 독자에게 고향에 대한 보편적 그리움을 환기시킴으로써 감정적 공감을 유도하며, 이는 〈보기〉에서 설명한 독자와의 공감 형성 방식과 일치한다.</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>'함부로 쏜 화살'은 〈보기〉에서 설명한 고향 상실의 경험과 연결하여 볼 때, 화자가 충동적으로 고향을 떠난 결정을 후회하고 스스로를 자책하는 심리를 직접적으로 드러내는 표현으로 해석해야 한다.</div></div>
+    </div>
+    <div class="fb" id="fb2">
+      <b>정답 ⑤</b> — '함부로 쏜 화살'은 어린 시절 들판에서 화살을 쏘며 놀던 순수한 유년기 체험을 묘사하는 것이지, 고향을 떠난 것에 대한 후회나 자책을 직접 드러내는 표현이 아닙니다. 이는 청원고 기출에서 반복 출제된 핵심 오답 포인트입니다.
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">3</div><div class="qt">(나)의 ⊙에 대한 이해로 <b>가장 적절한 것</b>은?</div><div class="qs">[3.2점]</div></div>
+    <div class="opts" data-q="3" data-ans="3">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>⊙의 '그 苦痛이 봄이 되는 것'은 역설적 표현이 아니라, 겨울이 지나면 봄이 온다는 자연 현상의 단순한 인과 관계를 사실적으로 서술한 것이다.</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>⊙에서 화자는 나무가 고통을 감내하는 것을 안타깝게 바라보며, '나는 네가 되고 싶다'라는 표현을 통해 나무의 고통에서 벗어나 자유로워지고 싶다는 소망을 드러낸다.</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>⊙에서 '그 苦痛이 봄이 되는 것'은 겨울 동안의 고통이 마침내 봄의 개화로 이어진다는 역설적 진실을 담고 있으며, '나는 네가 되고 싶다'는 그러한 고통과 성숙의 과정을 스스로 체현(體現)하겠다는 화자의 지향을 나타낸다.</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>⊙의 '나는 네가 되고 싶다'는 화자가 나무에게 일체감을 느끼며 자연으로 완전히 귀의하겠다는 자연주의적 태도를 드러내는 것으로, 인간 사회에 대한 부정적 시각을 전제로 한다.</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>⊙에서 화자가 '마침내, 끝끝내'라는 부사를 사용한 것은 고통이 봄으로 전환되는 과정이 매우 빠르고 쉽게 이루어짐을 강조하기 위한 표현이다.</div></div>
+    </div>
+    <div class="fb" id="fb3">
+      <b>정답 ③</b> — '고통이 봄이 된다'는 것은 논리적으로 모순처럼 보이지만 깊은 진실(고통→성숙→개화)을 담은 역설적 표현입니다. '나는 네가 되고 싶다'는 그러한 고통을 견디며 성숙하는 과정을 자신도 걷고 싶다는 지향을 나타냅니다. '마침내, 끝끝내'는 오랜 인고(忍苦) 끝에 이루어지는 것을 강조하므로 ⑤는 반대입니다.
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">4</div><div class="qt">(가)~(다)를 묶어 &lt;보기&gt;와 같이 감상 노트를 작성할 때, 빈칸 ⓐ~ⓒ에 들어갈 내용으로 <b>가장 적절한 것</b>은?</div><div class="qs">[3.6점]</div></div>
+    <div class="bogi">
+      <div class="bogit">〈보 기〉 — 감상 노트</div>
+      세 작품은 모두 자연물을 활용하여 인간의 삶과 감정을 형상화한다. (가)는 고향의 자연 풍경을 통해 ( ⓐ )을 드러낸다. (나)는 겨울 나무의 헐벗음과 봄의 개화를 통해 ( ⓑ )의 주제를 전달한다. (다)는 복숭아나무의 생명 순환을 통해 ( ⓒ )의 필요성을 제시한다.
+    </div>
+    <div class="opts" data-q="4" data-ans="2">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>ⓐ: 고향에 대한 부정적 인식과 극복 의지 / ⓑ: 자연의 순환에서 발견한 인간 삶의 무상함 / ⓒ: 상처를 드러내지 않고 내면화하는 절제</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>ⓐ: 부재하는 고향을 결코 잊을 수 없는 간절한 그리움 / ⓑ: 고통을 온몸으로 감내함으로써 피어나는 성숙과 아름다움 / ⓒ: 상처와 슬픔을 안고도 삶에 단단히 뿌리내리는 것</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>ⓐ: 고향을 그리워하면서도 이상적 미래를 향해 나아가려는 이중적 감정 / ⓑ: 고통과 시련을 부정하고 봄의 도래를 기다리는 수동적 태도 / ⓒ: 타인과의 공동체적 유대를 통해 상처를 치유하는 방식</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>ⓐ: 화자가 고향을 이상화하지 않고 현실적 시각으로 바라보는 성숙한 태도 / ⓑ: 고통이 봄으로 전환되는 자연의 필연적 법칙 / ⓒ: 과거의 상처를 잊고 새로운 출발을 하는 것</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>ⓐ: 유학을 통해 고향의 가치를 재발견하고 귀향하려는 의지 / ⓑ: 고통 속에서도 자연의 아름다움을 관조하는 여유 / ⓒ: 물질적 풍요보다 정신적 충만함을 추구하는 삶</div></div>
+    </div>
+    <div class="fb" id="fb4">
+      <b>정답 ②</b> — (가): '차마 꿈엔들 잊힐 리야'→간절한 그리움. (나): '자기 온몸으로 헐벗고 비어…그 고통이 끝내 피어 꽃이 되는'→고통을 통한 성숙과 아름다움. (다): '저 빛나는 상처, 저 단단한 슬픔…삶에 뿌리내리는 것이 필요하다'→상처를 안고도 삶에 뿌리내리는 것.
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">5</div><div class="qt">(나)의 표현상 특징으로 <b>가장 적절하지 않은 것</b>은? <span style="font-size:11px;color:var(--gray);">[수능특강형]</span></div><div class="qs">[2.8점]</div></div>
+    <div class="opts" data-q="5" data-ans="4">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>'나무는 자기 몸으로 / 나무이다', '자기 온몸으로 나무는 나무가 된다' 등에서 핵심 어구를 반복·변주함으로써 나무가 오롯이 자기 자신의 힘으로 존재한다는 의미를 강조하고 있다.</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>'苦痛(고통)을 걸어 놓고'라는 구절에서 추상적 감각인 고통을 마치 물리적으로 매달아 놓을 수 있는 것처럼 구체화하는 표현을 사용하여 시각적 이미지를 형성하고 있다.</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>'그 苦痛이 봄이 되는 것'은 표면적으로 논리적 모순처럼 보이지만 그 안에 고통을 통해 성숙이 이루어진다는 진실을 담은 역설적 표현이다.</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>이 시는 겨울 나무가 봄이 되어 꽃을 피우는 과정을 순차적으로 서술하되, 수미상관 구조를 활용하여 시의 처음과 끝을 동일한 시구로 구성함으로써 형식적 안정감을 도모하고 있다.</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>한자어 '苦痛(고통)'을 병기하여 고통이라는 추상 개념을 가시적으로 드러내면서, 고통이 이 시에서 핵심적 시어임을 강조하는 시각적 효과를 거두고 있다.</div></div>
+    </div>
+    <div class="fb" id="fb5">
+      <b>정답 ④</b> — (나)는 수미상관 구조가 아닙니다. 시작은 '나무는 자기 몸으로 나무이다'이고 끝은 '나는 알아서 나는 네가 되고 싶다'로 동일하지 않습니다. 시상이 겨울→봄→화자의 지향으로 발전하는 구조입니다.
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">6</div><div class="qt">(가)와 (다)에 공통적으로 나타나는 감각적 이미지 활용에 대한 설명으로 <b>가장 적절한 것</b>은?</div><div class="qs">[3.2점]</div></div>
+    <div class="opts" data-q="6" data-ans="1">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>(가)는 '금빛 게으른 울음'(청각→시각), '풀섶 이슬에 함추름 휘적시던'(촉각) 등 다양한 감각 이미지를 복합적으로 활용하여 고향의 정경을 생생하게 재현하고, (다)는 '빛나는 상처', '단단한 슬픔'(시각·촉각의 복합) 등을 통해 추상적 정서를 구체적 감각으로 형상화하고 있다.</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>(가)와 (다) 모두 후각적 이미지를 중심으로 배치하여 고향과 나무에 대한 그리움을 강렬하게 전달하고 있으며, 이는 청각이나 시각보다 더 원초적인 기억을 자극한다.</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>(가)는 청각적 이미지만을 활용하여 고향의 소리를 재현하는 반면, (다)는 시각적 이미지만을 중심으로 복숭아나무의 아름다움을 형상화하여 두 작품이 대조적인 감각 체계를 보여준다.</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>(가)의 감각적 이미지는 화자의 미래에 대한 기대감을 드러내기 위해 사용되었으며, (다)의 감각적 이미지는 과거의 추억을 회상하기 위한 수단으로 기능한다.</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>(가)와 (다)는 모두 공감각적 표현을 각 작품의 핵심 표현 기법으로 삼아 시 전체를 일관된 감각 체계로 구성하고 있어, 독자가 다른 감각 기법을 발견하는 것이 불가능하다.</div></div>
+    </div>
+    <div class="fb" id="fb6">
+      <b>정답 ①</b> — (가)는 시각('파아란 하늘빛'), 청각('실개천이 지즐대는'), 공감각('금빛 게으른 울음'), 촉각('이슬에 휘적시던') 등 다양한 감각 이미지를 복합 활용합니다. (다)는 '빛나는 상처'(시각+추상), '단단한 슬픔'(촉각+추상)처럼 추상적 정서를 구체적 감각으로 형상화합니다.
+    </div>
+  </div>
+</div>
+
+<!-- ======== [7~12] 복합: 보리타작+탐진촌요+애절양 ======== -->
+<div class="sec">
+  <div class="sechdr">
+    <span class="secbadge">복합·한시</span>
+    [7~12] 다음 글을 읽고 물음에 답하시오.
+  </div>
+  <div class="pwrap">
+    <div class="ptwo">
+      <div>
+        <div class="plabel">▶ (가) 정약용, 「보리타작」(전문)</div>
+        <div class="passage">새로 거른 막걸리 젖빛처럼 뿌옇고
+큰 사발에 보리밥 높기가 한 자로세
+밥 먹자 ㉠도리깨 잡고 마당에 나서니
+㉡검게 탄 두 어깨 햇볕 받아 번쩍이네
+옹헤야 소리 내며 발맞추어 두드리니
+삽시간에 보리 낟알 온 사방에 가득하네
+주고받는 노랫가락 점점 높아지는데
+보이느니 지붕까지 날으는 보리 티끌
+그 기색 살펴보니 즐겁기 짝이 없어
+마음이 몸의 노예 되지 않았네
+낙원이 먼 곳에 있는 게 아닌데
+무엇하러 고향 떠나 ㉢벼슬길에 헤매리오
+                        — 정약용, 「보리타작」</div>
+      </div>
+      <div>
+        <div class="plabel">▶ (나) 정약용, 「탐진촌요」(부분) / (다) 정약용, 「애절양(哀絶陽)」(부분)</div>
+        <div class="passage">(나) 새로 짜 낸 무명이 눈결같이 고왔는데
+이방 줄 돈이라고 황두가 뺏어가네
+누전세금 독촉이 성화같이 급하구나
+삼월 중순 세곡선이 서울로 떠난다고
+                        — 정약용, 「탐진촌요」에서
+
+(다) 갓난 아이 사흘이 되도록 안 먹고 울어 대고
+시름겨운 어미 또한 우는 것을 그칠 줄 모르네
+군적에서 죽은 사람 군포를 다시 내라 하니
+살아 있는 내 한 몸이 죽은 혼(魂)의 빚 떠맡는구나
+칼 갈아 복수를 하든지 죽음길에 가든지 할 테야
+아이고 아이고, 어찌하면 좋을꼬 소리 높여 우는구나
+방문 닫고 나와 보니 피가 낭자한 곳에
+옛날 서방 몸뚱이가 온전치 않게 누웠구나
+                        — 정약용, 「애절양」에서</div>
+      </div>
+    </div>
+    <div style="margin-top:10px;">
+      <div class="plabel">▶ (라) 위백규, 「농가(農歌)」(부분)</div>
+      <div class="passage">삿갓에 도롱이 입고 세우(細雨) 중에 호미 메고 / 산전(山田)을 혼자 매다 녹음(綠陰)에 잠깐 쉬어
+도롱이 삿갓을 벗고 누웠다가 잠이 드니 / 어저 농부야 일어나라 낮이 다 졌다
+                                                        — 위백규, 「농가」에서</div>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">7</div><div class="qt">(가)~(라)에 대한 설명으로 <b>적절하지 않은 것</b>은?</div><div class="qs">[2.8점]</div></div>
+    <div class="opts" data-q="7" data-ans="3">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>(가)의 화자는 보리타작하는 농민들을 관찰하며 그들의 건강하고 흥겨운 노동에서 삶의 진정한 의미를 발견하고, 이를 통해 벼슬길을 선택했던 자신의 삶을 성찰하는 태도를 보인다.</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>(나)와 (다)는 모두 수탈당하는 농민의 현실을 다루지만, (나)가 아전에게 세금을 빼앗기는 경제적 착취를 담담하게 서술하는 반면 (다)는 군포 수탈의 비극이 한 가정의 참혹한 파국으로 이어지는 장면을 더욱 직접적으로 제시한다.</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>(라)의 화자는 양반 지식인이 농민의 삶을 외부에서 바라보며 그들의 고달픈 노동 현실에 안타까움을 드러내는 방식으로 시상을 전개한다.</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>(가)와 (라)는 모두 농민의 일상적 노동을 소재로 하여 당대 농촌 삶을 사실적으로 형상화하되, (가)의 화자는 외부 관찰자이고 (라)의 화자는 농민의 입장에서 직접 체험하듯 서술하는 차이가 있다.</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>(가)~(다) 모두 정약용의 작품으로, 조선 후기 실학 정신을 바탕으로 농민의 삶을 사실적으로 형상화하되 각 작품이 서로 다른 시각과 주제를 담고 있음을 확인할 수 있다.</div></div>
+    </div>
+    <div class="fb" id="fb7">
+      <b>정답 ③</b> — (라) 「농가」의 화자는 양반 지식인이 외부에서 관찰하는 것이 아니라, 화자 자신을 농민으로 설정하여 하루 일과를 직접 체험하듯 서술합니다. '삿갓에 도롱이 입고', '산전을 혼자 매다' 등에서 화자가 농민의 입장임을 알 수 있습니다.
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">8</div><div class="qt">㉠~㉢에 대한 이해로 <b>적절하지 않은 것</b>은?</div><div class="qs">[3.2점]</div></div>
+    <div class="opts" data-q="8" data-ans="4">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>㉠ '도리깨'는 보리타작에 사용되는 농기구로, 농민의 실생활에서 가져온 구체적 시어이며 조선 후기 실학의 사실주의적 경향과 관련이 있다.</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>㉡ '검게 탄 두 어깨 햇볕 받아 번쩍이네'는 시각적 이미지로 농민의 건강하고 역동적인 노동 모습을 생생하게 묘사하며, 화자가 이 모습을 부정적으로 바라보는 것이 아니라 긍정적으로 예찬하고 있음을 드러낸다.</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>㉢ '벼슬길'은 화자가 부정적으로 인식하는 과거의 삶의 방식으로, '낙원이 먼 곳에 있는 게 아닌데'라는 구절과 대조를 이루며 화자의 자기 반성을 뒷받침한다.</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>㉢의 '무엇하러 고향 떠나 벼슬길에 헤매리오'는 반어법으로, 화자가 실제로는 벼슬길을 긍정하고 앞으로도 계속 나아가겠다는 강한 의지를 표현한 것이다.</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>㉡의 이미지와 ㉢의 구절을 연관지어 보면, 화자는 농민의 건강한 노동 현장에서 벼슬길의 허위를 인식하게 되었으며 이 두 시어는 인식의 전환과 자기 반성을 구조적으로 연결하는 역할을 한다.</div></div>
+    </div>
+    <div class="fb" id="fb8">
+      <b>정답 ④</b> — '무엇하러 고향 떠나 벼슬길에 헤매리오'는 반어법이 아니라 설의법으로, 벼슬길을 헤매는 것이 무의미하다는 뜻을 의문 형식으로 강조하는 표현입니다. 화자는 벼슬길을 부정적으로 인식하고 농민의 삶에서 진정한 가치를 발견한 것입니다.
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">9</div><div class="qt">&lt;보기&gt;를 참고하여 (가)~(다)를 감상한 내용으로 <b>적절하지 않은 것</b>은?</div><div class="qs">[3.6점]</div></div>
+    <div class="bogi">
+      <div class="bogit">〈보 기〉</div>
+      다산 정약용은 조선 후기 실학의 대표 인물로, 농민의 실생활을 소재로 한 한시를 다수 창작하였다. 그의 작품들은 크게 두 가지 방향으로 구분된다. 하나는 농민의 건강하고 건실한 삶을 예찬하며 지식인 자신의 삶을 성찰하는 방향이고, 다른 하나는 지배 계층의 착취와 수탈로 인해 신음하는 농민의 현실을 사실적으로 고발하는 방향이다. 이 두 방향은 같은 농민을 소재로 하지만 전혀 다른 시각을 보여주며, 이를 통해 정약용은 당대 농촌 사회의 다면적 현실을 입체적으로 그려냈다.
+    </div>
+    <div class="opts" data-q="9" data-ans="5">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>(가)는 〈보기〉에서 언급한 '예찬과 자기 성찰'의 방향에 해당하는 작품으로, 농민의 흥겨운 보리타작 장면을 통해 그들의 삶에서 진정한 가치를 발견하고 벼슬길을 반성하는 시인의 모습을 담고 있다.</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>(나)와 (다)는 〈보기〉에서 언급한 '현실 고발'의 방향에 해당하는 작품으로, 아전의 세금 수탈과 군포 징수의 비극을 통해 당대 지배 계층의 착취 구조를 사실적으로 폭로하고 있다.</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>(가)와 (나)·(다)가 서로 다른 방향의 농민 형상을 보여주는 것은, 〈보기〉에서 설명한 정약용의 농촌 현실에 대한 입체적 인식과 맞닿아 있으며, 동일 작가가 이처럼 상반된 시각의 작품을 함께 창작했다는 사실 자체가 그의 사실주의적 태도를 증명한다.</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>(다)의 '군적에서 죽은 사람 군포를 다시 내라 하니'와 같은 구절은 〈보기〉에서 언급한 지배 계층의 착취를 구체적으로 드러내는 장면으로, 이미 사망한 사람에게도 세금을 부과하는 부당한 현실을 통해 당대 사회 모순을 고발한다.</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>〈보기〉를 고려할 때, (가)는 농민 예찬, (나)·(다)는 현실 고발이라는 서로 다른 방향을 보이므로, 이 작품들은 모두 동일한 작가가 창작했을 가능성이 없으며 따라서 정약용의 작품으로 보기 어렵다.</div></div>
+    </div>
+    <div class="fb" id="fb9">
+      <b>정답 ⑤</b> — (가)(나)(다) 모두 정약용의 작품입니다. 〈보기〉는 정약용이 두 가지 방향의 작품을 모두 창작했다고 설명하고 있으므로, 서로 다른 방향의 작품이 동일 작가의 것임은 오히려 그의 입체적 사실주의적 태도를 증명합니다.
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">10</div><div class="qt">(나)와 (다)를 비교하여 감상한 내용으로 <b>가장 적절한 것</b>은?</div><div class="qs">[3.2점]</div></div>
+    <div class="opts" data-q="10" data-ans="2">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>(나)와 (다) 모두 농민의 풍요로운 수확을 그려내며 농촌 생활의 밝고 건강한 면모를 강조하고 있어, 두 작품은 모두 (가)와 동일한 주제 의식을 공유한다고 볼 수 있다.</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>(나)는 아전이 세금 명목으로 직물을 빼앗아 가는 경제적 수탈을 담담하게 서술하는 반면, (다)는 이미 죽은 사람에게까지 군포를 징수하는 부당한 현실이 한 가정의 비극적 파국으로 이어지는 장면을 보다 생동감 있고 처절하게 그리고 있다.</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>(나)에서 '이방 줄 돈이라고 황두가 뺏어가네'라는 구절은 농민이 이방의 위압에 자발적으로 세금을 납부하는 모습을 묘사한 것으로, 당대 농민들이 세금 납부를 당연한 의무로 인식하고 있었음을 드러낸다.</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>(다)의 화자는 농민의 비극적 상황을 관찰하며 지배 계층에 대한 직접적인 비난과 저주를 통해 사회를 개혁하겠다는 강한 의지를 시 전면에 드러내고 있다.</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>(나)와 (다) 모두 농촌 수탈을 다루고 있으나, 두 작품에는 화자의 개인적 감정이나 주관적 판단이 전혀 개입되지 않은 완전히 객관적인 서술 방식만이 사용되고 있다.</div></div>
+    </div>
+    <div class="fb" id="fb10">
+      <b>정답 ②</b> — (나)는 세금 수탈을 사실적으로 서술하고, (다)는 사망자에게 군포를 요구하는 비극이 남편의 자해·죽음이라는 처절한 파국으로 이어지는 과정을 생동감 있게 묘사합니다. ③: '뺏어가네'는 자발적 납부가 아닌 강탈. ④: 사회 개혁 의지 표명은 다소 과도한 해석.
+    </div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">11</div><div class="qt">다음은 (가)의 표현 방법을 학습한 학생들의 대화이다. 발언 내용이 <b>적절하지 않은</b> 학생은?</div><div class="qs">[3.2점]</div></div>
+    <div class="bogi amber">
+      <div class="bogit">〈학생들의 대화〉</div>
+      학생 A: '마음이 몸의 노예 되지 않았네'는 표면적으로 모순처럼 보이지만, 몸이 힘들어도 마음은 자유롭다는 깊은 진실을 담고 있어서 역설법이라고 볼 수 있어.<br>
+      학생 B: '무엇하러 고향 떠나 벼슬길에 헤매리오'는 답이 이미 정해진 의문문으로, 벼슬길이 의미 없다는 것을 강조하는 설의법에 해당해.<br>
+      학생 C: '검게 탄 두 어깨 햇볕 받아 번쩍이네'는 시각적 이미지로 농민의 건강하고 역동적인 모습을 표현한 거야. 이 표현은 농민을 부정적으로 묘사한 게 아니라 예찬하는 것이지.<br>
+      학생 D: '그 기색 살펴보니 즐겁기 짝이 없어'를 보면 화자가 농민들과 함께 직접 보리타작에 참여하며 기쁨을 느끼고 있다는 걸 알 수 있어.<br>
+      학생 E: 이 시에서 '막걸리', '보리밥', '도리깨' 등의 시어는 농민의 실생활 소재를 그대로 가져온 것으로, 조선 후기 실학의 사실주의적 경향을 보여주는 표현이야.
+    </div>
+    <div class="opts" data-q="11" data-ans="4">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>학생 A</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>학생 B</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>학생 C</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>학생 D</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>학생 E</div></div>
+    </div>
+    <div class="fb" id="fb11">
+      <b>정답 ④ (학생 D)</b> — '그 기색 살펴보니'는 화자가 농민들의 표정과 모습을 바깥에서 '살펴보는' 것으로, 화자는 관찰자의 위치입니다. 농민들과 함께 직접 참여하는 것이 아닙니다. A·B·C·E는 모두 적절한 발언입니다.
+    </div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">12</div><div class="qt">(가)~(다)를 비교하여 아래 &lt;보기&gt;의 표를 완성할 때, ⓐ~ⓔ에 들어갈 내용으로 <b>가장 적절한 것</b>은?</div><div class="qs">[3.6점]</div></div>
+    <div class="bogi green">
+      <div class="bogit">〈보 기〉 — 비교 분석표</div>
+      <table style="width:100%;border-collapse:collapse;font-size:12.5px;">
+        <tr style="background:#d1fae5;"><th style="border:1px solid #6ee7b7;padding:5px 8px;">구분</th><th style="border:1px solid #6ee7b7;padding:5px 8px;">(가) 보리타작</th><th style="border:1px solid #6ee7b7;padding:5px 8px;">(나) 탐진촌요</th><th style="border:1px solid #6ee7b7;padding:5px 8px;">(다) 애절양</th></tr>
+        <tr><td style="border:1px solid #a7f3d0;padding:5px 8px;">농민 삶의 성격</td><td style="border:1px solid #a7f3d0;padding:5px 8px;">ⓐ</td><td style="border:1px solid #a7f3d0;padding:5px 8px;">ⓑ</td><td style="border:1px solid #a7f3d0;padding:5px 8px;">ⓒ</td></tr>
+        <tr><td style="border:1px solid #a7f3d0;padding:5px 8px;">화자의 태도</td><td style="border:1px solid #a7f3d0;padding:5px 8px;">ⓓ</td><td colspan="2" style="border:1px solid #a7f3d0;padding:5px 8px;text-align:center;">ⓔ</td></tr>
+      </table>
+    </div>
+    <div class="opts" data-q="12" data-ans="1">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>ⓐ: 건강하고 흥겨운 노동의 삶 / ⓑ: 아전에게 직물을 수탈당하는 삶 / ⓒ: 군포 징수로 인해 비극적 파국을 맞는 삶 / ⓓ: 농민을 예찬하고 자신의 벼슬살이를 반성 / ⓔ: 수탈당하는 농민의 현실을 사실적으로 고발</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>ⓐ: 농민이 직접 수탈에 저항하는 모습 / ⓑ: 풍요로운 수확의 기쁨 / ⓒ: 지배층에 순응하는 수동적 삶 / ⓓ: 농민의 저항 의지를 지지 / ⓔ: 지배 계층의 착취 구조를 옹호</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>ⓐ: 수탈로 고통받는 삶 / ⓑ: 건강하고 흥겨운 노동 / ⓒ: 농민들이 스스로 해결책을 찾는 자주적 삶 / ⓓ: 농민의 현실을 외면하는 관료적 태도 / ⓔ: 농민 예찬</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>ⓐ: 관료의 삶을 동경하는 농민 / ⓑ·ⓒ: 풍요로운 농촌 현실 / ⓓ: 농촌 현실을 낭만화 / ⓔ: 농민의 수탈을 당연시하는 태도</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>ⓐ: 벼슬길을 동경하는 삶 / ⓑ: 이방에게 자발적으로 세금을 납부하는 모습 / ⓒ: 군포를 당연히 납부해야 하는 삶 / ⓓ: 자기 반성 없이 농민을 관찰 / ⓔ: 지배 계층에 우호적</div></div>
+    </div>
+    <div class="fb" id="fb12">
+      <b>정답 ①</b> — ⓐ: 보리타작=흥겨운 노동. ⓑ: 탐진촌요=아전 수탈. ⓒ: 애절양=군포로 인한 비극. ⓓ: 보리타작 화자=예찬+반성. ⓔ: 탐진촌요+애절양=현실 고발.
+    </div>
+  </div>
+</div>
+
+<!-- ======== [13~18] 복합: 선운사에서 + 봉산탈춤 + 장마 (수능특강형) ======== -->
+<div class="sec">
+  <div class="sechdr">
+    <span class="secbadge">복합·수능특강형</span>
+    [13~18] 다음 글을 읽고 물음에 답하시오.
+  </div>
+  <div class="pwrap">
+    <div class="ptwo">
+      <div>
+        <div class="plabel">▶ (가) 최영미, 「선운사에서」(전문)</div>
+        <div class="passage">꽃이
+피는 건 힘들어도
+지는 건 잠깐이더군
+
+골고루 쳐다볼 틈 없이
+임 한번 생각할 틈 없이
+아주 잠깐이더군
+
+그대가 처음
+내 속에 피어날 때처럼
+잊는 것 또한 그렇게
+순간이면 좋겠네
+
+멀리서 웃는 그대여
+산 넘어 가는 그대여
+
+꽃이
+지는 건 쉬워도
+잊는 건 한참이더군
+영영 한참이더군</div>
+      </div>
+      <div>
+        <div class="plabel">▶ (나) 봉산탈춤 제6과장 (부분)</div>
+        <div class="passage prose">말뚝이: (양반들에게) 쉬이. (음악과 춤이 멈춘다.) 양반 나오신다아! 양반이라고 하니까 노론(老論), 소론(少論), 호조(戶曹), 병조(兵曹), 옥당(玉堂)을 다 지내고 삼정승(三政丞), 육판서(六判書)를 다 지낸 퇴로 재상(退老宰相)으로 계신 양반인 줄 아지 마시오. ㉠개잘량이라는 '양'자에 개다리소반이라는 '반'자 쓰는 양반이 나오신단 말이오.
+
+양반들: 야아, 이놈, 뭐야아!
+
+말뚝이: 아, 이 양반들, 어찌 듣는지 모르겠소. '양반'이라니까 노론, 소론, 호조, 병조, 옥당을 다 지내고 삼정승, 육판서를 다 지내고 퇴로 재상으로 계신 양반인 줄 알았지요?
+
+양반들: 으흠!
+
+말뚝이: ㉡개잘량이라는 '양'자에 개다리소반이라는 '반'자 쓰는 양반이 나오신단 말이오.
+양반들: (흡족한 듯) 그래, 그래.</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;">
+      <div class="plabel">▶ (다) 윤흥길, 「장마」(부분)</div>
+      <div class="passage prose">그러자 어느 날 오후, 갑자기 큰 구렁이 한 마리가 대밭에서 집 안으로 들어왔다. 아이들이 돌팔매를 던졌지만 구렁이는 유유히 기어와 감나무에 올라앉았다. 난리가 났다. 외할머니는 사람들을 모두 물리치고 구렁이 앞으로 다가갔다.
+"야야. 인자 여기서 뭣 한다냐. 다아 소용없는 짓이여. 어서 가그라."
+외할머니는 혼자 중얼거리다가 자신의 머리카락을 한 움큼 뽑아 불에 그을렸다. 머리카락 타는 냄새가 진동하자, 구렁이는 서서히 땅으로 내려와 대밭 속으로 사라져 갔다. 그 뒤 친할머니와 외할머니는 서로 화해하였고, 일주일 뒤 친할머니는 조용히 눈을 감았다. "정말 지루한 장마였다."</div>
+    </div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">13</div><div class="qt">(가)~(다)에 대한 설명으로 <b>적절한 것</b>만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span style="font-size:11px;color:var(--gray);">[ㄱㄴㄷ형·수능특강형]</span></div><div class="qs">[3.6점]</div></div>
+    <div class="bogi">
+      <div class="bogit">〈보 기〉</div>
+      ㄱ. (가)는 '꽃이 지는 건 잠깐'이고 '잊는 건 한참'이라는 시간적 대비를 구조적 핵심으로 삼아, 이별은 순식간이지만 잊는 것은 오래 걸린다는 역설적 인식을 형상화하고 있다.<br>
+      ㄴ. (나)에서 말뚝이가 ㉠과 ㉡을 반복하는 재담 구조는 '양반의 위엄 과시 → 말뚝이의 조롱 → 양반의 호령 → 말뚝이의 변명 → 양반의 안심'의 순서로 반복되며, 이를 통해 양반 권위의 허상을 희화화하고 서민들의 대리 만족을 이끌어낸다.<br>
+      ㄷ. (다)에서 외할머니의 무속적 행위는 이념 갈등을 이성과 논리가 아닌 민속 신앙이라는 전통적 방식으로 해소하는 계기가 되며, 이를 통해 이념을 초월한 인간의 보편적 정서가 갈등을 극복할 수 있음을 암시한다.<br>
+      ㄹ. (가)의 수미상관 구조, (나)의 재담 반복 구조, (다)의 이중 시점 모두 각 작품에서 형식적·구조적 특징으로 기능하며, 이들은 모두 동일한 주제(이별의 고통)를 표현하기 위해 선택된 것이다.
+    </div>
+    <div class="opts" data-q="13" data-ans="3">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>ㄱ, ㄴ</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>ㄴ, ㄷ</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>ㄱ, ㄴ, ㄷ</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>ㄱ, ㄷ, ㄹ</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>ㄱ, ㄴ, ㄷ, ㄹ</div></div>
+    </div>
+    <div class="fb" id="fb13">
+      <b>정답 ③ (ㄱ, ㄴ, ㄷ)</b> — ㄹ이 적절하지 않습니다. 세 작품의 구조적 특징은 각각 이별·양반 풍자·이념 갈등 해소라는 서로 다른 주제를 위해 선택된 것이며, 모두 '이별의 고통'이라는 동일 주제를 표현하기 위한 것이 아닙니다.
+    </div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">14</div><div class="qt">㉠과 ㉡에 대한 이해로 <b>가장 적절한 것</b>은?</div><div class="qs">[3.2점]</div></div>
+    <div class="opts" data-q="14" data-ans="3">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>㉠은 말뚝이가 양반의 권위를 진심으로 인정하고 찬양하는 표현으로, 양반에 대한 충성심을 드러내는 장면이다. ㉡은 ㉠과 달리 말뚝이가 양반을 조롱하는 의도를 갑자기 드러내는 장면이다.</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>㉠과 ㉡은 모두 양반이 말뚝이의 조롱을 정확히 파악하고 있으면서도 체면을 지키기 위해 모른 척하는 장면을 드러내며, 이를 통해 양반의 지혜로운 처세술을 보여준다.</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>㉠은 '개잘량'의 '양'자와 '개다리소반'의 '반'자를 결합하여 '양반'이라는 단어를 비속한 뜻을 가진 글자로 해체·재조합하는 언어유희(파자)이며, ㉡은 양반의 호령에 대한 말뚝이의 변명이 다시 같은 조롱으로 귀결되는 재담 구조의 반복을 드러낸다.</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>㉠에서 말뚝이는 조롱을 통해 양반 제도를 완전히 전복하겠다는 혁명적 의지를 드러내며, ㉡은 그 의지가 실현되어 양반들이 말뚝이에게 굴복하는 결말을 보여준다.</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>㉠과 ㉡에서 말뚝이의 재담이 반복될수록 양반들은 말뚝이의 의도를 점차 정확하게 파악하게 되며, 마지막에는 말뚝이에게 잘못을 인정하고 화해를 요청한다.</div></div>
+    </div>
+    <div class="fb" id="fb14">
+      <b>정답 ③</b> — ㉠은 '양반(良班)'이라는 단어를 '개잘량'+'개다리소반'이라는 비속한 단어에서 글자를 따와 재조합하는 파자 언어유희입니다. ㉡은 양반의 호령 후 말뚝이가 변명하지만 결국 같은 내용을 반복하는 재담 구조의 반복입니다. 양반들은 '흡족한 듯' 받아들여 그 의도를 파악하지 못합니다.
+    </div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">15</div><div class="qt">&lt;보기&gt;를 참고하여 (가)와 (나)를 감상한 내용으로 <b>적절하지 않은 것</b>은?</div><div class="qs">[3.6점]</div></div>
+    <div class="bogi">
+      <div class="bogit">〈보 기〉</div>
+      문학 작품에서 갈등을 드러내거나 해소하는 방식은 다양하다. (가)는 자연물(꽃)의 속성을 인간의 사랑·이별과 대응시켜 감정을 간접적으로 형상화하는 방식을 사용한다. 반면 (나)는 지배 계층과 피지배 계층 사이의 갈등을 언어유희와 재담 구조를 통해 풍자적으로 표출하되, 변명으로 무마되는 방식으로 마무리되어 그 한계를 드러낸다. 두 작품 모두 대립적 요소(피고 지는 꽃/양반과 말뚝이)를 중심으로 갈등 구조를 형성하고 있다.
+    </div>
+    <div class="opts" data-q="15" data-ans="4">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>(가)에서 '피는 것(개화)'과 '지는 것(낙화)'의 대립은 사랑의 시작과 이별을 각각 상징하는 대립적 요소로, 〈보기〉에서 설명한 자연물을 통한 감정의 간접 형상화 방식에 해당한다.</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>(나)에서 말뚝이의 재담이 변명으로 무마되는 결말은 〈보기〉에서 언급한 계층 갈등 풍자의 한계를 드러내는 장면으로, 이를 통해 탈춤이 체제를 근본적으로 전복하지 못한다는 사실을 확인할 수 있다.</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>(가)의 '꽃이 지는 건 쉬워도 / 잊는 건 한참이더군'은 '지는 꽃(이별)'과 '잊지 못하는 감정' 사이의 역설적 대립을 통해 화자의 정서를 강화하며, 〈보기〉에서 설명한 대립적 요소를 중심으로 한 갈등 구조를 드러낸다.</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>(나)의 말뚝이가 언어유희로 양반을 조롱하는 방식은 당시 서민들의 내면적 갈등을 완전히 해소시켜 주었으며, 〈보기〉에서 언급한 '한계'는 탈춤 자체의 예술성 부족 때문에 발생하는 것이다.</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>(가)와 (나) 모두 〈보기〉에서 설명한 대로 대립적 요소를 중심으로 갈등 구조를 형성하지만, (가)는 내면적 갈등을 자연물을 통해 간접화하는 반면 (나)는 계층 갈등을 무대 위에서 직접적으로 표출한다는 차이가 있다.</div></div>
+    </div>
+    <div class="fb" id="fb15">
+      <b>정답 ④</b> — 말뚝이의 조롱은 일시적인 대리 만족을 제공할 뿐 완전한 갈등 해소가 아닙니다. 또한 '한계'는 예술성 부족 때문이 아니라, 비판이 변명으로 무마되어 체제를 근본적으로 전복하지 못하는 구조 때문입니다.
+    </div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">16</div><div class="qt">(다)의 서술 방식과 내용에 대한 설명으로 <b>적절하지 않은 것</b>은?</div><div class="qs">[3.2점]</div></div>
+    <div class="opts" data-q="16" data-ans="2">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>외할머니가 머리카락을 태우는 행위는 이념과 논리를 초월하여 민속 신앙의 방식으로 삼촌의 혼령에게 작용하는 무속적 행위로, 이를 통해 두 할머니 사이의 갈등이 해소되는 계기가 마련된다.</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>"인자 여기서 뭣 한다냐. 다아 소용없는 짓이여. 어서 가그라."라는 외할머니의 대사에서 사투리를 사용한 것은 외할머니가 구렁이를 위협하고 내쫓으려는 적대적 의도를 드러내기 위한 것이다.</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>'구렁이'는 죽은 삼촌의 현신(現身)으로 기능하며, 이를 통해 이념의 대립으로 인한 갈등이 논리가 아닌 인간의 보편적 정서와 민속 신앙을 통해 해소될 수 있음을 암시한다.</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>'정말 지루한 장마였다.'라는 마지막 문장은 단순한 날씨 묘사를 넘어 이념 갈등이 길고 지루하게 지속되었음과 그 극복을 통한 화해를 동시에 내포하는 함축적 표현이다.</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>외할머니가 사람들을 모두 물리치고 혼자 구렁이 앞에 다가가는 행동은 이념 갈등의 당사자인 외할머니가 적극적으로 갈등 해소에 나서는 것으로, 무속적 행위가 이념의 대립을 넘어서는 힘을 지님을 드러낸다.</div></div>
+    </div>
+    <div class="fb" id="fb16">
+      <b>정답 ②</b> — 외할머니의 대사 "인자 여기서 뭣 한다냐. 다아 소용없는 짓이여. 어서 가그라."는 구렁이(삼촌의 혼)를 위협하는 것이 아니라 달래어 보내는 것입니다. 사투리의 사용은 토속적·사실적 성격을 부여하는 기능을 합니다.<br>
+      <small style="color:#666">▶ 봉산탈춤 갈래 특성 추가 정리: 갈래=가면극·탈춤·민속극 / 구성=전7과장 옴니버스식 / 음악=<b>삼현육각(피리·대금·해금·장구·북)</b> / 시점=1인칭 관찰자 해당 없음(극 갈래) / 「장마」시점=<b>1인칭 관찰자+이중시점</b></small>
+    </div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">17</div><div class="qt">(가)의 '변형 수미상관 구조'와 (나)의 '재담 반복 구조'를 비교한 설명으로 <b>가장 적절한 것</b>은?</div><div class="qs">[3.2점]</div></div>
+    <div class="opts" data-q="17" data-ans="4">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>(가)의 변형 수미상관은 시의 처음과 끝이 완전히 동일한 시구로 구성되는 완전한 수미상관으로, 시의 안정감을 극대화하는 반면 (나)의 재담 반복은 매 반복마다 내용이 전혀 다른 방식으로 변주된다.</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>(가)의 구조는 핵심 시어를 동일하게 유지하면서 반복하는 방식이고, (나)의 구조는 핵심 시어를 매번 다른 언어유희로 변환하는 방식이어서 두 구조는 서로 완전히 반대되는 성격을 지닌다.</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>(가)의 변형 수미상관과 (나)의 재담 반복은 모두 내용의 강조보다 형식적 아름다움을 위해 사용된 것으로, 두 작품의 주제와는 무관한 장식적 기법이다.</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>(가)의 변형 수미상관은 유사한 구조에서 핵심 시어를 변화시킴으로써 주제(이별의 고통과 잊지 못함)를 강조하는 효과를 내고, (나)의 재담 반복은 동일한 조롱·변명 구조의 반복을 통해 풍자와 웃음의 효과를 극대화하는 기능을 한다.</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>(가)의 구조는 시의 분량을 의도적으로 늘리기 위한 형식적 장치에 불과하고, (나)의 재담 반복은 관객이 내용을 더 쉽게 이해하도록 돕기 위한 교육적 목적으로 사용된 것이다.</div></div>
+    </div>
+    <div class="fb" id="fb17">
+      <b>정답 ④</b> — (가)의 변형 수미상관: '꽃이 / 피는 건 힘들어도 / 지는 건 잠깐이더군' → '꽃이 / 지는 건 쉬워도 / 잊는 건 한참이더군'으로 구조는 유사하나 시어가 변화하여 '잊지 못하는 고통'이라는 주제를 강조합니다. (나)의 재담 반복은 풍자·웃음의 극대화 기능을 합니다.
+    </div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">18</div><div class="qt">&lt;보기&gt;를 참고하여 (가)~(다)에 드러난 갈등 해소 방식을 설명한 것으로 <b>가장 적절한 것</b>은?</div><div class="qs">[3.6점]</div></div>
+    <div class="bogi">
+      <div class="bogit">〈보 기〉</div>
+      갈등이란 개인 내부 혹은 개인들 사이, 나아가 사회·이념적 층위에서 발생하는 대립과 충돌을 말한다. 문학 작품에서 갈등을 해소하는 방식은 ①직접적 해결(논리·이성), ②상징·의식을 통한 해결(무속·제의), ③풍자·웃음을 통한 표출(희극적 형식), ④시간의 흐름을 통한 자연스러운 수용의 네 가지로 분류할 수 있다.
+    </div>
+    <div class="opts" data-q="18" data-ans="3">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>(가)는 ①직접적 해결, (나)는 ②상징·의식을 통한 해결, (다)는 ③풍자·웃음을 통한 표출에 해당한다.</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>(가)는 ④시간의 흐름을 통한 수용, (나)는 ①직접적 해결, (다)는 ③풍자·웃음을 통한 표출에 해당한다.</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>(가)는 ④시간의 흐름을 통한 자연스러운 수용(잊지 못하는 고통이 지속), (나)는 ③풍자·웃음을 통한 표출(재담을 통해 계층 갈등을 풍자적으로 표출), (다)는 ②상징·의식을 통한 해결(무속적 행위를 통해 이념 갈등 해소)에 해당한다.</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>(가)는 ①직접적 해결, (나)는 ④시간의 흐름을 통한 수용, (다)는 ②상징·의식을 통한 해결에 해당한다.</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>(가)는 ③풍자·웃음을 통한 표출, (나)는 ②상징·의식을 통한 해결, (다)는 ①직접적 해결에 해당한다.</div></div>
+    </div>
+    <div class="fb" id="fb18">
+      <b>정답 ③</b> — (가): '잊는 건 한참이더군 / 영영 한참이더군'→해소되지 않고 시간 속에서 지속=④. (나): 재담·언어유희로 계층 갈등을 풍자적으로 표출하되 완전 해결은 안 됨=③. (다): 외할머니의 무속적 행위(머리카락 태우기)=②.
+    </div>
+  </div>
+</div>
+
+<!-- ======== [19~25] 프린트 연계 복합 (교과서+프린트 전체 반영) ======== -->
+<div class="sec">
+  <div class="sechdr">
+    <span class="secbadge green">교과서+프린트 전체</span>
+    [19~25] 다음 글을 읽고 물음에 답하시오.
+  </div>
+  <div class="pwrap">
+    <div class="ptwo">
+      <div>
+        <div class="plabel">▶ (가) 황지우, 「겨울-나무로부터 봄-나무에로」(전문)</div>
+        <div class="passage">나무는 자기 몸으로
+나무이다
+자기 온몸으로 나무는 나무가 된다
+자기 온몸으로 헐벗고 비어
+가지 끝 허공에 苦痛(고통)을 걸어 놓고
+그 苦痛(고통)이 끝내 피어
+꽃이 되는 자리에서
+나무는 자기 온몸으로 나무이다
+아아, 마침내, 끝끝내
+그 苦痛이 봄이 되는 것을
+나는 알아서 나는 네가 되고 싶다
+
+— 황지우</div>
+      </div>
+      <div>
+        <div class="plabel">▶ (나) 도종환, 「흔들리며 피는 꽃」(전문)</div>
+        <div class="passage">흔들리지 않고 피는 꽃이 어디 있으랴
+이 세상 그 어떤 아름다운 꽃들도
+다 흔들리면서 피었나니
+흔들리면서 줄기를 곧게 세웠나니
+흔들리지 않고 가는 사랑이 어디있으랴
+
+젖지 않고 피는 꽃이 어디 있으랴
+이 세상 그 어떤 빛나는 꽃들도
+다 젖으며 젖으며 피었나니
+바람과 비에 젖으며 꽃잎 따듯하게 피웠나니
+젖지 않고 가는 삶이 어디 있으랴
+
+— 도종환</div>
+      </div>
+    </div>
+    <div class="ptwo" style="margin-top:12px;">
+      <div>
+        <div class="plabel">▶ (다) 강은교, 「우리가 물이 되어」(부분)</div>
+        <div class="passage">우리가 물이 되어 만난다면
+가문 어느 집에선들 좋아하지 않으랴.
+우리가 키 큰 나무와 함께 서서
+우르르 우르르 비 오는 소리로 흐른다면.
+
+흐르고 흘러서 저물녘엔
+저 혼자 깊어지는 강물에 누워
+죽은 나무뿌리를 적시기도 한다면.
+아아, 아직 처녀인
+부끄러운 바다에 닿는다면.
+
+그러나 지금 우리는
+불로 만나려 한다.
+벌써 숯이 된 뼈 하나가
+세상에 불타는 것들을 쓰다듬고 있나니
+
+— 강은교</div>
+      </div>
+      <div>
+        <div class="plabel">▶ (라) 나희덕, 「그 복숭아나무 곁으로」(부분)</div>
+        <div class="passage">너무도 여러 겹의 마음을 가진
+그 복숭아나무 곁으로
+나는 왠지 가까이 가고 싶지 않았습니다
+흰꽃과 분홍꽃을 나란히 피우고 서 있는 그 나무는 아마
+사람이 앉지 못할 그늘을 가졌을 거라고
+멀리로 멀리로만 지나쳤을 뿐입니다
+
+흰꽃과 분홍꽃 사이에 수천의 빛깔이 있다는 것을
+나는 그 나무를 보고 멀리서 알았습니다
+눈부셔 눈부셔 알았습니다
+
+— 나희덕</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;">
+      <div class="plabel">▶ (마) 백석, 「모닥불」(전문)</div>
+      <div class="passage prose">새끼오리도 헌신짝도 소똥도 갖신창도 개니빠디도 너울쪽도 짚검불도 가랑잎도 머리카락도 헝겊 조각도 막대꼬치도 기왓장도 닭의 깃도 개 터럭도 타는 모닥불
+
+재당도 초시도 문장(門長) 늙은이도 더부살이 아이도 새사위도 갓사둔도 나그네도 주인도 할아버지도 손자도 붓장사도 땜쟁이도 큰 개도 강아지도 모두 모닥불을 쬔다
+
+모닥불은 어려서 우리 할아버지가 어미아비 없는 서러운 아이로 불상하니도 몽둥발이가 된 슬픈 역사가 있다
+
+— 백석</div>
+    </div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">19</div><div class="qt">(가)~(마)에 대한 설명으로 <b>적절한 것</b>만을 &lt;보기&gt;에서 있는 대로 고른 것은?</div><div class="qs">[3.6점]</div></div>
+    <div class="bogi">
+      <div class="bogit">〈보 기〉</div>
+      ㄱ. (가)는 나무가 자기 온몸으로 고통을 견디며 끝내 꽃을 피우는 과정을 의인화하여 형상화하였으며, '그 苦痛이 봄이 되는 것'은 표면적 모순 속에 깊은 진실을 담는 역설법에 해당한다.<br>
+      ㄴ. (나)는 '흔들리지 않고 피는 꽃이 어디 있으랴'라는 설의법과 1연·2연의 대칭 구조를 통해, 시련 속에서 완성되는 사랑과 삶이라는 주제를 효과적으로 강조하고 있다.<br>
+      ㄷ. (다)에서 '물'은 현대인의 고독한 삶을 해소하는 매개체이자 객관적 상관물로 기능하며, '불'은 바람직하지 않은 만남 방식을 상징하여 '물'과 대비를 이룬다.<br>
+      ㄹ. (라)의 화자는 처음부터 복숭아나무를 긍정적으로 바라보아 가까이 다가갔으나, 나무의 복잡한 속성에 실망하여 결국 교감에 실패하는 과정을 보여준다.<br>
+      ㅁ. (마)는 보조사 '도'의 반복으로 신분·계층에 관계없이 모두가 모닥불을 함께 쬔다는 조화와 평등의 공동체적 합일 정신을 드러내고 있다.
+    </div>
+    <div class="opts" data-q="19" data-ans="3">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>ㄱ, ㄴ, ㄷ</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>ㄱ, ㄷ, ㅁ</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>ㄱ, ㄴ, ㄷ, ㅁ</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>ㄴ, ㄷ, ㄹ, ㅁ</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>ㄱ, ㄴ, ㄷ, ㄹ, ㅁ</div></div>
+    </div>
+    <div class="fb" id="fb19">
+      <b>정답 ③ (ㄱ, ㄴ, ㄷ, ㅁ)</b><br>
+      ㄹ이 적절하지 않습니다. (라)의 화자는 처음에 복숭아나무에 대한 <b>편견</b>('사람이 앉지 못할 그늘') 때문에 가까이 가지 않고 '멀리로만 지나쳤'습니다. 그 후 '흰꽃과 분홍꽃 사이에 수천의 빛깔'을 발견하면서 나무를 이해하게 됩니다. 처음부터 긍정적이거나 교감에 실패한 것이 아니라, 편견→이해→교감의 과정입니다.<br>
+      ㄱ✓(역설법) ㄴ✓(설의법+대칭구조) ㄷ✓(객관적 상관물, 물↔불 대비) ㅁ✓(보조사 '도' 반복, 공동체적 합일)
+    </div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">20</div><div class="qt">(가)의 '그 苦痛이 봄이 되는 것'에 대한 이해로 <b>가장 적절한 것</b>은?</div><div class="qs">[3.2점]</div></div>
+    <div class="opts" data-q="20" data-ans="3">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>이 구절은 계절이 겨울에서 봄으로 변하는 자연의 순환 현상을 사실적으로 묘사한 것으로, 특별한 표현 기법 없이 나무의 생태를 설명하는 서술이다.</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>이 구절에서 '고통'과 '봄'은 유사한 속성을 지닌 두 대상을 비유 표지어('같은')를 사용하여 연결하는 직유법을 활용한 것이다.</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>이 구절은 '고통'과 '봄(개화)'이라는 표면적으로 모순된 두 개념을 결합하여, 시련과 고통을 견딤으로써 아름다운 개화가 이루어진다는 깊은 진실을 담는 역설법에 해당한다.</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>이 구절은 화자가 나무를 의인화하여 나무의 고통이 봄이라는 계절을 직접 만들어낸다는 자연과학적 인과 관계를 표현한 것이다.</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>이 구절은 '아아, 마침내, 끝끝내'라는 부사를 통해 고통이 봄으로 전환되는 과정이 매우 빠르고 쉽게 이루어짐을 강조하고 있다.</div></div>
+    </div>
+    <div class="fb" id="fb20">
+      <b>정답 ③</b><br>
+      '고통이 봄이 된다'는 것은 논리적으로 모순처럼 보이지만 그 안에 '시련을 견뎌야 아름다운 개화가 이루어진다'는 깊은 진실을 담은 역설법입니다.<br>
+      ⑤ '아아, 마침내, 끝끝내'는 오랜 인고 끝에 이루어지는 것을 강조—빠르고 쉬운 것이 아닙니다.
+    </div>
+  </div>
+
+  <!-- Q21 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">21</div><div class="qt">(나)의 표현상 특징으로 <b>적절하지 않은 것</b>은?</div><div class="qs">[2.8점]</div></div>
+    <div class="opts" data-q="21" data-ans="5">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>'흔들리지 않고 피는 꽃이 어디 있으랴', '젖지 않고 피는 꽃이 어디 있으랴'는 모두 답이 정해진 의문문으로, '그런 꽃은 없다'는 강한 긍정의 의미를 드러내는 설의법이다.</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>1연의 '흔들리면서 피었나니 / 흔들리면서 줄기를 곧게 세웠나니'와 2연의 '젖으며 젖으며 피었나니 / 꽃잎 따듯하게 피웠나니'는 '-나니'의 반복으로 운율을 형성하고 있다.</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>1연은 '흔들림', 2연은 '젖음'을 각각 시련의 상징으로 사용하는 대칭 구조를 이루어, 시련을 견뎌야 꽃이 핀다는 주제를 두 연에서 반복·강조하고 있다.</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>꽃이 '흔들리며' '젖으며' 피어나는 과정을 자연물을 통해 인간의 사랑과 삶에 대응시킴으로써, 시련 속에서 완성되는 사랑의 의미를 암시적으로 형상화하고 있다.</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>이 시는 수미상관 구조를 사용하여 처음과 끝이 완전히 동일한 시구로 구성됨으로써 형식적 안정감을 극대화하고 있다.</div></div>
+    </div>
+    <div class="fb" id="fb21">
+      <b>정답 ⑤</b><br>
+      이 시는 수미상관 구조가 아닙니다. 1연은 '흔들림', 2연은 '젖음'이라는 서로 다른 시련을 다루며 전개됩니다. 처음(1연 첫 행)과 끝(2연 마지막 행)이 동일한 구절로 구성되지 않습니다.
+    </div>
+  </div>
+
+  <!-- Q22 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">22</div><div class="qt">(다)에 대한 설명으로 <b>가장 적절한 것</b>은?</div><div class="qs">[3.2점]</div></div>
+    <div class="opts" data-q="22" data-ans="4">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>'우리가 물이 되어 만난다면'은 가정법을 사용하여 현재 이미 물처럼 하나로 합일하는 만남이 이루어지고 있음을 확인하고 기뻐하는 화자의 태도를 드러낸다.</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>이 시에서 '불'은 모든 것을 정화하고 새로운 창조적 만남의 공간을 여는 긍정적 이미지로, '물'과 함께 화자가 지향하는 이상적 만남의 두 축을 형성한다.</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>'가문 어느 집에선들 좋아하지 않으랴'는 반어법으로, 실제로는 가문 집도 물을 싫어한다는 뜻을 담아 물의 부정적 속성을 강조한다.</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>이 시에서 '물'은 주체와 객체를 하나로 만나게 하는 매개체이자 현대인의 고독(가뭄)을 해소하는 객관적 상관물로 기능하며, '불'과 대비를 이루어 바람직하지 않은 현재의 만남 방식을 드러낸다.</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>'우리가 물이 되어 만난다면'에서 가정법을 사용한 것은, 화자가 물과의 합일이 불가능한 현실에 절망하며 체념하는 태도를 드러내기 위한 것이다.</div></div>
+    </div>
+    <div class="fb" id="fb22">
+      <b>정답 ④</b><br>
+      프린트 원문 해제: '물'은 주체와 객체를 '우리'로 만나게 하는 매개체. 가뭄이 상징하는 현대인의 고독한 삶을 해소시키는 객관적 상관물. '불'은 죽음·파멸·파괴를 상징하며 물과 대비됨.<br>
+      ①: '만난다면'은 가정—현재 실현된 것 아님. ②③⑤: '불'은 긍정적 이미지 아님.
+    </div>
+  </div>
+
+  <!-- Q23 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">23</div><div class="qt">(라)의 화자의 태도 변화를 &lt;보기&gt;와 같이 정리할 때, ⓐ~ⓒ에 들어갈 내용으로 <b>가장 적절한 것</b>은?</div><div class="qs">[3.2점]</div></div>
+    <div class="bogi">
+      <div class="bogit">〈보 기〉</div>
+      처음: 복숭아나무에 대한 ( ⓐ ) → 나무에서 ( ⓑ )을 발견 → ( ⓒ )의 과정
+    </div>
+    <div class="opts" data-q="23" data-ans="2">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>ⓐ: 친근감과 호감 / ⓑ: 위험한 속성 / ⓒ: 두려움과 거리두기</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>ⓐ: 편견과 거리두기 / ⓑ: 수천의 빛깔(다양하고 복잡한 아름다움) / ⓒ: 이해와 교감</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>ⓐ: 무관심과 무시 / ⓑ: 단순하고 균일한 아름다움 / ⓒ: 점점 더 멀어짐</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>ⓐ: 지나친 집착 / ⓑ: 나무의 고독과 외로움 / ⓒ: 동정과 연민</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>ⓐ: 예찬과 동경 / ⓑ: 내면의 상처 / ⓒ: 치유와 위로</div></div>
+    </div>
+    <div class="fb" id="fb23">
+      <b>정답 ②</b><br>
+      프린트 해제: 처음엔 복숭아나무가 '여러 겹의 마음'을 가졌을 거라는 편견으로 '가까이 가고 싶지 않았고' '멀리로만 지나쳤습니다'. 그러나 '흰꽃과 분홍꽃 사이에 수천의 빛깔'을 발견하면서 나무의 다양하고 복잡한 내면을 이해하고 교감하게 됩니다. 프린트 원문에서도 '편견→이해→교감의 과정'으로 명시됩니다.
+    </div>
+  </div>
+
+  <!-- Q24 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">24</div><div class="qt">(마)에 대한 설명으로 <b>적절하지 않은 것</b>은?</div><div class="qs">[2.8점]</div></div>
+    <div class="opts" data-q="24" data-ans="3">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>1연에서 '새끼오리도 헌신짝도 소똥도 …도'와 같이 보조사 '도'를 반복하여 나열하는 방식은, 쓸모없거나 하찮아 보이는 것들도 모두 모닥불을 이루는 동등한 재료임을 드러낸다.</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>2연에서 신분과 나이가 다른 다양한 사람들이 모두 '모닥불을 쬔다'는 것은, 모닥불 앞에서 계층과 신분이 사라지고 모두가 평등해지는 공동체적 합일을 형상화한 것이다.</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>이 시는 모닥불 주변에 모인 사람들 사이의 갈등과 그 해소 과정을 중심 내용으로 하여, 공동체 내의 신분 갈등이 결국 화해로 이어진다는 주제를 드러낸다.</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>3연에서 모닥불이 할아버지의 '어미아비 없는 서러운' 역사를 떠올리는 매개체로 기능함으로써, 공동체의 온기와 대비되는 개인의 슬픔과 역사적 아픔에 여운을 남긴다.</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>프린트 원문 주제인 '조화와 평등의 공동체적 합일 정신'을 이 시에서 확인할 수 있는 가장 중요한 표현 기법은 보조사 '도'의 반복적 사용이다.</div></div>
+    </div>
+    <div class="fb" id="fb24">
+      <b>정답 ③</b><br>
+      「모닥불」은 갈등과 화해의 과정을 서사로 전개하는 작품이 아닙니다. 이 시는 모닥불을 이루는 다양한 사물들과 모닥불 주위에 모인 다양한 사람들을 나열하여, 조화와 평등의 공동체적 합일을 형상화하는 것이 핵심입니다. 프린트 원문 주제: '조화와 평등의 공동체적 합일 정신'
+    </div>
+  </div>
+
+  <!-- Q25 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn">25</div><div class="qt">&lt;보기&gt;를 참고하여 (가)~(마)를 감상한 내용으로 <b>적절하지 않은 것</b>은?</div><div class="qs">[3.6점]</div></div>
+    <div class="bogi">
+      <div class="bogit">〈보 기〉</div>
+      문학 작품은 자연물이나 일상적 소재를 통해 인간의 삶과 내면을 다양하게 형상화한다. 특히 ①고통·시련을 긍정적으로 전환하는 역설적 인식, ②자연 이미지를 통한 공동체적 연대와 생명력 표현, ③편견을 극복하고 대상을 새롭게 인식하는 과정, ④소재의 반복적 나열을 통한 평등 의식의 형상화는 시험범위 프린트 작품들에서 공통적으로 나타나는 주제 의식이다.
+    </div>
+    <div class="opts" data-q="25" data-ans="4">
+      <div class="opt" onclick="sel(this,1)"><div class="onum">①</div><div>(가)의 '그 苦痛이 봄이 되는 것'과 (나)의 '흔들리지 않고 피는 꽃이 어디 있으랴'는 모두 &lt;보기&gt;의 ①에 해당하는 표현으로, 시련과 고통이 결실과 성숙의 조건이 된다는 역설적 인식을 공유하고 있다.</div></div>
+      <div class="opt" onclick="sel(this,2)"><div class="onum">②</div><div>(다)에서 '물이 되어 만난다면'이라는 가정은 &lt;보기&gt;의 ②와 관련하여, 물처럼 유동적으로 하나가 되는 공동체적 합일과 생명력 회복을 희구하는 표현으로 볼 수 있다.</div></div>
+      <div class="opt" onclick="sel(this,3)"><div class="onum">③</div><div>(라)는 &lt;보기&gt;의 ③에 해당하는 작품으로, 화자가 복숭아나무에 대한 편견에서 벗어나 '수천의 빛깔'을 발견하면서 대상을 새롭게 인식하고 교감하는 과정을 드러내고 있다.</div></div>
+      <div class="opt" onclick="sel(this,4)"><div class="onum">④</div><div>(마)에서 1연의 사물 나열과 2연의 인물 나열은 &lt;보기&gt;의 ④와 관련되며, 이는 모닥불이 양반 문화를 비판하고 서민들의 저항 의식을 직접적으로 표출하는 수단으로 기능함을 드러낸다.</div></div>
+      <div class="opt" onclick="sel(this,5)"><div class="onum">⑤</div><div>(가)와 (나)는 모두 자연물(나무/꽃)을 의인화하여 시련을 견디는 과정을 형상화하고 있다는 점에서 &lt;보기&gt;의 ①과 연결되며, 두 작품의 주제 의식이 일치함을 확인할 수 있다.</div></div>
+    </div>
+    <div class="fb" id="fb25">
+      <b>정답 ④</b><br>
+      「모닥불」(마)은 양반 문화 비판이나 서민의 저항 의식을 드러내는 작품이 아닙니다. 이 시의 사물·인물 나열은 &lt;보기&gt;의 ④(반복 나열을 통한 평등 의식)와 관련되지만, 그 내용은 '조화와 평등의 공동체적 합일'을 드러내는 것이지 저항이 아닙니다. 봉산탈춤과 혼동하지 않도록 주의!
+    </div>
+  </div>
+</div>
+
+<!-- ======== [26~30] 서답형 5문항 ======== -->
+<div class="sec">
+  <div class="sechdr">
+    <span class="secbadge" style="background:#c0392b;color:white;">서답형</span>
+    서답형 5문항 — 각 4점 (총 20점) · 2025년 청원고 기출 스타일
+  </div>
+
+  <!-- 서답형 26 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn" style="background:#c0392b;">26</div>
+    <div class="qt">다음 &lt;보기&gt;를 읽고 &lt;조건&gt;에 맞게 서술하시오. [4점]</div></div>
+    <div class="bogi">
+      <div class="bogit">〈보 기〉</div>
+      ㉠ 넓은 벌 동쪽 끝으로 옛이야기 지즐대는 실개천이 회돌아 나가고, 얼룩배기 황소가 해설피 금빛 게으른 울음을 우는 곳 — 그 곳이 차마 꿈엔들 잊힐 리야. &nbsp;&nbsp; — 정지용, 「향수」에서
+    </div>
+    <div class="cond">
+      <b>〈조건〉</b><br>
+      (1) ㉠에서 공감각적 표현을 찾아 쓰고, 어떤 감각이 어떤 감각으로 전이되었는지 서술하시오.<br>
+      (2) '그 곳이 차마 꿈엔들 잊힐 리야'에 사용된 표현 기법의 명칭을 쓰고, 이 구절이 시 전체에서 담당하는 기능을 서술하시오. (반드시 '후렴구'라는 단어 포함)
+    </div>
+    <div class="essay-wrap">
+      <div class="elbl">(1) 공감각적 표현</div>
+      <textarea class="etarea" id="e26_1" placeholder="공감각 표현과 감각 전이를 서술하세요."></textarea>
+      <div class="elbl" style="margin-top:8px;">(2) 표현 기법과 기능</div>
+      <textarea class="etarea" id="e26_2" placeholder="표현 기법 명칭과 후렴구 기능을 서술하세요."></textarea>
+    </div>
+    <div class="model" id="m26">
+      <div class="modelt">📋 모범 답안</div>
+      <b>(1)</b> '금빛 게으른 울음' — 청각(울음소리)을 시각(금빛)으로 전이한 공감각적 표현이다. 황소의 울음소리라는 청각적 자극을 '금빛'이라는 시각적 이미지로 표현함으로써 고향의 한가롭고 따뜻한 분위기를 감각적으로 드러낸다.<br><br>
+      <b>(2)</b> 설의법 — '차마 꿈엔들 잊힐 리야'는 답이 이미 정해진 의문문(결코 잊힐 리 없다)으로, 고향을 절대 잊을 수 없다는 그리움을 강조하는 설의법이다. 이 구절은 각 연 말미에 반복되는 <b>후렴구</b>로 기능하여, 각 연의 시상을 마무리하고 고향에 대한 그리움을 점층적으로 심화시키며 시 전체에 음악적 통일감을 부여한다.
+    </div>
+  </div>
+
+  <!-- 서답형 27 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn" style="background:#c0392b;">27</div>
+    <div class="qt">다음 &lt;보기 1&gt;, &lt;보기 2&gt;를 읽고 &lt;조건&gt;에 맞게 서술하시오. [4점]</div></div>
+    <div class="bogi">
+      <div class="bogit">〈보기 1〉 — 시구</div>
+      ㉠ 흔들리지 않고 피는 꽃이 어디 있으랴 — 도종환, 「흔들리며 피는 꽃」<br>
+      ㉡ 아름다운 상처여 — 고재종, 「첫사랑」<br>
+      ㉢ 그 苦痛이 봄이 되는 것을 — 황지우, 「겨울-나무로부터 봄-나무에로」<br>
+      ㉣ 우리가 물이 되어 만난다면 / 가문 어느 집에선들 좋아하지 않으랴 — 강은교, 「우리가 물이 되어」<br>
+      ㉤ 마음이 몸의 노예 되지 않았네 — 정약용, 「보리타작」
+    </div>
+    <div class="bogi" style="background:#fff3e0;border-color:#ffe0b2;margin-top:6px;">
+      <div class="bogit" style="color:#e65100;">〈보기 2〉 — 개념</div>
+      역설법: 표면적으로 모순처럼 보이지만 그 안에 깊은 진실을 담은 표현<br>
+      설의법: 답이 이미 정해진 의문문 형식으로 특정 의미를 강조하는 표현
+    </div>
+    <div class="cond">
+      <b>〈조건〉</b><br>
+      (1) ㉠~㉤ 중 역설법에 해당하는 것을 모두 골라 기호를 쓰고, 각각이 역설법인 이유를 간략히 서술하시오.<br>
+      (2) ㉠~㉤ 중 설의법에 해당하는 것을 골라 기호를 쓰고, 그 설의법이 강조하는 실제 의미(답)를 서술하시오.
+    </div>
+    <div class="essay-wrap">
+      <div class="elbl">(1) 역설법 — 기호와 이유</div>
+      <textarea class="etarea" id="e27_1" placeholder="기호: / 이유: 각각 간략히"></textarea>
+      <div class="elbl" style="margin-top:8px;">(2) 설의법 — 기호와 강조 의미</div>
+      <textarea class="etarea" id="e27_2" placeholder="기호: / 강조하는 실제 의미:"></textarea>
+    </div>
+    <div class="model" id="m27">
+      <div class="modelt">📋 모범 답안</div>
+      <b>(1) 역설법: ㉡㉢㉤</b><br>
+      ㉡ '아름다운 상처': '아름다운'과 '상처'는 표면 모순이지만, 첫사랑의 아픔이 성숙으로 이어진다는 진실을 담음<br>
+      ㉢ '고통이 봄이 되는 것': 고통과 봄(아름다움)은 표면 모순이지만, 시련을 견뎌야 개화가 이루어진다는 진실을 담음<br>
+      ㉤ '마음이 몸의 노예 되지 않았네': 힘든 노동 중에 마음이 자유롭다는 것은 표면 모순이지만, 노동 속 진정한 자유라는 진실을 담음<br><br>
+      <b>(2) 설의법: ㉠, ㉣</b><br>
+      ㉠ '흔들리지 않고 피는 꽃이 어디 있으랴': 실제 의미 = 흔들리지 않고 피는 꽃은 없다 → 모든 꽃은 시련 속에서 핀다<br>
+      ㉣ '가문 어느 집에선들 좋아하지 않으랴': 실제 의미 = 가문 집이라면 어디서나 물을 좋아한다 → 물(공동체적 합일)을 모두가 원한다
+    </div>
+  </div>
+
+  <!-- 서답형 28 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn" style="background:#c0392b;">28</div>
+    <div class="qt">다음 &lt;보기 1&gt;과 &lt;보기 2&gt;를 읽고 &lt;조건&gt;에 맞게 서술하시오. [4점]</div></div>
+    <div class="bogi">
+      <div class="bogit">〈보기 1〉 — 개념</div>
+      이중 시점(double perspective)이란 하나의 작품 안에 서로 다른 시간적 위치에 있는 두 개의 시각이 공존하는 서술 방식이다. 대표적으로 과거의 사건을 경험한 '당시의 나'와 그 사건을 회상하는 '현재의 나'의 시각이 교차하는 경우가 있다.
+    </div>
+    <div class="bogi" style="background:#fff3e0;border-color:#ffe0b2;margin-top:6px;">
+      <div class="bogit" style="color:#e65100;">〈보기 2〉 — 장마 (부분)</div>
+      "정말 지루한 장마였다." — 윤흥길, 「장마」 마지막 문장
+    </div>
+    <div class="cond">
+      <b>〈조건〉</b><br>
+      (1) 〈보기 1〉의 이중 시점이 「장마」에서 어떻게 구현되는지, 어린아이 '나'와 어른이 된 '나'의 시각 각각의 기능을 서술하시오.<br>
+      (2) 〈보기 2〉의 마지막 문장에 담긴 의미를 두 가지 이상 서술하시오.
+    </div>
+    <div class="essay-wrap">
+      <div class="elbl">(1) 이중 시점의 구현</div>
+      <textarea class="etarea" id="e28_1" placeholder="두 시각 각각의 기능을 서술하세요."></textarea>
+      <div class="elbl" style="margin-top:8px;">(2) 마지막 문장의 의미</div>
+      <textarea class="etarea" id="e28_2" placeholder="두 가지 이상의 의미를 서술하세요."></textarea>
+    </div>
+    <div class="model" id="m28">
+      <div class="modelt">📋 모범 답안</div>
+      <b>(1)</b> 「장마」의 이중 시점에서 어린아이 '나'의 시각은 이념 문제를 직접 판단하지 않고 사건을 순수하게 관찰하는 기능을 담당하여, 독자로 하여금 이념 대립보다 인간적 화해의 가능성에 주목하게 하는 효과를 낳는다. 어른이 된 '나'의 시각은 과거 사건을 회상하며 의미를 부여하고 정서적 평가를 내리는 기능을 담당하며, 이를 통해 사건의 의미가 현재의 관점에서 재조명된다.<br><br>
+      <b>(2)</b> ①장마라는 배경으로 이야기를 마무리하여 독자에게 여운을 남긴다. ②이념 갈등이 장마처럼 길고 지루하게 지속되었음을 암시한다. ③이념 갈등이 끝나고(장마가 걷히듯) 화해가 이루어졌음을 함축한다. ④서술자(어린 '나')가 그 갈등을 실제보다 더 길고 지루하게 느꼈음을 드러낸다.
+    </div>
+  </div>
+
+  <!-- 서답형 29 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn" style="background:#c0392b;">29</div>
+    <div class="qt">「선운사에서」(최영미)와 「먼 후일」(김소월)을 비교하여 &lt;조건&gt;에 맞게 서술하시오. [4점]</div></div>
+    <div class="bogi">
+      <div class="bogit">〈제시 시구〉</div>
+      (가) 꽃이 / 지는 건 쉬워도 / 잊는 건 한참이더군 / 영영 한참이더군 — 최영미, 「선운사에서」<br>
+      (나) 먼 훗날 당신이 찾으시면 / 그때에 내 말이 '잊었노라.' / … / 어제도 오늘도 아니 잊고 / 먼 훗날 그때에 '잊었노라.' — 김소월, 「먼 후일」
+    </div>
+    <div class="cond">
+      <b>〈조건〉</b><br>
+      (1) 두 작품에서 화자가 '임을 잊지 못함'을 드러내는 방식의 차이를 서술하시오. (반드시 (가)와 (나) 각각에서 구체적인 시구를 인용하여 설명할 것)<br>
+      (2) (나)의 '잊었노라'에 사용된 표현 기법의 명칭을 쓰고, 그 기법이 화자의 실제 감정과 어떤 관계인지 서술하시오.
+    </div>
+    <div class="essay-wrap">
+      <div class="elbl">(1) 잊지 못함을 드러내는 방식의 차이</div>
+      <textarea class="etarea" id="e29_1" placeholder="각 작품의 구체적 시구를 인용하여 서술하세요."></textarea>
+      <div class="elbl" style="margin-top:8px;">(2) 표현 기법과 실제 감정의 관계</div>
+      <textarea class="etarea" id="e29_2" placeholder="기법 명칭과 감정 관계를 서술하세요."></textarea>
+    </div>
+    <div class="model" id="m29">
+      <div class="modelt">📋 모범 답안</div>
+      <b>(1)</b> (가)는 '잊는 건 한참이더군 / 영영 한참이더군'처럼 잊지 못하는 고통을 직접적으로 표현하는 방식으로 임을 잊지 못함을 드러낸다. 반면 (나)는 '잊었노라'라고 잊었다고 반복하면서도 '어제도 오늘도 아니 잊고'라는 구절을 병치하여, 겉으로는 잊었다고 말하면서 실제로는 잊지 못하고 있음을 간접적으로 드러내는 방식을 사용한다.<br><br>
+      <b>(2)</b> (나)의 '잊었노라'에는 반동 형성(심리적 방어 기제)이 사용되었다. 이 기법은 자신의 실제 감정(그리움, 잊지 못함)과 정반대되는 표현(잊었노라)을 드러냄으로써 오히려 화자의 깊은 그리움을 역설적으로 부각시킨다. '어제도 오늘도 아니 잊고'라는 구절에서 실제 감정이 확인된다.
+    </div>
+  </div>
+
+  <!-- 서답형 30 -->
+  <div class="qblock">
+    <div class="qrow"><div class="qn" style="background:#c0392b;">30</div>
+    <div class="qt">다음 &lt;보기&gt;에 제시된 작품들을 읽고, &lt;조건&gt;에 맞게 서술하시오. [4점]</div></div>
+    <div class="bogi">
+      <div class="bogit">〈보 기〉</div>
+      (가) 새끼오리도 헌신짝도 소똥도 … 타는 모닥불 / 재당도 초시도 문장 늙은이도 더부살이 아이도 … 모두 모닥불을 쬔다 — 백석, 「모닥불」<br><br>
+      (나) 吏打龍山村 아전들이 용산 마을에 들이닥쳐 / 搜牛付官人 소를 뒤져 관리에게 넘겨주고 / 驅牛遠遠去 그 소 몰고 멀리멀리 가는 꼴을 / 家家倚門看 집집마다 대문 밖에 기대어 보고만 있네 — 정약용, 「용산리」<br><br>
+      (다) 우리가 물이 되어 만난다면 / 가문 어느 집에선들 좋아하지 않으랴 / … 그러나 지금 우리는 / 불로 만나려 한다 — 강은교, 「우리가 물이 되어」
+    </div>
+    <div class="cond">
+      <b>〈조건〉</b><br>
+      (1) (가)에서 보조사 '도'의 반복 사용이 어떤 효과를 내는지 서술하고, 이 시의 프린트 원문 주제를 쓰시오.<br>
+      (2) (나)와 (다)는 모두 공동체적 삶에 대한 태도를 드러내는 작품이다. 두 작품에서 '공동체가 처한 상황'의 차이를 서술하시오.
+    </div>
+    <div class="essay-wrap">
+      <div class="elbl">(1) '도'의 반복 효과와 주제</div>
+      <textarea class="etarea" id="e30_1" placeholder="효과와 원문 주제를 서술하세요."></textarea>
+      <div class="elbl" style="margin-top:8px;">(2) 두 작품의 공동체 상황 차이</div>
+      <textarea class="etarea" id="e30_2" placeholder="두 작품에서 공동체가 처한 상황의 차이를 서술하세요."></textarea>
+    </div>
+    <div class="model" id="m30">
+      <div class="modelt">📋 모범 답안</div>
+      <b>(1)</b> (가)에서 '새끼오리도 헌신짝도 소똥도 …도'처럼 보조사 '도'를 반복하면 나열된 모든 존재들이 동등하게 포함됨을 드러내어, 신분·계층·가치에 관계없이 모든 것이 평등하게 모닥불을 이루고 쬔다는 공동체적 합일감을 형성하는 효과를 낸다. 프린트 원문 주제: '조화와 평등의 공동체적 합일 정신'<br><br>
+      <b>(2)</b> (나)의 공동체는 아전들에게 소를 빼앗기고 집집마다 문밖에서 이를 바라보기만 하는 수탈당하는 피해자 공동체로, 지배 계층의 착취로 인해 무력하고 고통받는 상황이다. 반면 (다)의 공동체는 현재 '불로 만나려 한다'는 잘못된 방식으로 관계를 맺고 있으나, '물이 되어 만난다면'이라는 가정을 통해 유동적으로 하나가 되는 진정한 합일을 희구하는 상황이다.
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center;margin:20px 36px 10px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+  <button class="gbtn" onclick="gradeAll()" style="font-size:15px;padding:13px 36px;">✓ 최종 채점하기</button>
+  <button class="rbtn" onclick="showModels()">📋 모범답안 전체</button>
+  <button class="rbtn" onclick="resetAll()">↺ 초기화</button>
+</div>
+
+<footer style="text-align:center;padding:22px;color:var(--gray);font-size:12px;border-top:1px solid var(--bdr);margin-top:18px;">
+  청원고등학교 2026학년도 1학기 문학 모의고사 3세트 · 교과서+프린트 완전 충실 · 수능특강 방식 적용
+</footer>
+
+<script>
+const pts={1:3.2,2:3.6,3:3.2,4:3.6,5:2.8,6:3.2,7:2.8,8:3.2,9:3.6,10:3.2,11:3.2,12:3.6,13:3.6,14:3.2,15:3.6,16:3.2,17:3.2,18:3.6,19:3.6,20:3.2,21:2.8,22:3.2,23:3.6,24:2.8,25:3.2};
+const answers={1:4,2:5,3:3,4:2,5:4,6:1,7:3,8:4,9:5,10:2,11:4,12:1,13:3,14:3,15:4,16:2,17:4,18:3,19:4,20:2,21:3,22:3,23:5,24:4,25:2};
+const userAns={};let graded=false;
+function sel(el,num){
+  if(graded)return;
+  const opts=el.closest('.opts');
+  opts.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  const q=opts.dataset.q;
+  userAns[q]=num;
+  const answered=Object.keys(userAns).length;
+  document.getElementById('gfill').style.width=(answered/25*100)+'%';
+}
+function gradeAll(){
+  graded=true;let score=0,cor=0,wrg=0;
+  document.querySelectorAll('.opts').forEach(opts=>{
+    const q=opts.dataset.q;const ans=answers[q];const user=userAns[q];
+    const allOpts=opts.querySelectorAll('.opt');
+    if(user!==undefined){
+      if(user===ans){allOpts[user-1].classList.add('cor');score+=pts[q];cor++;}
+      else{allOpts[user-1].classList.add('wrg');allOpts[ans-1].classList.add('cor');wrg++;}
+    }else{allOpts[ans-1].classList.add('cor');}
+    const fb=document.getElementById('fb'+q);
+    if(fb){fb.classList.add('show');fb.className='fb show '+(user===ans?'ok':'no');}
+  });
+  const blank=25-cor-wrg;
+  document.getElementById('snum').textContent=Math.round(score*10)/10;
+  document.getElementById('dn-ok').textContent=cor;
+  document.getElementById('dn-no').textContent=wrg;
+  document.getElementById('dn-bl').textContent=blank;
+  document.getElementById('gfill').style.width='100%';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showModels(){document.querySelectorAll('.model').forEach(m=>m.classList.add('show'));}
+function resetAll(){
+  if(!confirm('초기화하시겠습니까?'))return;
+  graded=false;Object.keys(userAns).forEach(k=>delete userAns[k]);
+  document.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel','cor','wrg'));
+  document.querySelectorAll('.fb').forEach(f=>f.classList.remove('show','ok','no'));
+  document.querySelectorAll('.model').forEach(m=>m.classList.remove('show'));
+  document.querySelectorAll('.etarea').forEach(t=>t.value='');
+  document.getElementById('snum').textContent='—';
+  document.getElementById('dn-ok').textContent=0;
+  document.getElementById('dn-no').textContent=0;
+  document.getElementById('dn-bl').textContent=0;
+  document.getElementById('gfill').style.width='0%';
+}
+</script>
+</body>
+</html>
